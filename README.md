@@ -1,23 +1,15 @@
 # Fresh.css
-Fresh.css is a new web design framework/starting point, with simple, easy to use classes and relatively small file sizes, while still holding up in complexity.
+## Experimental Edition
 
-There are currently two versions of Fresh.CSS. The Lemon Edition and the Lime Edition.
+### Updates
+It's been a long time since I last worked on Fresh, but after building almost three other websites and redesigns to websites, I decided to come back to it. I really like the new version of my personal website, and I wanted to work towards making Fresh look similar but also improved and less custom in different aspects, to give people more choice. Although there is only one current website using Fresh.css, I am hoping when this new version is done (which I will name after some sort of fruit or citrus. That's how I'm going to name them from now on), I will share it with more people to get people to use it. I am also planning on using JSDelivr in order to give people the option of linking from a CDN, as that makes everything more convieniant, and because it will automatically create the minified css and js to make everything easier.
 
-## The Lemon Edition
-The Fresh.CSS Lemon Edition is the most basic version of Fresh. With 364 Lines of Code, it is small, compact, and simple to use.
+### What is Fresh.css
+Fresh.css is a lightweight CSS and JavaScript framework used for easily customizable web app design and functionality, without all the bloatedness of larger web app and website frameworks, and with more functionality with barebone frameworks and boilerplates.
 
-The Lemon Edition (LeEd for short) contains the following features:
-- Basic Top Navigation
-- 4 Different padded container sizes
-- 12 Collumn Grid System
-- 2 Styles of buttons (Both can conform to panels or be seperate sizes)
-- Simple table design
-- Styles Blockquotes and perferated code
+Fresh.css is designed for lightweight web apps and websites. It uses aspects of Material Design, along with Flat Design 2.0, to enhance the minimalistic yet powerful design. Everything is easy to create and customize.
 
-## The Lime Edition
-The Fresh.CSS Lime Edition is similar to LeEd, except for the added Color schemes. With only 637 lines of code, almost everything can be colored exactly how you like it, or based on it's parent color. There are ten colors in LiEd (Red, Orange, Yellow, Green, Blue, Purple, Pink, Black, Dark Gray, and Light Gray), but there may be more in a future commit.
+If you like Fresh.css and want to help me continue to update it and make it amazing, 
 
-# Conclusion
-If you would like to see more, please make sure to check out Fresh.CSS, and use it! Tell me what you think! I am working on the Orange Edition (Advanced, estimated 1,000-2,500 lines of code) and the Grapefruit Edition (Advanced with extensive color themes, schemes, and customizations, estimated 2,000-3,000 lines of code) and a "beta" version should be out in the next few weeks.
-
-##### Thanks, Hunter
+#### Customization
+Fresh uses 
