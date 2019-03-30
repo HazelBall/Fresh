@@ -63,6 +63,53 @@ a, blockquote, tr, td, th, table, li {
 .nav.mobile {
 	display: none;
 }
+.nav.top {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: var(--color-accent);
+	color: var(--text-accent);
+	overflow-x: hidden;
+	padding: 0 85px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+	z-index: 2000;
+}
+.nav.sticky {
+	background-color: var(--color-accent);
+	color: var(--text-accent);
+	overflow-x: hidden;
+	padding: 0 85px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+	position: sticky;
+	top: 0;
+}
+.nav.top .title, .nav.sticky .title {
+	padding: 7.5px 15px;
+	font-weight: 800;
+	font-size: 1.15rem;
+}
+.nav.top a, .nav.sticky a {
+	display: inline-block;
+	box-sizing: border-box;
+	text-decoration: none;
+	color: var(--text-accent);
+	padding: 15px;
+	vertical-align: middle;
+	line-height: 1;
+}
+.nav.top a.active, .nav.sticky a.active {
+	font-weight: 700;
+}
+.nav.top .item:hover {
+	color: rgba(255,255,255,0.75);
+}
+.nav.top.dark .item:hover {
+	color: rgba(0,0,0,0.5);
+}
+.nav.top .item.active:hover {
+	color: var(--text-accent);
+}
 	/*Side Navigation (Also Doubles as Mobile Hamburger Navigation)*/
 .nav.side {
 	width: 300px;
@@ -122,6 +169,9 @@ a, blockquote, tr, td, th, table, li {
 }
 .main.nav-side {
 	margin-left: 300px;
+}
+.main.nav-top {
+	margin-top: 45px;
 }
 	/*Content Containers*/
 .main > .header {
@@ -205,13 +255,15 @@ a, blockquote, tr, td, th, table, li {
 table {
 	border-collapse: collapse;
 	table-layout: fixed;
-	margin:  10px 20px;
+	padding: 0;
+	margin: 25px auto;
+	max-width: 1250px;
 }
 th, td {
 	text-align: left;
 	border-bottom: 1px solid var(--text-secondary);
 	background-color: none;
-	padding: 5px 10px;
+	padding: 5px 30px 5px 0;
 	color: var(--text-secondary);
 }
 th {
@@ -252,6 +304,19 @@ td {
 }
 .text-just {
 	text-align: justify;
+}
+	/*Columns Sizing*/
+.columns {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.columns .column {
+	flex: 1 1 0;
+}
+.columns .column + .column {
+	margin-left: 50px;
 }
 	/*Width Sizing*/
 .full {
@@ -312,6 +377,9 @@ td {
 	color: var(--text-secondary);
 }
 @media screen and (max-width: 850px) {
+	.t-no-display {
+		display: none;
+	}
 	.nav.side {
 		width: 250px;
 	}
@@ -362,6 +430,9 @@ td {
 	}
 }
 @media screen and (max-width: 700px) {
+	.m-no-display {
+		display: none;
+	}
 	h1 {
 		font-size: 2.5rem;
 	}
@@ -371,7 +442,7 @@ td {
 	h3 {
 		font-size: 1.8rem;
 	}
-	.nav.mobile, .nav-top {
+	.nav.mobile {
 		display: block;
 		position: fixed;
 		top: 0;
@@ -394,6 +465,9 @@ td {
 	}
 	.nav-trigger:hover {
 		cursor: pointer;
+	}
+	.nav.top, .nav.sticky {
+		display: none;
 	}
 	.nav.side {
 		position: fixed;
