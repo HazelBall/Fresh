@@ -1,4 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun:300,400,700,800');
+/*
+	Fresh.CSS
+	Version: 0.1.1
+	
+	0.1.1:
+	- Blockquotes have been added for code display
+	- Added general nav for non-specified navigations: same design as top navigation, but without sticky or fixed position
+	- Changed item look and feel in fixed, sticky, and default top navigations
+	- Added scrolling to vertically overflowing side navigations
+
+	0.1.0:
+	- Initial Release
+
+*/
 /*CSS Reset*/
 * {
 	margin: 0;
@@ -58,10 +72,52 @@ p {
 a, blockquote, tr, td, th, table, li {
 	font-size: 1rem;
 }
+blockquote {
+	font-family: monospace;
+	padding: 5px 10px;
+	margin: 15px 0;
+	border-left: 4px solid var(--color-accent);
+	font-size: 0.9rem;
+	width: 100%;
+	box-sizing: border-box;
+	overflow: scroll;
+	background-color: rgba(0,0,0,0.05);
+}
 /*Navigation*/
 	/*Mobile Top-Nav*/
 .nav.mobile {
 	display: none;
+}
+.nav {
+	width: 100%;
+	background-color: var(--color-accent);
+	color: var(--text-accent);
+	overflow-x: hidden;
+	padding: 0;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+	z-index: 2000;
+}
+.nav .item {
+	display: inline-block;
+	box-sizing: border-box;
+	text-decoration: none;
+	color: var(--text-accent);
+	padding: 15px;
+	vertical-align: middle;
+	line-height: 1;
+	transition: 0.25s ease-in-out;
+}
+.nav .title {
+	display: inline-block;
+	box-sizing: border-box;
+	text-decoration: none;
+	color: var(--text-accent);
+	padding: 15px;
+	vertical-align: middle;
+	line-height: 1;
+	padding: 7.5px 15px;
+	font-weight: 800;
+	font-size: 1.15rem;
 }
 .nav.top {
 	position: fixed;
@@ -84,12 +140,22 @@ a, blockquote, tr, td, th, table, li {
 	position: sticky;
 	top: 0;
 }
+.nav.top.nav-side, .nav.sticky.nav-side {
+	margin-left: 300px;
+}
 .nav.top .title, .nav.sticky .title {
 	padding: 7.5px 15px;
 	font-weight: 800;
 	font-size: 1.15rem;
+	display: inline-block;
+	box-sizing: border-box;
+	text-decoration: none;
+	color: var(--text-accent);
+	padding: 15px;
+	vertical-align: middle;
+	line-height: 1;
 }
-.nav.top a, .nav.sticky a {
+.nav.top .item, .nav.sticky .item {
 	display: inline-block;
 	box-sizing: border-box;
 	text-decoration: none;
@@ -101,14 +167,15 @@ a, blockquote, tr, td, th, table, li {
 .nav.top a.active, .nav.sticky a.active {
 	font-weight: 700;
 }
-.nav.top .item:hover {
-	color: rgba(255,255,255,0.75);
+.nav.dark .item:hover {
+	background-color: rgba(0,0,0,0.1);
 }
-.nav.top.dark .item:hover {
-	color: rgba(0,0,0,0.5);
+.nav .item:hover {
+	background-color: rgba(255,255,255,0.25);
 }
-.nav.top .item.active:hover {
+.nav .item.active:hover {
 	color: var(--text-accent);
+	background-color: var(--color-accent);
 }
 	/*Side Navigation (Also Doubles as Mobile Hamburger Navigation)*/
 .nav.side {
@@ -120,6 +187,7 @@ a, blockquote, tr, td, th, table, li {
 	left: 0;
 	box-shadow: 1px 0 5px 0 rgba(0,0,0,0.3);
 	background-color:var(--color-accent);
+	overflow-y: scroll;
 }
 .nav.side a {
 	display: block;
@@ -386,6 +454,9 @@ td {
 	.main.nav-side {
 		margin-left: 250px;
 	}
+	.nav.top.nav-side, .nav.sticky.nav-side {
+		margin-left: 250px;
+	}
 	.main > .header {
 		padding: 75px 25px 17.5px 25px;
 	}
@@ -427,6 +498,12 @@ td {
 		margin-left: 0;
 		margin-right: 0;
 		width: 75%;
+	}
+	blockquote {
+		width: 100%;
+		background-color: rgba(0,0,0,0.05);
+		box-sizing: border-box;
+		overflow: scroll;
 	}
 }
 @media screen and (max-width: 700px) {
