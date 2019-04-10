@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Use fresh.css</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel = "stylesheet" type = "text/css" href = "https://cdn.jsdelivr.net/gh/HunterBall/fresh.css@0.1.1/fresh.min.css">
+		<!--<link rel = "stylesheet" type = "text/css" href = "fresh.css">-->
+		<link rel = "icon" type = "image/png" href = "images/freshLogo.png">
+	</head>
+	<body>
+		<div class = "nav mobile">
+			<a class = "nav-trigger">&#9776;</a>
+			<a class = "title">Fresh.css</a>
+		</div>
+		<div class = "nav side">
+			<a class = "title">Fresh.css</a>
+			<hr>
+			<a class = "item" href = "index.html">Home</a>
+			<a class = "item" href = "https://github.com/HunterBall/fresh.css/releases/tag/v0.1.0-beta">Features</a>
+			<a class = "item active" href = "useFresh.html">Use Fresh</a>
+			<hr>
+			<a class = "item" href = "demos.html">Demos (Coming Soon)</a>
+			<a class = "item" href = "https://github.com/HunterBall/fresh.css/">About</a>
+			<a class = "item" href = "https://github.com/HunterBall/fresh.css/releases/">Versions</a>
+		</div>
+		<div class = "main nav-side">
+			<div class = "header primary">
+				<h1>Use fresh.css</h1>
+			</div>
+			<div class = "container">
+				<p>Using fresh is easy. Just link the css into the head, and the JavaScript and Jquery links on the bottom of the body.</p>
+				<blockquote>&lt;link rel = "stylesheet" type = "text/css" href = "https://cdn.jsdelivr.net/gh/HunterBall/fresh.css@latest/fresh.min.css"&gt;</blockquote>
+				<blockquote>&lt;script src = "https://cdn.jsdelivr.net/gh/jquery/jquery@latest/dist/jquery.min.js"&gt;&lt;/script&gt;<br>&lt;script src = "https://cdn.jsdelivr.net/gh/HunterBall/fresh.css@latest/fresh.min.js"&gt;&lt;/script&gt;</blockquote>
+			</div>
+			<div class = "container">
+				<h2>Fresh.css Components</h2><br>
+				<h3>Navigation</h3>
+				<p>Fresh.css houses multiple different navigations. You can use one or multiple of these in order to create your site or web app.</p><br>
+				<h4>Top Nav</h4><br>
+				<div class = "nav">
+					<a class = "title">Nav Title</a>
+					<a class = "item" href = "#">Item 1</a>
+					<a class = "item" href = "#">Item 2</a>
+					<a class = "item" href = "#">Item 3</a>
+				</div><br>
+				<p>Fresh has two top navigation styles: fixed and sticky. You can use either of these in order to create a functional top navigation.</p>
+				<blockquote>
+					&lt;div class = "nav top"&gt;&lt;/div&gt;&lt;!-- Fixed Top Nav --&gt;
+				</blockquote>
+				<p>The default top navigation is fixed, and it doesn't matter where it is placed in the DOM.</p>
+				<blockquote>
+					&lt;div class = "nav top sticky"&gt;&lt;/div&gt;&lt;!-- Sticky Top Nav --&gt;
+				</blockquote>
+				<p>The sticky navigation will stay within the DOM until it reaches the top, and should be placed accordingly.</p>
+			</div>
+			<div class = "container">
+				<h4>Side Navigation</h4>
+				<p>Side navigation, which also doubles as part of the mobile navigation, can be used as your default navighation or as a sub-navigation, when combined with a top navigation</p>
+				<blockquote>
+					&lt;div class = "nav side"&gt;&lt;/div&gt; &lt;!-- Fixed Side Navigation --&gt;
+				</blockquote>
+			</div>
+			<div class = "container">
+				<h4>Nav Components</h4>
+				<p>Creating great looking navigations has never been easier. Use item for any normal link, and title for the navigation title.</p>
+				<blockquote>
+					<pre>&lt;div class = "nav"&gt; &lt;!-- Default Navigation (Same as top nav, without sticky or fixed position) --&gt;
+  &lt;a class = "title"&gt;Nav Title&lt;/a&gt; &lt;!-- Nav Title --&gt;
+  &lt;a class = "item"&gt;Item 1&lt;/a&gt; &lt;!-- Nav Item --&gt;
+  &lt;a class = "item"&gt;Item 2&lt;/a&gt;
+  &lt;a class = "item"&gt;Item 3&lt;/a&gt;
+&lt;/div&gt;</pre>
+				</blockquote>
+				<p>On side navigations, you can also use the &lt;hr&gt; tag to divide the nav into sections.</p>
+			</div>
+			<div class = "container">
+				<h3>Main Component</h3>
+				<p> The main component is used to contain elements in relation to navigation and modals.</p>
+				<blockquote>&lt;div class = "main"&gt;&lt;/div&gt;<em>&lt;!--No Nav or Sticky Nav used--&gt;</em></blockquote>
+				<blockquote>&lt;div class = "main nav-top"&gt;&lt;/div&gt;<em>&lt;!--Top Nav used--&gt;</em></blockquote>
+				<blockquote>&lt;div class = "main nav-side"&gt;&lt;/div&gt;<em>&lt;!--Side Nav used--&gt;</em></blockquote>
+				<blockquote>&lt;div class = "main nav-side nav-top"&gt;&lt;/div&gt;<em>&lt;!--Side Nav and Top Nav used--&gt;</em></blockquote>
+			</div>
+			<div class = "header primary">
+				<h3>Header</h3>
+			</div>
+			<div class = "container">
+				<p>The header component can be used for most headers, and is easy to implement.</p>
+				<blockquote>&lt;div class = "header"&gt;&lt;/div&gt;</blockquote>
+			</div>
+			<div class = "container">
+				<h3>Container Component</h3>
+				<p>The container component is used for most items, to divide them into sections. This makes editing and design look good. The container also keeps the padding for all elements, instead of the main, so that items you want to span the entire main content area can and everything else keeps the normal padding.</p>
+				<blockquote>&lt;div class = "container"&gt;&lt;/div&gt;</blockquote>
+			</div>
+			<div class = "container">
+				<h3>Columned Items</h3>
+				<p>Any element can be placed into responsive columns. Each column distributes width evenly among each item.</p>
+				<blockquote><pre>&lt;div class = "columns"&gt;<em>&lt;!--column parent element--&gt;</em><br>  &lt;div class = "column"&gt;<em>&lt;!--responsive column--&gt;</em><br>    <em>&lt;!--Insert Whatever you want here--&gt;</em><br>  &lt;/div&gt;<br>&lt;/div&gt;</pre></blockquote>
+				<p>Just add the <em>column</em> element for each column you want. Fresh will do the rest!</p>
+			</div>
+			<div class = "container">
+				<h3>Cards</h3>
+				<p>Cards can be used in many different ways. Using the four main components, you can create any type of card you want.</p><br>
+				<div class = "columns">
+					<div class = "column">
+						<div class = "card">
+							<div class = "header">
+								<h5>Card Header</h5>
+							</div>
+							<div class = "content">
+								<p>Insert Card Content Here. Lorem ipsum bla bla bla.</p>
+							</div>
+						</div>
+					</div>
+					<div class = "column">
+						<div class = "card">
+							<div class = "content">
+								<p>Insert Card Content Here. Lorem ipsum bla bla bla.</p>
+							</div>
+							<div class = "footer">
+								<h5>Card Footer</h5>
+							</div>
+						</div>
+					</div>
+				</div><br>
+				<div class = "card">
+					<div class = "header">
+						<h5>Card Header</h5>
+					</div>
+					<div class = "content">
+						<p>Lots of content here. Just type whatever you want, really. Cards will change height depending on the content inside. Pretty standard stuff, if we're being honest. Lorem ipsum text is boring. And now for an ocean scenery.<br>~~~~~~\o/~~~~~~~~~~o\~~~~~~~~~~~~lol~~~~~~~~~~~lol~~~~~~~~~~~~&lt;o/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+					</div>
+					<div class = "footer">
+						<h5><em>Oooooh...</em> a footer too!</h5>
+					</div>
+				</div>
+				<p>The header and footer are optional, and you can use any combination of the four components to create a nice card, profile, or more.</p>
+				<blockquote>
+					<pre>&lt;div class = "card"&gt;<em>&lt;!--Card Container--&gt;</em><br>  &lt;div class = "header"&gt;<br>    <em>&lt;!--Add some Heading Stuff Here--&gt;</em><br>  &lt;/div&gt;<br>  &lt;div class = "content"&gt;<br>    <em>&lt;!--Insert Content Here--&gt;</em><br>  &lt;/div&gt;<br>  &lt;div class = "footer"&gt;<br>    <em>&lt;!--Add some footer stuff here--&gt;</em><br>&lt;/div&gt;</pre>
+				</blockquote>
+			</div>
+			<div class = "container">
+				<h4>More Coming Soon</h4>
+			</div>
+		</div>
+		<script src = "https://cdn.jsdelivr.net/gh/jquery/jquery@latest/dist/jquery.min.js"></script>
+		<script src = "https://cdn.jsdelivr.net/gh/HunterBall/fresh.css@latest/fresh.min.js"></script>
+	</body>
+</html>
