@@ -1,17 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun:300,400,700,800');
 /*
 	Fresh.CSS
-	Version: 0.1.1
-	
-	0.1.1:
-	- Blockquotes have been added for code display
-	- Added general nav for non-specified navigations: same design as top navigation, but without sticky or fixed position
-	- Changed item look and feel in fixed, sticky, and default top navigations
-	- Added scrolling to vertically overflowing side navigations
-
-	0.1.0:
-	- Initial Release
-
+	Version: 0.1.2:
+	- Fixed Mobile Column and table Design. This might be changed in the future, but for now tables are scrollable and columns are shrunken into 1 column, full width.
 */
 /*CSS Reset*/
 * {
@@ -464,10 +455,17 @@ td {
 		padding: 25px;
 	}
 	table {
-		margin: 10px 25px;
+		margin: 10px 0;
+		width: 100%;
+		box-sizing: border-box;
+		overflow: scroll;
+		table-layout: auto;
+		display: block;
+		background-color: rgba(0,0,0,0.05);
 	}
 	td, th {
-		padding: 5px;
+		font-size: 0.8rem;
+		padding: 5px 10px;
 	}
 	.full {
 		margin-left: 0;
@@ -504,6 +502,7 @@ td {
 		background-color: rgba(0,0,0,0.05);
 		box-sizing: border-box;
 		overflow: scroll;
+		font-size: 0.8rem;
 	}
 }
 @media screen and (max-width: 700px) {
@@ -581,16 +580,20 @@ td {
 	.main .container {
 		padding: 15px;
 	}
-	table {
-		margin: 10px 0;
-		width: calc(100% - 20px);
-	}
-	td, th {
-		font-size: 0.8rem;
-	}
 	.card {
 		margin: 0;
 		width: 100%;
+	}
+	.columns {
+		display: block;
+	}
+	.columns .column {
+		display: block;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.columns .column + .column {
+		margin-left: 0;
 	}
 	.m-full, .m-half, .m-third, .m-two-thirds, .m-fourth, .m-three-fourths {
 		margin-top: 15px;
