@@ -255,6 +255,9 @@ blockquote {
 	background-color: var(--color-primary);
 	color: var(--text-primary);
 }
+.card + .card {
+	margin-top: 20px;
+}
 .card.white {
 	background-color: white;
 	color: black;
