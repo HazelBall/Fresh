@@ -117,19 +117,21 @@ blockquote {
 	width: 100%;
 	background-color: var(--color-accent);
 	color: var(--text-accent);
-	overflow-x: hidden;
+	overflow-x: scroll;
 	padding: 0 85px;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 	z-index: 2000;
+	box-sizing: border-box;
 }
 .nav.sticky {
 	background-color: var(--color-accent);
 	color: var(--text-accent);
-	overflow-x: hidden;
+	overflow-x: scroll;
 	padding: 0 85px;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 	position: sticky;
 	top: 0;
+	box-sizing: border-box;
 }
 .nav.top.nav-side, .nav.sticky.nav-side {
 	margin-left: 300px;
@@ -272,14 +274,14 @@ blockquote {
 	color: var(--text-accent);
 }
 .card .content {
-	padding: 10px 12.5%;
+	padding: 10px 20px;
 }
 .card .footer {
 	padding: 5px 12.5%;
 	background-color: var(--color-accent);
 	color: var(--text-accent);
 }
-.card .button {
+.button {
 	background-color: var(--color-accent);
 	color: var(--text-accent);
 	position: relative;
@@ -289,8 +291,9 @@ blockquote {
 	margin: 10px 0;
 	text-align: center;
 	transition: 0.25s;
+	text-decoration: none;
 }
-.card .button:hover {
+.button:hover {
 	top: -5px;
 	box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
 	cursor: pointer;
@@ -337,6 +340,34 @@ td {
 	font-weight: 300;
 	color: var(--text-secondary);
 }
+	/*Footers*/
+.footer {
+	background-color: white;
+	padding: 75px 50px;
+	box-sizing: border-box;
+	width: 100%;
+	box-shadow: 0 -1px 5px 0 rgba(0,0,0,0.15);
+}
+.footer .section {
+	flex-basis: 150px;
+}
+.footer a {
+	display: block;
+	color: #404040;
+	text-decoration: none;
+	margin: 5px 0;
+	padding: 0;
+}
+.footer a:hover {
+	color: black;
+	cursor: pointer;
+}
+.footer p {
+	display: block;
+	padding: 0;
+	margin: 5px 0;
+	color: black;
+}
 /*Utilities/Colors*/
 	/*Floats and Clears*/
 .left {
@@ -369,6 +400,7 @@ td {
 }
 	/*Columns Sizing*/
 .columns {
+	display: -webkit-flex;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
