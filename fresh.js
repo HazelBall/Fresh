@@ -1,5 +1,5 @@
 $('.nav-trigger').click(function() {
-	$('.nav.side').toggleClass("active").focus();
+	$('.nav.side').toggleClass("active");
 });
 $('.fresh-modal-trigger').click(function() {
 	$('.fresh-modal').toggleClass("active");
