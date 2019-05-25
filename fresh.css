@@ -1,9 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun:300,400,700,800');
 /*
-	Fresh.CSS
-	Version: 0.1.3:
-	- Added basic button functionality
-	- Added basic footer functionality
+	FRESH.CSS
+	Fresh.css is a responsive CSS and JavaScript Framework for light web apps and sites. Created by Hunter Ball.
+	Version 0.2.0:
+  - Changed side navigation to look a bit nicer.
+  - Redesigned Footers and how they look/work, now work with columns
+    - Proper footer headings and word-spacing
+    - Footers use the same flex system as columns, and the column class is used for each section underneath.
+  - Changed Navigation Aspects
+  	- Added Dropdowns for all navigations, cannot be nested yet
+  	- Added Disabled Navigation items
+  	- Added 'click out to close' functionality for mobile navigaiton
+  	- Added ability to add side navigation for mobile navigation only using mobile-only class with .nav.side
+  - Redesigned Buttons
+  	- Added Disabled Buttons
+  	- Buttons are now inline block elements so multiple buttons can fit together without specific widths
+  	- Buttons now work with Flex and Utility Columns correctly
 */
 /*CSS Reset*/
 * {
@@ -12,13 +24,21 @@
 	border: 0;
 }
 /*Customizable Root Variables*/
-:root {/*These Variables Can Be Customized in the style of your html and will change the color scheme of your webpage*/
+:root {
+	/*
+	MAIN VARIABLES
+	Used to control the default colors for everything.
+	
+	Primary Colors: Used for 
+	
+	*/
 	--color-primary: #ffffff;
 	--text-primary: #000000;
-	--color-secondary: #e8e8e8;
+	--color-secondary: #f0f0f0;
 	--text-secondary: #404040;
 	--color-accent: #FEAC24;
 	--text-accent: #ffffff;
+	/*Advanced Customizations: For those who want to customize the overall experience of Fresh. Will be added later*/
 	margin: 0;
 }
 /*Element Stylings*/
@@ -75,8 +95,13 @@ blockquote {
 	overflow: scroll;
 	background-color: rgba(0,0,0,0.05);
 }
+hr {
+	border-style: inset;
+  border-width: 1px;
+  border: 1px solid;
+}
 /*Navigation*/
-	/*Mobile Top-Nav*/
+/*  Mobile Top-Nav*/
 .nav.mobile {
 	display: none;
 }
@@ -84,12 +109,11 @@ blockquote {
 	width: 100%;
 	background-color: var(--color-accent);
 	color: var(--text-accent);
-	overflow-x: hidden;
 	padding: 0;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 	z-index: 2000;
 }
-.nav .item {
+.nav .item, .nav .dropdown .title {
 	display: inline-block;
 	box-sizing: border-box;
 	text-decoration: none;
@@ -99,7 +123,10 @@ blockquote {
 	line-height: 1;
 	transition: 0.25s ease-in-out;
 }
-.nav .title {
+.nav .item.disabled {
+	opacity: 0.75;
+}
+.nav > .title {
 	display: inline-block;
 	box-sizing: border-box;
 	text-decoration: none;
@@ -118,7 +145,7 @@ blockquote {
 	width: 100%;
 	background-color: var(--color-accent);
 	color: var(--text-accent);
-	overflow-x: scroll;
+	overflow-x: visible;
 	padding: 0 85px;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 	z-index: 2000;
@@ -127,7 +154,7 @@ blockquote {
 .nav.sticky {
 	background-color: var(--color-accent);
 	color: var(--text-accent);
-	overflow-x: scroll;
+	overflow-x: visible;
 	padding: 0 85px;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 	position: sticky;
@@ -137,7 +164,7 @@ blockquote {
 .nav.top.nav-side, .nav.sticky.nav-side {
 	margin-left: 300px;
 }
-.nav.top .title, .nav.sticky .title {
+.nav.top > .title, .nav.sticky > .title {
 	padding: 7.5px 15px;
 	font-weight: 800;
 	font-size: 1.15rem;
@@ -149,7 +176,7 @@ blockquote {
 	vertical-align: middle;
 	line-height: 1;
 }
-.nav.top .item, .nav.sticky .item {
+.nav.top .item, .nav.sticky .item, .nav.top .dropdown .title, .nav.sticky .dropdown .title {
 	display: inline-block;
 	box-sizing: border-box;
 	text-decoration: none;
@@ -161,17 +188,16 @@ blockquote {
 .nav.top a.active, .nav.sticky a.active {
 	font-weight: 700;
 }
-.nav.dark .item:hover {
+.nav.dark .item:hover, .nav.dark .dropdown:hover .title {
 	background-color: rgba(0,0,0,0.1);
 }
-.nav .item:hover {
+.nav .item:hover, .nav .dropdown:hover .title {
 	background-color: rgba(255,255,255,0.25);
 }
-.nav .item.active:hover {
-	color: var(--text-accent);
+.nav .item.active:hover, .nav .item.disabled:hover {
 	background-color: var(--color-accent);
 }
-	/*Side Navigation (Also Doubles as Mobile Hamburger Navigation)*/
+/*  Side Navigation (Also Doubles as Mobile Hamburger Navigation)*/
 .nav.side {
 	width: 300px;
 	height: 100vh;
@@ -181,7 +207,8 @@ blockquote {
 	left: 0;
 	box-shadow: 1px 0 5px 0 rgba(0,0,0,0.3);
 	background-color:var(--color-accent);
-	overflow-y: scroll;
+	overflow-y: visible;
+	overflow-x: visible;
 }
 .nav.side a {
 	display: block;
@@ -189,9 +216,9 @@ blockquote {
 	text-decoration: none;
 	color: var(--text-accent);
 }
-.nav.side .item {
+.nav.side .item, .nav.side .dropdown .title {
 	margin: 0;
-	padding: 10px 25px;
+	padding: 10px 30px;
 	background-color: rgba(0,0,0,0);
 	transition: 0.25s ease-in-out;
 	color: var(--text-accent);
@@ -199,32 +226,91 @@ blockquote {
 .nav.side .item.active {
 	font-weight: 700;
 }
-.nav.side .item:hover {
+.nav.side .item:hover, .nav.side .dropdown:hover .title {
 	background-color: rgba(255,255,255,0.25);
-	padding-left: 30px;
+	padding-left: 35px;
 }
-.nav.side.dark .item:hover {
+.nav.side.dark .item:hover, .nav.side.dark .dropdown:hover .title {
 	background-color: rgba(0,0,0,0.1);
 }
-.nav.side .item.active:hover {
+.nav.side .item.active:hover, .nav.side .item.disabled:hover {
 	background-color: var(--color-accent);
-	padding-left: 25px;
+	padding-left: 30px;
 	cursor: default;
 }
-.nav.side .title {
-	margin: 85px 0 10px 0;
-	padding: 10px 25px;
+.nav.side > .title {
+	margin-top: 100px;
+	padding: 10px 30px;
 	font-size: 2rem;
 	font-weight: 700;
 }
 .nav.side hr {
-	border: 1px solid rgba(255,255,255,0.5);
+	border-color: rgba(255,255,255,0.5);
 }
 .nav.side.dark hr {
-	border: 1px solid rgba(0,0,0,0.25);
+	border-color: rgba(0,0,0,0.25);
+}
+.nav.side.mobile-only {
+	display: none;
+}
+/*  Dropdown specific CSS for all navigations*/
+.nav .dropdown {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+	display: inline-block;
+}
+.nav.side .dropdown {
+	display: block;
+}
+.nav .dropdown .items {
+	display: none;
+	position: absolute;
+	top: 48px;
+	width: 100%;
+	min-width: 150px;
+	z-index: 2500;
+	background-color: var(--color-accent);
+	color: var(--text-accent);
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);
+	border-top: 1px solid rgba(255,255,255,0.5);
+}
+.nav.side .dropdown .title {
+	width: 100%;
+	box-sizing: border-box;
+}
+.nav.side .dropdown .items {
+	top: 38px;
+	width: 300px;
+}
+.nav.dark .dropdown .items{
+	border-top: 1px solid rgba(0,0,0,0.25);
+}
+.nav .dropdown:hover .items {
+	display: block;
+}
+.nav .dropdown .items .item {
+	padding: 7.5px 45px;
+	background-color: rgba(255,255,255,0.125);
+	width: 100%;
+	box-sizing: border-box;
+	display: block;
+}
+.nav.dark .dropdown .items .item {
+	padding: 7.5px 45px;
+	background-color: rgba(0,0,0,0.05);
+}
+.nav .dropdown .items .item:hover {
+	padding-left: 50px;
+	background-color: rgba(255,255,255,0.25);
+}
+.nav.dark .dropdown .items .item:hover {
+	padding-left: 50px;
+	background-color: rgba(0,0,0,0.1);
 }
 /*Main Content*/
-	/*Different Navigations*/
+/*  Different Navigations*/
 .main {
 	background-color: var(--color-secondary);
 	color: var(--text-secondary);
@@ -235,7 +321,7 @@ blockquote {
 .main.nav-top {
 	margin-top: 45px;
 }
-	/*Content Containers*/
+/*- Content Containers*/
 .main > .header {
 	padding: 75px 100px 17.5px 100px;
 	box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
@@ -253,13 +339,16 @@ blockquote {
 	margin: 0;
 	padding: 0;
 }
-	/*Cards and Modals*/
+/*- Cards and Modals*/
 .card {
 	background-color: var(--color-primary);
 	color: var(--text-primary);
 }
 .card + .card {
 	margin-top: 20px;
+}
+.column.card + .column.card {
+	margin-top: 0;
 }
 .card.white {
 	background-color: white;
@@ -287,9 +376,10 @@ blockquote {
 	color: var(--text-accent);
 	position: relative;
 	top: 0;
-	display:block;
-	padding: 5px;
+	display: inline-block;
+	padding: 5px 20px;
 	margin: 10px 0;
+	margin-right: 25px;
 	text-align: center;
 	transition: 0.25s;
 	text-decoration: none;
@@ -317,19 +407,19 @@ blockquote {
 	bottom: 0;
 	display: block;
 }
-	/*Tables*/
+/*- Tables*/
 table {
 	border-collapse: collapse;
 	table-layout: fixed;
 	padding: 0;
-	margin: 25px auto;
-	max-width: 1250px;
+	width: 100%;
+	margin: 25px 0;
 }
 th, td {
 	text-align: left;
 	border-bottom: 1px solid var(--text-secondary);
 	background-color: none;
-	padding: 5px 30px 5px 0;
+	padding: 5px 15px 5px 0;
 	color: var(--text-secondary);
 }
 th {
@@ -341,16 +431,38 @@ td {
 	font-weight: 300;
 	color: var(--text-secondary);
 }
-	/*Footers*/
+/*Footers*/
 .footer {
 	background-color: white;
-	padding: 75px 50px;
+	padding: 50px 100px;
 	box-sizing: border-box;
 	width: 100%;
 	box-shadow: 0 -1px 5px 0 rgba(0,0,0,0.15);
 }
-.footer .section {
-	flex-basis: 150px;
+.footer h1, .footer h2, .footer h3 {
+	line-height: 1;
+	padding: 0;
+	font-weight: 700;
+}
+.footer h1 {
+	font-size: 1.75rem;
+	margin-top: 0;
+}
+.footer h2 {
+	font-size: 1.5rem;
+	margin-top: 0.25rem;
+}
+.footer h3 {
+	font-size: 1.125rem;
+	margin-top: 0.625rem;
+}
+.footer h4, .footer h5, .footer h6 {
+	font-size: 1rem;
+	font-weight: 400;
+	font-style: italic;
+	margin-top: 0.75rem;
+	padding: 0;
+	line-height: 1;
 }
 .footer a {
 	display: block;
@@ -399,55 +511,42 @@ td {
 .text-just {
 	text-align: justify;
 }
-	/*Columns Sizing*/
-.columns {
+	/*Flex-based Columns and Footer Sizing*/
+.columns, .footer {
 	display: -webkit-flex;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items: flex-start;
 }
-.columns .column {
+.columns .column, .footer .column {
 	flex: 1 1 0;
 }
-.columns .column + .column {
+.columns .column + .column, .footer .column + .column {
 	margin-left: 50px;
 }
 	/*Width Sizing*/
+.full, .half, .third, .two-thirds, .fourth, .three-fouths {
+	box-sizing: border-box;
+	margin-right: 50px;
+}
 .full {
-	margin-left: 20px;
-	margin-right: 20px;
-	width: calc(100% - 40px);
+	width: calc(100% - 50px);
 }
 .half {
-	margin-left: 20px;
-	margin-right: 20px;
-	box-sizing: border-box;
-	width: calc(50% - 40px);
+	width: calc(50% - 50px);
 }
 .third {
-	margin-left: 20px;
-	margin-right: 20px;
-	box-sizing: border-box;
-	width: calc(33% - 40px);
+	width: calc(calc(100% / 3) - 50px);
 }
 .two-thirds {
-	margin-left: 20px;
-	margin-right: 20px;
-	box-sizing: border-box;
-	width: calc(66% - 40px);
+	width: calc(66.66% - 50px);
 }
 .fourth {
-	margin-left: 20px;
-	margin-right: 20px;
-	box-sizing: border-box;
-	width: calc(25% - 40px);
+	width: calc(25% - 50px);
 }
 .three-fourths {
-	margin-left: 20px;
-	margin-right: 20px;
-	box-sizing: border-box;
-	width: calc(75% - 40px);
+	width: calc(75% - 50px);
 }
 	/*Color Utilities*/
 .primary{
@@ -470,6 +569,27 @@ td {
 }
 .text-secondary {
 	color: var(--text-secondary);
+}
+.inv-primary{
+	color: var(--color-primary);
+	background-color: var(--text-primary);
+}
+.inv-accent {
+	color: var(--color-accent);
+	background-color: var(--text-accent);
+}
+.inv-secondary {
+	color: var(--color-secondary);
+	background-color: var(--text-secondary);
+}
+.color-primary {
+	color: var(--color-primary);
+}
+.color-accent {
+	color: var(--color-accent);
+}
+.color-secondary {
+	color: var(--color-secondary);
 }
 @media screen and (max-width: 850px) {
 	.t-no-display {
@@ -542,7 +662,7 @@ td {
 	}
 }
 @media screen and (max-width: 700px) {
-	.m-no-display {
+	.no-mobile {
 		display: none;
 	}
 	h1 {
@@ -566,6 +686,9 @@ td {
 		color: var(--text-accent);
 		box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 	}
+	.nav.mobile .title {
+		vertical-align: baseline;
+	}
 	.nav.mobile * {
 		display: inline-block;
 		padding: 10px;
@@ -573,7 +696,7 @@ td {
 		font-size: 1.25rem;
 	}
 	.nav.mobile .nav-trigger {
-		padding: 10px 5px 10px 25px;
+		padding: 10px 5px 10px 20px;
 	}
 	.nav-trigger:hover {
 		cursor: pointer;
@@ -588,6 +711,7 @@ td {
 		transition: 1s;
 		background-color: white;
 		color: black;
+		z-index: 900;
 	}
 	.nav.side.active {
 		left: 0;
@@ -607,6 +731,9 @@ td {
 	.nav.side hr {
 		border: 1px solid rgba(0,0,0,0.25);
 	}
+	.nav.side.mobile-only {
+		display: block;
+	}
 	.main.nav-side {
 		margin-left: 0;
 	}
@@ -620,16 +747,23 @@ td {
 		margin: 0;
 		width: 100%;
 	}
-	.columns {
+	.columns, .footer {
 		display: block;
 	}
-	.columns .column {
+	.columns .column, .footer .column {
 		display: block;
 		width: 100%;
-		margin: 10px 0;
+		margin: 0;
 	}
-	.columns .column + .column {
+	.columns .column + .column, .footer .column + .column {
 		margin-left: 0;
+		margin-top: 25px;
+	}
+	.column.card + .column.card {
+		margin-top: 25px;
+	}
+	.footer {
+		padding: 25px 20px;
 	}
 	.m-full, .m-half, .m-third, .m-two-thirds, .m-fourth, .m-three-fourths {
 		margin-top: 15px;
