@@ -10,12 +10,15 @@
 	- Added .disabled class functionality for buttons
 	- Added navigation prioritization with the .nav-priority class
 	- Added Footer-Buttons for cards, to allow more customization
+	- Added .no-display side navigation to compliment .mobile-only navigation for different desktop and mobile menus
+	- Added account elements for side navigations, including avatars and an info box next to/below for web apps
+	- Added flush utility classes for padding on the sides, as well as flush-right and flush-left for one side
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Changes:
 	- Changed the look of Navigation as a whole to look more sleek and modern
 		- Side Nav has been completely revamped to create a cleaner experience for all display sizes
 		- Dropdowns can now also have disabled items
-	
-	
+	- Changed look of cards to have more rounded feel, as well as card headers and card footers
 */
 /*CSS Reset*/
 * {
@@ -144,11 +147,18 @@ NAVIGATION
 	display: inline-block;
 	box-sizing: border-box;
 	text-decoration: none;
-	padding: 15px;
+	padding: 15px 20px;
 	vertical-align: middle;
 	line-height: 1;
 	transition: 0.25s ease-in-out;
 	opacity: 0.8;
+}
+.nav .item.active {
+	opacity: 1;
+	font-weight: 700;
+}
+.nav .item.active:hover {
+	cursor: default;
 }
 .nav .item.disabled {
 	opacity: 0.75;
@@ -164,46 +174,38 @@ NAVIGATION
 	padding: 15px;
 	vertical-align: middle;
 	line-height: 1;
-	padding: 7.5px 15px;
+	padding: 15px 20px;
 	font-weight: 800;
 	font-size: 1.15rem;
 }
+.nav.top, .nav.sticky {
+	top: 0;
+	padding: 0 80px;
+	overflow-x: visible;
+}
 .nav.top {
 	position: fixed;
-	top: 0;
 	left: 0;
-	overflow-x: visible;
-	padding: 0 85px;
 }
 .nav.sticky {
-	overflow-x: visible;
-	padding: 0 85px;
 	position: sticky;
-	top: 0;
+}
+.nav.top .title, .nav.sticky .title {
+	padding: 14px 20px;
+}
+.nav.top.flush, .nav.sticky.flush {
+	padding: 0;
+}
+.nav.top.flush-left, .nav.sticky.flush-left {
+	padding-left: 0;
+}
+.nav.top.no-flush-right, .nav.sticky.flush-right {
+	padding-right: 0;
 }
 .nav.top.nav-side, .nav.sticky.nav-side {
 	padding-left: 335px;
 }
-.nav.top > .title, .nav.sticky > .title {
-	padding: 7.5px 15px;
-	font-weight: 800;
-	font-size: 1.15rem;
-	display: inline-block;
-	box-sizing: border-box;
-	text-decoration: none;
-	padding: 15px;
-	vertical-align: middle;
-	line-height: 1;
-}
-.nav.top .item, .nav.sticky .item, .nav.top .dropdown .title, .nav.sticky .dropdown .title {
-	display: inline-block;
-	box-sizing: border-box;
-	text-decoration: none;
-	padding: 15px;
-	vertical-align: middle;
-	line-height: 1;
-}
-.nav.top a.active, .nav.sticky a.active {
+.nav.top .item.active, .nav.sticky .item.active {
 	font-weight: 700;
 }
 .nav.dark .item:hover, .nav.dark .dropdown:hover .title {
@@ -216,6 +218,7 @@ NAVIGATION
 .nav .item.active:hover, .nav .item.disabled:hover {
 	background-color: inherit;
 	color: inherit;
+	cursor: default;
 }
 /*- Side Navigation (Also Doubles as Mobile Hamburger Navigation)*/
 .nav.side {
@@ -226,6 +229,9 @@ NAVIGATION
 	left: 0;
 	overflow-y: visible;
 	overflow-x: visible;
+}
+.nav.side.nav-top {
+	padding-top: 50px;
 }
 .nav.side a {
 	display: block;
@@ -255,14 +261,10 @@ NAVIGATION
 	cursor: default;
 }
 .nav.side > .title {
-	display: table-cell;
-  vertical-align: bottom;
-	height: 175px;
-	margin: 0;
+	margin: 10px 0 0 0;
 	padding: 10px 20px;
 	font-size: 2rem;
 	font-weight: 700;
-	vertical-align: bottom;
 }
 .nav.side hr {
 	border-color: rgba(255,255,255,0.5);
@@ -272,6 +274,40 @@ NAVIGATION
 }
 .nav.side.mobile-only {
 	display: none;
+}
+.nav.side .account {
+	padding: 75px 20px 10px 20px;
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.nav.side.dark .account {
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+.nav.side .account .avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.nav.side .account .info {
+	width: 150px;
+	padding: 2.5px 10px;
+	margin: 0;
+	box-sizing: border-box;
+}
+.nav.side .account p, .nav.side .account .item {
+	font-size: 0.9rem;
+	padding: 0;
+}
+.nav.side .account .item {
+	opacity: 0.6;
+}
+.nav.side .account .item:hover {
+	padding-left: 0;
+	opacity: 1;
+	cursor: pointer;
+	background-color: rgba(0,0,0,0);
 }
 /*- Dropdown specific CSS for all navigations*/
 .nav .dropdown {
@@ -582,6 +618,21 @@ td {
 .text-just {
 	text-align: justify;
 }
+	/*General Alignment*/
+.flush {
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+.flush-left {
+	padding-left: 0;
+	margin-left: 0;
+}
+.flush-right {
+	padding-right: 0;
+	margin-right: 0;
+}
 	/*Flex-based Columns and Footer Sizing*/
 .columns, .main > .footer {
 	display: -webkit-flex;
@@ -618,6 +669,24 @@ td {
 }
 .three-fourths {
 	width: calc(75% - 50px);
+}
+img.full, img.half, img.third, img.two-thirds, img.fourth, img.three-fouths {
+	margin-right: 0;
+}
+img.half {
+	width: 50%;
+}
+img.third {
+	width: 33.3%;
+}
+img.two-thirds {
+	width: 66.6%;
+}
+img.fourth {
+	width: 25%;
+}
+img.three-fourths {
+	width: 75%;
 }
 	/*Color Utilities*/
 .primary{
@@ -661,6 +730,10 @@ td {
 }
 .color-secondary {
 	color: var(--color-secondary);
+}
+/*Other*/
+img.rounded {
+	border-radius: 500px;
 }
 @media screen and (max-width: 850px) {
 	.t-no-display {
@@ -806,6 +879,9 @@ td {
 	}
 	.nav.side.mobile-only {
 		display: block;
+	}
+	.nav.side.no-mobile {
+		display: none;
 	}
 	.main.nav-side {
 		margin-left: 0;
