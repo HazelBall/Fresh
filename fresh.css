@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun:300,400,700,800');
 /*
-	FRESH.CSS
-	Fresh.css is a responsive CSS and JavaScript Framework for light web apps and sites. Created by Hunter Ball.
-	
-	Version 1.0.0: The OFFICIAL release of Fresh.css!!!
+	Experimental updates for version 1.0.0: The first OFFICIAL release of Fresh.css!!!
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Additions:
+						Pre-1.0.0e19-07-15
 	- Added CSS Variables for advanced customization of almost EVERY single element
 	- Added .disabled class functionality for buttons
 	- Added navigation prioritization with the .nav-priority class
@@ -13,12 +11,23 @@
 	- Added .no-display side navigation to compliment .mobile-only navigation for different desktop and mobile menus
 	- Added account elements for side navigations, including avatars and an info box next to/below for web apps
 	- Added flush utility classes for padding on the sides, as well as flush-right and flush-left for one side
+						1.0.0e19-07-15
+	- Added spacer for side navigation, can also have the small or large classes added for different sizing
+	- Added pill shape and rounded corner shape for buttons, default is square
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Changes:
+						Pre-1.0.0e19-07-15
 	- Changed the look of Navigation as a whole to look more sleek and modern
 		- Side Nav has been completely revamped to create a cleaner experience for all display sizes
 		- Dropdowns can now also have disabled items
 	- Changed look of cards to have more rounded feel, as well as card headers and card footers
+						1.0.0e19-07-15
+	- Changed some looks on mobile to perform and look better
+	- Changed some of the design for headers, specifically on mobile
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Hey fresh users! Currently, this is an EXPERIMENTAL version. This is not the final product, Use at your own risk, for things can be dropped or broken within a day or two. 
+	Thanks for your support!
+	- Hunter
 */
 /*CSS Reset*/
 * {
@@ -233,6 +242,15 @@ NAVIGATION
 .nav.side.nav-top {
 	padding-top: 50px;
 }
+.nav.side .spacer {
+	height: 50px;
+}
+.nav.side .spacer.small {
+	height: 25px;
+}
+.nav.side .spacer.large {
+	height: 75px;
+}
 .nav.side a {
 	display: block;
 	box-sizing: border-box;
@@ -388,18 +406,13 @@ MAIN CONTENT
 /*- Content Containers*/
 .main > .header {
 	margin: 0;
-	padding: 125px 100px 10px 100px;
+	padding: 75px 100px 10px 100px;
 	position: relative;
 	box-sizing: border-box;
 }
 .main > .header.sticky {
 	position: sticky;
 	top: 0;
-}
-.main > .header * {
-	position: absolute;
-	bottom: 10px;
-	left: 100px;
 }
 .main > .splash {
 	padding: 100px 200px;
@@ -487,6 +500,12 @@ MAIN CONTENT
 	text-align: center;
 	transition: 0.25s;
 	text-decoration: none;
+}
+.button.rounded {
+	border-radius: 10px;
+}
+.button.pill {
+	border-radius: 9999px;
 }
 .button:hover {
 	top: -5px;
@@ -670,7 +689,7 @@ td {
 .three-fourths {
 	width: calc(75% - 50px);
 }
-img.full, img.half, img.third, img.two-thirds, img.fourth, img.three-fouths {
+img.full, img.half, img.third, img.two-thirds, img.fourth, img.three-fourths {
 	margin-right: 0;
 }
 img.half {
@@ -733,11 +752,14 @@ img.three-fourths {
 }
 /*Other*/
 img.rounded {
-	border-radius: 500px;
+	border-radius: 9999px;
 }
 @media screen and (max-width: 850px) {
-	.t-no-display {
+	.no-tablet {
 		display: none;
+	}
+	.nav.top.nav-side, .nav.sticky.nav-side {
+		margin-left: 250px;
 	}
 	.nav.side {
 		width: 250px;
@@ -745,14 +767,8 @@ img.rounded {
 	.main.nav-side {
 		margin-left: 250px;
 	}
-	.nav.top.nav-side, .nav.sticky.nav-side {
-		margin-left: 250px;
-	}
 	.main > .header {
 		padding: 75px 25px 17.5px 25px;
-	}
-	.main > .header * {
-		left: 25px;
 	}
 	.main .container {
 		padding: 25px;
@@ -770,35 +786,27 @@ img.rounded {
 		font-size: 0.8rem;
 		padding: 5px 10px;
 	}
-	.full {
+	.full, .half, .third, .two-thirds, .fourth, .three-fourths {
 		margin-left: 0;
-		margin-right: 0;
-		width: 100%;
+		margin-right: 10px;
+	}
+	.full {
+		width: calc(100% - 10px);
 	}
 	.half {
-		margin-left: 0;
-		margin-right: 0;
-		width: 50%;
+		width: calc(50% - 10px);
 	}
 	.third {
-		margin-left: 0;
-		margin-right: 0;
-		width: 33%;
+		width: calc(33.33% - 10px);
 	}
 	.two-thirds {
-		margin-left: 0;
-		margin-right: 0;
-		width: 66%;
+		width: calc(66.66% - 10px);
 	}
 	.fourth {
-		margin-left: 0;
-		margin-right: 0;
-		width: 25%;
+		width: calc(25% - 10px);
 	}
 	.three-fourths {
-		margin-left: 0;
-		margin-right: 0;
-		width: 75%;
+		width: calc(75% - 10px);
 	}
 	blockquote {
 		width: 100%;
@@ -852,7 +860,7 @@ img.rounded {
 	}
 	.nav.side {
 		position: fixed;
-		top: 0;
+		top: 50px;
 		left: -300px;
 		transition: 1s;
 		background-color: white;
@@ -877,6 +885,9 @@ img.rounded {
 	.nav.side hr {
 		border: 1px solid rgba(0,0,0,0.25);
 	}
+	.nav.side .spacer {
+		height: 25px;
+	}
 	.nav.side.mobile-only {
 		display: block;
 	}
@@ -887,10 +898,7 @@ img.rounded {
 		margin-left: 0;
 	}
 	.main > .header {
-		padding: 60px 10px 10px 10px;
-	}
-	.main > .header * {
-		left: 15px;
+		padding: 25px 15px 5px 15px;
 	}
 	.main .container {
 		padding: 15px;
