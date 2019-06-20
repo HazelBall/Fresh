@@ -2,28 +2,33 @@
 /*
 	Experimental updates for version 1.0.0: The first OFFICIAL release of Fresh.css!!!
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Additions:
-						Pre-1.0.0e19-07-15
-	- Added CSS Variables for advanced customization of almost EVERY single element
-	- Added .disabled class functionality for buttons
-	- Added navigation prioritization with the .nav-priority class
-	- Added Footer-Buttons for cards, to allow more customization
-	- Added .no-display side navigation to compliment .mobile-only navigation for different desktop and mobile menus
-	- Added account elements for side navigations, including avatars and an info box next to/below for web apps
-	- Added flush utility classes for padding on the sides, as well as flush-right and flush-left for one side
-						1.0.0e19-07-15
-	- Added spacer for side navigation, can also have the small or large classes added for different sizing
-	- Added pill shape and rounded corner shape for buttons, default is square
+	1.0.0 Additions:
+		Pre-1.0.0e19-07-15
+		- Added CSS Variables for advanced customization of almost EVERY single element
+		- Added .disabled class functionality for buttons
+		- Added navigation prioritization with the .nav-priority class
+		- Added Footer-Buttons for cards, to allow more customization
+		- Added .no-display side navigation to compliment .mobile-only navigation for different desktop and mobile menus
+		- Added account elements for side navigations, including avatars and an info box next to/below for web apps
+		- Added flush utility classes for padding on the sides, as well as flush-right and flush-left for one side
+		1.0.0e19-07-15
+		- Added spacer for side navigation, can also have the small or large classes added for different sizing
+		- Added pill shape and rounded corner shape for buttons, default is square
+		1.0.0e19-07-19
+		- No additions this update, however javascript is in place and ready for the addition of modals
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Changes:
-						Pre-1.0.0e19-07-15
-	- Changed the look of Navigation as a whole to look more sleek and modern
-		- Side Nav has been completely revamped to create a cleaner experience for all display sizes
-		- Dropdowns can now also have disabled items
-	- Changed look of cards to have more rounded feel, as well as card headers and card footers
-						1.0.0e19-07-15
-	- Changed some looks on mobile to perform and look better
-	- Changed some of the design for headers, specifically on mobile
+	1.0.0 Changes:
+		Pre-1.0.0e19-07-15
+		- Changed the look of Navigation as a whole to look more sleek and modern
+			- Side Nav has been completely revamped to create a cleaner experience for all display sizes
+			- Dropdowns can now also have disabled items
+		- Changed look of cards to have more rounded feel, as well as card headers and card footers
+		1.0.0e19-07-15
+		- Changed some looks on mobile to perform and look better
+		- Changed some of the design for headers, specifically on mobile
+		1.0.0e19-07-19
+		- Changed some nav element styling
+		- Changing entire javascript file to get rid of JQuery Dependancies, I want fresh to load fast and work well without JQuery
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Hey fresh users! Currently, this is an EXPERIMENTAL version. This is not the final product, Use at your own risk, for things can be dropped or broken within a day or two. 
 	Thanks for your support!
@@ -160,7 +165,7 @@ NAVIGATION
 	vertical-align: middle;
 	line-height: 1;
 	transition: 0.25s ease-in-out;
-	opacity: 0.8;
+	opacity: 1;
 }
 .nav .item.active {
 	opacity: 1;
@@ -175,6 +180,7 @@ NAVIGATION
 .nav .item.disabled:hover {
 	opacity: 0.75;
 	cursor: default;
+	background-color: inherit;
 }
 .nav > .title {
 	display: inline-block;
@@ -360,6 +366,7 @@ NAVIGATION
 .nav .dropdown .items .item:hover {
 	padding-left: 25px;
 	background-color: rgba(255,255,255,0.25);
+	cursor: pointer;
 }
 .nav .dropdown .items .item.disabled:hover {
 	padding-left: 20px;
