@@ -1,7 +1,6 @@
 var navs = document.getElementsByClassName('nav side');
 var navTrigger = document.getElementsByClassName("nav-trigger");
-var modals = document.getElementsByClassName('modal');
-var modalTrigger = document.getElementsByClassName("modal-trigger");
+var modalTrigger = document.querySelectorAll("[data-modal]");
 var activate = function(obj) {
 	console.log("nav trigger activated");
 	for(var i = 0; i < obj.length; i ++) {
@@ -13,15 +12,21 @@ var activate = function(obj) {
 	}
 };
 for (var i = 0; i < navTrigger.length; i++) {
-	console.log('another nav-trigger');
   navTrigger[i].addEventListener('click', function() {
   	activate(navs);
   });
 }
 for(var i = 0; i < modalTrigger.length; i ++) {
-	modalTrigger[i].addEventListener('click', function() {
-		var modalID = modalTrigger[i].getAttribute('data-modal');
-		
+	modalTrigger[i].addEventListener('click', function(event) {
+		if(event.target.hasAttribute('data-modal')) {
+			var modalID = event.target.getAttribute('data-modal');
+			var modal = document.getElementById(modalID);
+			if(modal.classList.contains("active")) {
+				modal.classList.remove("active");
+			} else {
+				modal.classList.add("active");
+			}
+		}
 	});
 }
 document.body.addEventListener('click', function(event) {
@@ -30,9 +35,12 @@ document.body.addEventListener('click', function(event) {
 			navs[i].classList.remove('active');
 		}
 	}
-	if(event.target.closest(".modal, .modal-trigger") === null) {
-		for(var i = 0; i < modals.length; i ++) {
-			modals[i].classList.remove('active');
-		}
+	if(event.target.closest(".modal.active, [data-modal]") === null) {
+		var modals = document.getElementsByClassName("modal");
+		Array.prototype.forEach.call(modals, function(modal) {
+			if(modal.classList.contains("active")) {
+				modal.classList.remove("active");
+			}
+		});
 	}
 });
