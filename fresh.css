@@ -16,6 +16,14 @@
 		- Added pill shape and rounded corner shape for buttons, default is square
 		1.0.0e19-07-19
 		- No additions this update, however javascript is in place and ready for the addition of modals
+		1.0.0e19-07-20
+		- Added Modals!
+			- Different sizes are available by adding the small or large classes to Modals
+			- Open and close specific modals by using the "data-modal" attribute and the modal's id
+			- Create a modal-specific closing anchor with the "modal-trigger" anchor inside of the modal
+			- CURRENTLY NOT RESPONSIVE: Will work on responsive in the coming few days
+		- Added start of forms, inputs are now somewhat styled (for documentation right now)
+			- Also NOT responsive yet
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	1.0.0 Changes:
 		Pre-1.0.0e19-07-15
@@ -29,6 +37,9 @@
 		1.0.0e19-07-19
 		- Changed some nav element styling
 		- Changing entire javascript file to get rid of JQuery Dependancies, I want fresh to load fast and work well without JQuery
+		- Changed some of the JavaScript to make modals work when added
+		1.0.0e19-07-20
+		- Changed some javascript for allow clicking outside of Modals to close them
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Hey fresh users! Currently, this is an EXPERIMENTAL version. This is not the final product, Use at your own risk, for things can be dropped or broken within a day or two. 
 	Thanks for your support!
@@ -69,6 +80,8 @@
 	--card-text: var(--text-primary);
 	--card-footer-color: var(--color-accent);
 	--card-footer-text: var(--text-accent);
+	--modal-color: var(--color-primary);
+	--modal-text: var(--text-primary);
 	--table-text: var(--text-secondary);
 	--footer-color: var(--color-primary);
 	--footer-text: var(--text-primary);
@@ -434,7 +447,7 @@ MAIN CONTENT
 	margin: 0;
 	padding: 0;
 }
-/*- Cards and Modals*/
+/*- Cards*/
 .card {
 	background-color: var(--card-color);
 	color: var(--card-text);
@@ -449,8 +462,8 @@ MAIN CONTENT
 }
 .card .content {
 	padding: 10px 20px;
-	background-color: inherit;
-	color: inherit;
+	background-color: var(--card-color);
+	color: var(--card-text);
 	border-radius: 15px;
 	position: relative;
 }
@@ -494,6 +507,59 @@ MAIN CONTENT
 	bottom: 0;
 	display: block;
 }
+/*- Modals*/
+.modal {
+	position: fixed;
+	top: 80vh;
+	left: 50vw;
+	height: 500px;
+	width: 800px;
+	margin-left: -400px;
+	margin-top: -250px;
+	background-color: var(--modal-color);
+	color: var(--modal-text);
+	z-index: 10000;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+	overflow-y: scroll;
+	padding: 25px 50px;
+	box-sizing: border-box;
+	transition: 0.25s;
+	opacity: 0;
+	visibility: hidden;
+}
+.modal.small {
+	height: 250px;
+	width: 500px;
+	margin-left: -250px;
+	margin-top: -125px;
+	padding: 20px 40px;
+}
+.modal.large {
+	height: calc(100vh - 150px);
+	margin-top: calc(-50vh + 75px);
+	width: calc(100vw - 100px);
+	margin-left: calc(-50vw + 50px);
+}
+.modal.active {
+	opacity: 1;
+	top: 50vh;
+	visibility: visible;
+}
+.modal .modal-trigger {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	padding: 0;
+	margin: 0;
+	line-height: 1;
+	font-size: 2rem;
+	cursor: pointer;
+	opacity: 0.5;
+	transition: 0.25s;
+}
+.modal .modal-trigger:hover {
+	opacity: 1;
+}
 /*- Buttons*/
 .button {
 	background-color: var(--button-color);
@@ -507,6 +573,9 @@ MAIN CONTENT
 	text-align: center;
 	transition: 0.25s;
 	text-decoration: none;
+}
+.button.column {
+	margin-right: 0;
 }
 .button.rounded {
 	border-radius: 10px;
@@ -558,6 +627,22 @@ th {
 td {
 	font-size: 0.95rem;
 	font-weight: 300;
+}
+/*- Forms*/
+input {
+	padding: 5px 10px;
+	margin: 5px 0;
+	border: 1px solid rgba(0,0,0,0.25);
+	border-radius: 10px;
+	font-size: 0.85rem;
+	box-sizing: border-box;
+}
+input:focus {
+	outline: none;
+}
+input.full {
+	width: 100%;
+	margin-right: 0;
 }
 /*Footers*/
 .main > .footer {
