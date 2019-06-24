@@ -28,7 +28,8 @@
 		- Added font-weight classes
 		- Added icon class for logos in top navigation
 		- Added Active Footer item styling
-		- Added square class to go with rounded and pill utility classes
+		- Added square class to go with universal rounded and pill classes
+		- Added js pre-support of alert, before css implementation
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	1.0.0 Changes:
 		Pre-1.0.0e19-07-15
