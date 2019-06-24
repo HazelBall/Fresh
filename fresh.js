@@ -1,6 +1,7 @@
 var navs = document.getElementsByClassName('nav side');
 var navTrigger = document.getElementsByClassName("nav-trigger");
 var modalTrigger = document.querySelectorAll("[data-modal]");
+var alertTrigger = document.querySelectorAll("[data-alert");
 var activate = function(obj) {
 	console.log("nav trigger activated");
 	for(var i = 0; i < obj.length; i ++) {
@@ -25,6 +26,19 @@ for(var i = 0; i < modalTrigger.length; i ++) {
 				modal.classList.remove("active");
 			} else {
 				modal.classList.add("active");
+			}
+		}
+	});
+}
+for(var i = 0; i < alertTrigger.length; i ++) {
+	alertTrigger[i].addEventListener('click', function(event) {
+		if(event.target.hasAttribute('data-alert')) {
+			var alertID = event.target.getAttribute('data-alert');
+			var alert = document.getElementById(alertID);
+			if(alert.classList.contains("active")) {
+				alert.classList.remove("active");
+			} else {
+				alert.classList.add("active");
 			}
 		}
 	});
