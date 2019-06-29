@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun:300,400,700,800');
+/*Fresh.css: 1.0.0 Development Version*/
 /*
-	Experimental updates for version 1.0.0: The first OFFICIAL release of Fresh.css!!!
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	1.0.0 Additions:
 		Pre-1.0.0e19-07-15
 		- Added CSS Variables for advanced customization of almost EVERY single element
@@ -30,6 +29,12 @@
 		- Added Active Footer item styling
 		- Added square class to go with universal rounded and pill classes
 		- Added js pre-support of alert, before css implementation
+		1.0.0e19-07-29
+		- Added Alerts!
+			- Designed similarly to modals, as they are basically smaller bottom modals
+			- As with modals, you can use the "trigger" class inside to create a top right button to close them
+			- Alerts have special "warning" class that makes them red, just because this is an common function for them
+		- Added responsive deisgn to modals (all three sizes)
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	1.0.0 Changes:
 		Pre-1.0.0e19-07-15
@@ -42,7 +47,7 @@
 		- Changed some of the design for headers, specifically on mobile
 		1.0.0e19-07-19
 		- Changed some nav element styling
-		- Changing entire javascript file to get rid of JQuery Dependancies, I want fresh to load fast and work well without JQuery
+		- Changing entire javascript file to remove JQuery Dependancies, wanted fresh to load fast and work without JQuery
 		- Changed some of the JavaScript to make modals work when added
 		1.0.0e19-07-20
 		- Changed some javascript for allow clicking outside of Modals to close them
@@ -50,8 +55,12 @@
 		- Removed the useless header-image class
 		- Changed transition speed for nav items
 		- Changed rounded and pill classes to be utility classes available for all elements
+		1.0.0e19-07-29
+		- Changed headings and paragraphs to have spaces in between so you don't have to use <br> so often
+		- changed javascript to optimize some functions
+		- Changed "modal-trigger" class to "trigger" in order to fit with the "trigger" class for modals
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Hey fresh users! Currently, this is an EXPERIMENTAL version. This is not the final product, Use at your own risk, for things can be dropped or broken within a day or two. 
+	Hey fresh users! Currently, this is an EXPERIMENTAL version. This is not the final product, Use at your own risk, for things can be removed or broken within a few days. 
 	Thanks for your support!
 	- Hunter
 */
@@ -92,13 +101,13 @@
 	--card-footer-text: var(--text-accent);
 	--modal-color: var(--color-primary);
 	--modal-text: var(--text-primary);
+	--alert-color: var(--color-primary);
+	--alert-text: var(--text-primary);
 	--table-text: var(--text-secondary);
 	--footer-color: var(--color-primary);
 	--footer-text: var(--text-primary);
 }
-/*
-BASIC ELEMENTS
-*/
+/*BASIC ELEMENTS*/
 html {
 	font-size: 18px;
 }
@@ -108,6 +117,12 @@ body {
 h1, h2, h3, h4, h5, h6, p, a, blockquote, tr, th, td, table, li, input {
 	line-height: 1.25;
 	font-family: 'Sarabun', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 20px;
+}
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+	margin-top: 0;
 }
 h1 {
 	font-size: 3rem;
@@ -137,6 +152,9 @@ h6 {
 p {
 	font-size: 1rem;
 	margin: 0;
+}
+p + p {
+	margin-top: 20px;
 }
 a, tr, td, th, table, li {
 	font-size: 1rem;
@@ -510,9 +528,16 @@ MAIN CONTENT
 	bottom: 0;
 	display: block;
 }
-/*- Modals*/
-.modal {
+/*- Modals and Alerts*/
+.modal, .alert {
 	position: fixed;
+	box-sizing: border-box;
+	transition: 0.25s;
+	opacity: 0;
+	visibility: hidden;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+}
+.modal {
 	top: 80vh;
 	left: 50vw;
 	height: 500px;
@@ -522,13 +547,8 @@ MAIN CONTENT
 	background-color: var(--modal-color);
 	color: var(--modal-text);
 	z-index: 10000;
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 	overflow-y: scroll;
 	padding: 25px 50px;
-	box-sizing: border-box;
-	transition: 0.25s;
-	opacity: 0;
-	visibility: hidden;
 }
 .modal.small {
 	height: 250px;
@@ -548,7 +568,27 @@ MAIN CONTENT
 	top: 50vh;
 	visibility: visible;
 }
-.modal .modal-trigger {
+.alert {
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	width: 100vw;
+	padding: 15px 35px;
+	z-index: 9000;
+	background-color: var(--alert-color);
+	color: var(--alert-text);
+}
+.alert.warning {
+	background-color: red;
+	color: white;
+	font-weight: 700;
+}
+.alert.active {
+	visibility: visible;
+	opacity: 1;
+}
+.modal .trigger, .alert .trigger {
 	position: absolute;
 	top: 0;
 	right: 10px;
@@ -559,10 +599,12 @@ MAIN CONTENT
 	cursor: pointer;
 	opacity: 0.5;
 	transition: 0.25s;
+	font-weight: 700;
 }
-.modal .modal-trigger:hover {
+.modal .trigger:hover, .alert .trigger:hover {
 	opacity: 1;
 }
+
 /*- Buttons*/
 .button {
 	background-color: var(--button-color);
@@ -954,6 +996,25 @@ img.rounded {
 		box-sizing: border-box;
 		font-size: 0.8rem;
 	}
+	.modal {
+		height: calc(100vh - 200px);
+		margin-top: calc(-50vh + 100px);
+		width: calc(100vw - 50px);
+		margin-left: calc(-50vw + 25px);
+		padding: 25px 15px;
+	}
+	.modal.large {
+		height: calc(100vh - 50px);
+		margin-top: calc(-50vh + 25px);
+		width: calc(100vw - 40px);
+		margin-left: calc(-50vw + 20px);
+	}
+	.modal.small {
+		height: calc(100vh - 400px);
+		margin-top: calc(-50vh + 200px);
+		width: calc(100vw - 50px);
+		margin-left: calc(-50vw + 25px);
+	}
 }
 @media screen and (max-width: 700px) {
 	.no-mobile {
@@ -1113,5 +1174,8 @@ img.rounded {
 		margin-left: 0;
 		margin-right: 0;
 		width: 75%;
+	}
+	.modal .trigger, .alert .trigger {
+		opacity: 1;
 	}
 }
