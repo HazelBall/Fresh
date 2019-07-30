@@ -2,8 +2,9 @@ var navs = document.getElementsByClassName('nav side');
 var navTrigger = document.getElementsByClassName("nav-trigger");
 var modalTrigger = document.querySelectorAll("[data-modal]");
 var alertTrigger = document.querySelectorAll("[data-alert]");
+var accordionTrigger = document.querySelectorAll("[data-accordion]");
 var toggleActive = function(id) {
-	var element= document.getElementById(id);
+	var element = document.getElementById(id);
 	if(element.classList.contains("active")) {
 		element.classList.remove("active");
 	} else {
@@ -20,6 +21,31 @@ var navActivate = function(obj) {
 	  }
 	}
 };
+for(var i = 0; i < accordionTrigger.length; i ++) {
+	accordionTrigger[i].addEventListener('click', function(event) {
+		if(event.target.hasAttribute('data-accordion')) {
+			var accordionID = event.target.getAttribute('data-accordion');
+			var element = document.getElementById(accordionID);
+			if(element.style.maxHeight) {
+				this.classList.remove("active");
+				element.style.maxHeight = null;
+				element.style.padding = 0 + " " + 34 + "px";
+				setTimeout(function(){
+    			element.style.overflow = "hidden";
+				}, 10);
+				
+			} else {
+				element.style.maxHeight = (element.scrollHeight + 40) + "px";
+				element.style.padding = 20 + "px " + 34 + "px";
+				setTimeout(function(){
+    			element.style.overflow = "visible";
+				}, 800);
+				
+				this.classList.add("active");
+			}
+		}
+	});
+}
 for (var i = 0; i < navTrigger.length; i++) {
   navTrigger[i].addEventListener('click', function() {
   	navActivate(navs);
