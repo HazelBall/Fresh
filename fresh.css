@@ -35,6 +35,15 @@
 			- As with modals, you can use the "trigger" class inside to create a top right button to close them
 			- Alerts have special "warning" class that makes them red, just because this is an common function for them
 		- Added responsive deisgn to modals (all three sizes)
+		1.0.0d1
+		- Changed versioning for development updates, as I used the wrong months for previous updates, and to make it look cleaner (not an addition but still important)
+		- Added Accordions (css and js)
+			- Using accordion-headers, you can create lists of Accordions
+			- Work similar to modals and alerts within javascript
+			- use the data-accordion attribute to link any object with accordion
+			- Accordions are not colored by default, allowing you to use them in different scenarios
+		- Added rounded functionality to cards, pill utilities will not apply, as pill would look weird within cards
+		- Added .text-small and .text-large utility classes for simple text-size modification
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	1.0.0 Changes:
 		Pre-1.0.0e19-07-15
@@ -59,6 +68,9 @@
 		- Changed headings and paragraphs to have spaces in between so you don't have to use <br> so often
 		- changed javascript to optimize some functions
 		- Changed "modal-trigger" class to "trigger" in order to fit with the "trigger" class for modals
+		1.0.0d1
+		- Changed versioning for development updates, as I used the wrong months for previous updates, and to make it look cleaner
+		- changed the styling and relationship between .icon and .title inside top Navigation
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Hey fresh users! Currently, this is an EXPERIMENTAL version. This is not the final product, Use at your own risk, for things can be removed or broken within a few days. 
 	Thanks for your support!
@@ -99,6 +111,8 @@
 	--card-text: var(--text-primary);
 	--card-footer-color: var(--color-accent);
 	--card-footer-text: var(--text-accent);
+	--accordian-header-color: var(--color-accent);
+	--accordian-header-text: var(--text-accent);
 	--modal-color: var(--color-primary);
 	--modal-text: var(--text-primary);
 	--alert-color: var(--color-primary);
@@ -195,6 +209,18 @@ NAVIGATION
 .nav.nav-priority {
 	z-index:6000;
 }
+.nav.top, .nav.sticky {
+	top: 0;
+	padding: 0 80px;
+	overflow-x: visible;
+}
+.nav.top {
+	position: fixed;
+	left: 0;
+}
+.nav.sticky {
+	position: sticky;
+}
 .nav .item, .nav .title, .nav .nav-trigger, .nav a {
 	color: inherit;
 }
@@ -227,35 +253,26 @@ NAVIGATION
 	display: inline-block;
 	box-sizing: border-box;
 	text-decoration: none;
-	padding: 15px;
 	vertical-align: middle;
 	line-height: 1;
 	padding: 15px 20px;
 	font-weight: 800;
 	font-size: 1.15rem;
 }
+.nav.top > .title, .nav.sticky > .title {
+	padding: 14px 20px;
+}
 .nav .icon {
 	display:inline-block;
 	height: 35px;
 	padding: 0;
-	margin: 0 -20px 0 20px;
+	margin: 0 20px;
 	box-sizing: border-box;
 	vertical-align: middle;
 }
-.nav.top, .nav.sticky {
-	top: 0;
-	padding: 0 80px;
-	overflow-x: visible;
-}
-.nav.top {
-	position: fixed;
-	left: 0;
-}
-.nav.sticky {
-	position: sticky;
-}
-.nav.top .title, .nav.sticky .title {
-	padding: 14px 20px;
+.nav .icon + .title {
+	margin-left: -20px;
+	padding-left: 0;
 }
 .nav.top.flush, .nav.sticky.flush {
 	padding: 0;
@@ -472,11 +489,9 @@ MAIN CONTENT
 .card {
 	background-color: var(--card-color);
 	color: var(--card-text);
-	border-radius: 15px;
 	margin-bottom: 20px;
 }
 .card .header {
-	border-radius: 15px 15px 0 0;
 	padding: 15px 20px 5px 20px;
 	background-color: var(--card-header-color);
 	color: var(--card-header-text);
@@ -485,7 +500,6 @@ MAIN CONTENT
 	padding: 10px 20px;
 	background-color: var(--card-color);
 	color: var(--card-text);
-	border-radius: 15px;
 	position: relative;
 }
 .card .content img {
@@ -497,7 +511,6 @@ MAIN CONTENT
 	padding: 5px 20px;
 	background-color: var(--card-footer-color);
 	color: var(--card-footer-text);
-	border-radius: 0 0 15px 15px;
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -527,6 +540,33 @@ MAIN CONTENT
 	right: 0;
 	bottom: 0;
 	display: block;
+}
+.card.rounded {
+	border-radius: 15px;
+}
+.card.rounded .header {
+	border-radius: 15px 15px 0 0;
+}
+.card.rounded .content {
+	border-radius: 15px;
+}
+.card.rounded .footer {
+	border-radius: 0 0 15px 15px;
+}
+.card .header.rounded {
+	border-radius: 0 0 15px 15px;
+}
+.card.rounded .header.rounded {
+	border-radius: 15px;
+}
+.card .content.rounded {
+	border-radius: 15px;
+}
+.card .footer.rounded {
+	border-radius: 15px 15px 0 0;
+}
+.card.rounded .footer.rounded {
+	border-radius: 15px;
 }
 /*- Modals and Alerts*/
 .modal, .alert {
@@ -604,7 +644,52 @@ MAIN CONTENT
 .modal .trigger:hover, .alert .trigger:hover {
 	opacity: 1;
 }
-
+/*- Accordians*/
+.accordion-header {
+	margin: 0;
+	padding: 10px 34px;
+	background-color: var(--accordian-header-color);
+	color: var(--accordian-header-text);
+	box-sizing: border-box;
+	transition: 0.8s;
+	display: block;
+	cursor: pointer;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+	position: relative;
+}
+.accordion-header:after {
+	font-size: 1rem;
+  content: "\25BC";
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  text-align: center;
+  text-align: right;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.accordion-header.active:after {
+	transform:rotateX(180deg);
+	top: 2px;
+}
+.accordion {
+	overflow: hidden;
+	transition: 0.8s;
+	max-height: 0;
+	box-sizing: border-box;
+	padding: 0px 34px;
+}
+.accordion.active {
+	padding: 20px 34px;
+	animation: accordion-slide 1s;
+}
+@keyframes accordion-slide {
+	0%{overflow: hidden;}
+	98%{overflow: hidden;}
+	100%{overflow: visible;}
+}
 /*- Buttons*/
 .button {
 	background-color: var(--button-color);
@@ -800,6 +885,12 @@ input.full {
 .text-light {
 	font-weight: 300;
 }
+.text-small {
+	font-size: 75%;
+}
+.text-large {
+	font-size: 150%;
+}
 	/*General Alignment*/
 .flush {
 	padding-left: 0;
@@ -828,6 +919,9 @@ input.full {
 }
 .columns .column + .column, .main > .footer .column + .column {
 	margin-left: 50px;
+}
+* + .columns {
+	margin-top: 10px;
 }
 	/*Utility Columns*/
 .full, .half, .third, .two-thirds, .fourth, .three-fouths {
