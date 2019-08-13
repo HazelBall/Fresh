@@ -1,81 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun:300,400,700,800');
-/*Fresh.css: 1.0.0 Development Version*/
-/*
-	1.0.0 Additions:
-		Pre-1.0.0e19-07-15
-		- Added CSS Variables for advanced customization of almost EVERY single element
-		- Added .disabled class functionality for buttons
-		- Added navigation prioritization with the .nav-priority class
-		- Added Footer-Buttons for cards, to allow more customization
-		- Added .no-display side navigation to compliment .mobile-only navigation for different desktop and mobile menus
-		- Added account elements for side navigations, including avatars and an info box next to/below for web apps
-		- Added flush utility classes for padding on the sides, as well as flush-right and flush-left for one side
-		1.0.0e19-07-15
-		- Added spacer for side navigation, can also have the small or large classes added for different sizing
-		- Added pill shape and rounded corner shape for buttons, default is square
-		1.0.0e19-07-19
-		- No additions this update, however javascript is in place and ready for the addition of modals
-		1.0.0e19-07-20
-		- Added Modals!
-			- Different sizes are available by adding the small or large classes to Modals
-			- Open and close specific modals by using the "data-modal" attribute and the modal's id
-			- Create a modal-specific closing anchor with the "modal-trigger" anchor inside of the modal
-			- CURRENTLY NOT RESPONSIVE: Will work on responsive in the coming few days
-		- Added start of forms, inputs are now somewhat styled (for documentation right now)
-			- Also NOT responsive yet
-		1.0.0e19-07-23
-		- Added font-weight classes
-		- Added icon class for logos in top navigation
-		- Added Active Footer item styling
-		- Added square class to go with universal rounded and pill classes
-		- Added js pre-support of alert, before css implementation
-		1.0.0e19-07-29
-		- Added Alerts!
-			- Designed similarly to modals, as they are basically smaller bottom modals
-			- As with modals, you can use the "trigger" class inside to create a top right button to close them
-			- Alerts have special "warning" class that makes them red, just because this is an common function for them
-		- Added responsive deisgn to modals (all three sizes)
-		1.0.0d1
-		- Changed versioning for development updates, as I used the wrong months for previous updates, and to make it look cleaner (not an addition but still important)
-		- Added Accordions (css and js)
-			- Using accordion-headers, you can create lists of Accordions
-			- Work similar to modals and alerts within javascript
-			- use the data-accordion attribute to link any object with accordion
-			- Accordions are not colored by default, allowing you to use them in different scenarios
-		- Added rounded functionality to cards, pill utilities will not apply, as pill would look weird within cards
-		- Added .text-small and .text-large utility classes for simple text-size modification
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	1.0.0 Changes:
-		Pre-1.0.0e19-07-15
-		- Changed the look of Navigation as a whole to look more sleek and modern
-			- Side Nav has been completely revamped to create a cleaner experience for all display sizes
-			- Dropdowns can now also have disabled items
-		- Changed look of cards to have more rounded feel, as well as card headers and card footers
-		1.0.0e19-07-15
-		- Changed some looks on mobile to perform and look better
-		- Changed some of the design for headers, specifically on mobile
-		1.0.0e19-07-19
-		- Changed some nav element styling
-		- Changing entire javascript file to remove JQuery Dependancies, wanted fresh to load fast and work without JQuery
-		- Changed some of the JavaScript to make modals work when added
-		1.0.0e19-07-20
-		- Changed some javascript for allow clicking outside of Modals to close them
-		1.0.0e19-07-23
-		- Removed the useless header-image class
-		- Changed transition speed for nav items
-		- Changed rounded and pill classes to be utility classes available for all elements
-		1.0.0e19-07-29
-		- Changed headings and paragraphs to have spaces in between so you don't have to use <br> so often
-		- changed javascript to optimize some functions
-		- Changed "modal-trigger" class to "trigger" in order to fit with the "trigger" class for modals
-		1.0.0d1
-		- Changed versioning for development updates, as I used the wrong months for previous updates, and to make it look cleaner
-		- changed the styling and relationship between .icon and .title inside top Navigation
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Hey fresh users! Currently, this is an EXPERIMENTAL version. This is not the final product, Use at your own risk, for things can be removed or broken within a few days. 
-	Thanks for your support!
-	- Hunter
-*/
 /*CSS Reset*/
 * {
 	margin: 0;
@@ -100,10 +23,11 @@
 	*/
 	--nav-color: var(--color-accent);
 	--nav-text: var(--text-accent);
+	--nav-text-hover: var(--text-accent);
 	--button-color: var(--color-accent);
 	--button-text: var(--text-accent);
 	--blockquote-border: var(--color-accent);
-	--blockquote-color: rgba(0,0,0,0.05);
+	--blockquote-color: rgba(50,50,50,.075);
 	--blockquote-text: var(--text-primary);
 	--card-header-color: var(--color-accent);
 	--card-header-text: var(--text-accent);
@@ -111,6 +35,8 @@
 	--card-text: var(--text-primary);
 	--card-footer-color: var(--color-accent);
 	--card-footer-text: var(--text-accent);
+	--form-color: white;
+	--form-text: black;
 	--accordian-header-color: var(--color-accent);
 	--accordian-header-text: var(--text-accent);
 	--modal-color: var(--color-primary);
@@ -128,7 +54,7 @@ html {
 body { 
 	background-color: var(--color-secondary);
 }
-h1, h2, h3, h4, h5, h6, p, a, blockquote, tr, th, td, table, li, input {
+h1, h2, h3, h4, h5, h6, p, a, blockquote, tr, th, td, table, li, input, textarea, button {
 	line-height: 1.25;
 	font-family: 'Sarabun', sans-serif;
 }
@@ -170,6 +96,12 @@ p {
 p + p {
 	margin-top: 20px;
 }
+p img.left {
+	margin-right: 20px;
+}
+p img.right {
+	margin-left: 20px;
+}
 a, tr, td, th, table, li {
 	font-size: 1rem;
 }
@@ -188,7 +120,10 @@ blockquote {
 hr {
 	border-style: inset;
   border-width: 1px;
-  border: 1px solid;
+  border: 1px solid rgba(0,0,0,0.25);
+}
+li {
+	margin-left: 20px;
 }
 /*
 NAVIGATION
@@ -295,6 +230,8 @@ NAVIGATION
 .nav .item:hover, .nav .dropdown:hover .title {
 	background-color: rgba(255,255,255,0.25);
 	opacity: 1;
+	color: var(--nav-text-hover);
+	cursor: pointer;
 }
 .nav .item.active:hover, .nav .item.disabled:hover {
 	background-color: inherit;
@@ -357,8 +294,7 @@ NAVIGATION
 	display: none;
 }
 .nav.side .account {
-	padding: 75px 20px 10px 20px;
-	border-bottom: 1px solid rgba(255,255,255,0.5);
+	padding: 15px 20px;
 }
 .nav.side.dark .account {
 	border-bottom: 1px solid rgba(0,0,0,0.25);
@@ -373,7 +309,7 @@ NAVIGATION
 }
 .nav.side .account .info {
 	width: 150px;
-	padding: 2.5px 10px;
+	padding: 0 10px;
 	margin: 0;
 	box-sizing: border-box;
 }
@@ -453,10 +389,7 @@ NAVIGATION
 	left: 250px;
 	width: 150px;
 }
-/*
-MAIN CONTENT
-  - Different Navigations
-*/
+/*MAIN CONTENT*/
 .main {
 	background-color: var(--color-secondary);
 	color: var(--text-secondary);
@@ -478,8 +411,8 @@ MAIN CONTENT
 	position: sticky;
 	top: 0;
 }
-.main > .splash {
-	padding: 100px 200px;
+.main > .hero {
+	padding: 200px;
 }
 .main > .container {
 	background-color: none;
@@ -502,7 +435,7 @@ MAIN CONTENT
 	color: var(--card-text);
 	position: relative;
 }
-.card .content img {
+.card .content > img:only-child {
 	width: 100%;
 	margin: 0;
 	border-radius: 15px;
@@ -603,7 +536,7 @@ MAIN CONTENT
 	width: calc(100vw - 100px);
 	margin-left: calc(-50vw + 50px);
 }
-.modal.active {
+.modal.activated {
 	opacity: 1;
 	top: 50vh;
 	visibility: visible;
@@ -624,7 +557,7 @@ MAIN CONTENT
 	color: white;
 	font-weight: 700;
 }
-.alert.active {
+.alert.activated {
 	visibility: visible;
 	opacity: 1;
 }
@@ -676,12 +609,12 @@ MAIN CONTENT
 }
 .accordion {
 	overflow: hidden;
-	transition: 0.8s;
+	transition: 0.65s;
 	max-height: 0;
 	box-sizing: border-box;
 	padding: 0px 34px;
 }
-.accordion.active {
+.accordion.activated {
 	padding: 20px 34px;
 	animation: accordion-slide 1s;
 }
@@ -765,19 +698,47 @@ td {
 	font-weight: 300;
 }
 /*- Forms*/
-input {
+input, textarea, select {
+	width: 100%;
 	padding: 5px 10px;
 	margin: 5px 0;
-	border: 1px solid rgba(0,0,0,0.25);
-	border-radius: 10px;
 	font-size: 0.85rem;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  border: 2px solid rgba(0,0,0,0.25);
+  background-color: var(--form-color);
+	color: var(--form-text);
 }
-input:focus {
+textarea {
+  height: 150px;
+  resize: none;
+}
+textarea.small {
+	height: 75px;
+}
+textarea.large {
+	height: 250px;
+}
+button {
+	position: relative;
+	top: 0;
+	transition: 0.25s;
+	background-color: var(--color-accent);
+	color: var(--text-accent);
+	padding: 5px 10px;
+	cursor: pointer;
+	font-size: 1rem;
+}
+button:hover {
+	top: -5px;
+	box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+	cursor: pointer;
+}
+input:focus, textarea:focus, select:focus {
 	outline: none;
+	border: 2px solid var(--color-accent);
 }
-input.full {
-	width: 100%;
+input.half, textarea.half, button.half, select.half {
+	width: 50%;
 	margin-right: 0;
 }
 /*Footers*/
@@ -873,38 +834,24 @@ input.full {
 .text-just {
 	text-align: justify;
 }
-.text-extra-bold {
+.text-weight-800 {
 	font-weight: 800;
 }
-.text-bold {
+.text-weight-700 {
 	font-weight: 700;
 }
-.text-book {
+.text-weight-400 {
 	font-weight: 400;
 }
-.text-light {
+.text-weight-300 {
 	font-weight: 300;
 }
-.text-small {
-	font-size: 75%;
+
+.text-small, .text-small * {
+	font-size: 90%;
 }
-.text-large {
+.text-large, .text-large * {
 	font-size: 150%;
-}
-	/*General Alignment*/
-.flush {
-	padding-left: 0;
-	padding-right: 0;
-	margin-left: 0;
-	margin-right: 0;
-}
-.flush-left {
-	padding-left: 0;
-	margin-left: 0;
-}
-.flush-right {
-	padding-right: 0;
-	margin-right: 0;
 }
 	/*Flex-based Columns and Footer Sizing*/
 .columns, .main > .footer {
@@ -926,90 +873,90 @@ input.full {
 	/*Utility Columns*/
 .full, .half, .third, .two-thirds, .fourth, .three-fouths {
 	box-sizing: border-box;
-	margin-right: 50px;
+	margin-right: 25px;
 }
 .full {
-	width: calc(100% - 50px);
+	width: calc(100% - 25px);
 }
 .half {
-	width: calc(50% - 50px);
+	width: calc(50% - 25px);
 }
 .third {
-	width: calc(calc(100% / 3) - 50px);
+	width: calc(33.33% - 25px);
 }
 .two-thirds {
-	width: calc(66.66% - 50px);
+	width: calc(66.66% - 25px);
 }
 .fourth {
-	width: calc(25% - 50px);
+	width: calc(25% - 25px);
 }
 .three-fourths {
-	width: calc(75% - 50px);
-}
-img.full, img.half, img.third, img.two-thirds, img.fourth, img.three-fourths {
-	margin-right: 0;
-}
-img.half {
-	width: 50%;
-}
-img.third {
-	width: 33.3%;
-}
-img.two-thirds {
-	width: 66.6%;
-}
-img.fourth {
-	width: 25%;
-}
-img.three-fourths {
-	width: 75%;
+	width: calc(75% - 25px);
 }
 	/*Color Utilities*/
-.primary{
+* .primary{
 	background-color: var(--color-primary);
 	color: var(--text-primary);
 }
-.accent {
+* .accent {
 	background-color: var(--color-accent);
 	color: var(--text-accent);
 }
-.secondary {
+* .secondary {
 	background-color: var(--color-secondary);
 	color: var(--text-secondary);
 }
-.text-primary {
+* .text-primary {
 	color: var(--text-primary);
 }
-.text-accent {
+* .text-accent {
 	color: var(--text-accent);
 }
-.text-secondary {
+* .text-secondary {
 	color: var(--text-secondary);
 }
-.inv-primary{
+* .color-primary {
+	color: var(--color-primary);
+}
+* .color-secondary {
+	color: var(--color-secondary);
+}
+* .color-accent {
+	color: var(--color-accent);
+}
+* .inv-primary{
 	color: var(--color-primary);
 	background-color: var(--text-primary);
 }
-.inv-accent {
+* .inv-accent {
 	color: var(--color-accent);
 	background-color: var(--text-accent);
 }
-.inv-secondary {
+* .inv-secondary {
 	color: var(--color-secondary);
 	background-color: var(--text-secondary);
 }
-.color-primary {
+* .text-inv-primary {
 	color: var(--color-primary);
 }
-.color-accent {
+* .text-inv-accent {
 	color: var(--color-accent);
 }
-.color-secondary {
+* .text-inv-secondary {
 	color: var(--color-secondary);
 }
+* .color-inv-primary {
+	color: var(--text-primary);
+}
+* .color-inv-secondary {
+	color: var(--text-secondary);
+}
+* .color-inv-accent {
+	color: var(--text-accent);
+}
 /*Other*/
-img.rounded {
-	border-radius: 9999px;
+.mobile-only {
+	display: none;
 }
 .spacer {
 	height: 50px;
@@ -1028,6 +975,44 @@ img.rounded {
 }
 .pill {
 	border-radius: 9999px;
+}
+.outlined {
+	border: 2px solid rgba(0,0,0,0.25);
+}
+.shadow {
+	position: relative;
+	box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+}
+.z-priority {
+	z-index: 1000;
+}
+img.full-height {
+	height: 100%;
+	width: auto;
+}
+.middle {
+	vertical-align: middle;
+}
+.columns.middle {
+	align-items: center;
+}
+/*General Alignment*/
+*.flush {
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+*.flush-left {
+	padding-left: 0;
+	margin-left: 0;
+}
+*.flush-right {
+	padding-right: 0;
+	margin-right: 0;
+}
+.align-bottom {
+	vertical-align: bottom;
 }
 @media screen and (max-width: 850px) {
 	.no-tablet {
@@ -1111,6 +1096,9 @@ img.rounded {
 	}
 }
 @media screen and (max-width: 700px) {
+	.mobile-only {
+		display: block;
+	}
 	.no-mobile {
 		display: none !important;
 	}
@@ -1198,6 +1186,9 @@ img.rounded {
 	.main > .header {
 		padding: 25px 15px 5px 15px;
 	}
+	.main > .hero {
+		padding: 100px 15px;
+	}
 	.main .container {
 		padding: 15px;
 	}
@@ -1227,14 +1218,18 @@ img.rounded {
 		margin-top: 20px;
 	}
 	.column.card + .column.card {
-		margin-top: 25px;
+		margin-top: 10px;
+	}
+	input, textarea, select {
+		padding: 5px 10px;
+		margin: 5px 0;
 	}
 	.footer {
 		padding: 25px 20px;
 	}
 	.m-full, .m-half, .m-third, .m-two-thirds, .m-fourth, .m-three-fourths {
-		margin-top: 15px;
-		margin-bottom: 15px;
+		margin-top: 5px;
+		margin-bottom: 0;
 	}
 	.m-full {
 		margin-left: 0;
