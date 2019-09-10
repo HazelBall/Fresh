@@ -2,47 +2,28 @@ FRESH.CSS CHANGELOG
 
 This is the full changelog for fresh.css, from version 0.1.0 onwards. This is how to find officially everything that has changed (although sometimes vague).
 
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version 1.0.0d2
+Version 1.0.1
+
+Description:
+	Changed some changelog stuff, added minified JS and CSS files.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Version 1.0.0
 
 Description
-	This update was solely based on forms, utility classes, the changelog, and javascript effeciency
+	The First official version of Fresh.css!!! So many new additions, changes, and optimizations! Keep reading to see what's been changed!
 ~~~~~
 Additions
-	- Added changelog.txt to simplify the css file
+	- CSS Variables for advanced customization of nearly all elements
 	- Form styling
 		- inputs (excluding radio and checkbox)
 		- textareas
 		- selects
 		- buttons
-	- New color classes
-		- .color-primary, .color-secondary, and .color-accent
-		- .color-inv-primary, .color-inv-secondary, and .color-inv-accent
-	- Added new outlined, shadow, and z-priority utility classes
-	- .middle class for vertical alignment
-~~~~~
-Removals
-	- removed img.rounded as .rounded is already functioning
-	- Removed console logs in JavaScript
-~~~~~
-Changes
-	- Changed javascript to allow custom tetherable elements for users, so they don't need their own JavaScript for simple elements that toggle between active and inactive
-	- Changed the transition time for accordions
-	- Text-small and text-large now work for all elements under those classified elements
-	- original .color-accent, etc. changed to .text-inv-accent, etc. to impose less confusion
-	- Changed color of blockquote slightly
-	- Changed stylings of account and info
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Version 1.0.0d1
-
-Description
-	This update encompasses many developmental versions. They were all labelled wrong, and so I moved them all underneath this, simplifying the development versioning as well.
-~~~~~
-Additions
-	- CSS Variables for advanced customization of nearly all elements
 	- .disabled class functionality for buttons
 	- navigation prioritization with the .nav-priority class
 	- Footer Buttons for cards, to allow more customization
@@ -56,6 +37,10 @@ Additions
 		- Small and Large classes for size modification
 		- Font weight and size modification classes
 		- flush, flush-left, and flush-right classes for side padding
+			- New color classes
+				- .color-primary, .color-secondary, and .color-accent
+				- .color-inv-primary, .color-inv-secondary, and .color-inv-accent
+			- Added new outlined, shadow, and z-priority classes
 	- Tetherable elements
 		- Tetherable elements are elements that can be interacted with using other elements, 'tethered' to them.
 		- Modals
@@ -72,16 +57,19 @@ Additions
 			- Work similar to modals and alerts within javascript
 			- use the data-accordion attribute to link any object with accordion
 			- Accordions are not colored by default, allowing you to use them in different scenarios
-	- introduction of form design, inputs are now somewhat styled (for documentation)
-		- Also NOT responsive yet
+		- Custom Tethers
+			- Want to easily create your own tetherable? Well it's easy. Just create a tether with a custom ID and 
 	- icon class for logos in top navigation
 	- Active Footer item styling
 ~~~~~
 Removals
+	- removed img.rounded as .rounded is already functioning
 	- Removed JQuery dependancies within JavaScript file, Fresh.CSS now runs solely on JavaScript!
 	- Removed the useless header-image class (not sure when this class was added but it was only for documentation and unnecessary)
 ~~~~~
 Changes
+	- original .color-accent, etc. changed to .text-inv-accent, etc. to impose less confusion
+	- Changed color of blockquote slightly
 	- Changed the look of Navigation as a whole to look more sleek and modern
 		- Navigation design has been completely revamped to create a cleaner experience for all display sizes
 		- Dropdowns can now also have disabled items
