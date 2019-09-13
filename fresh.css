@@ -435,9 +435,14 @@ NAVIGATION
 	color: var(--card-text);
 	position: relative;
 }
-.card .content > img:only-child {
+.card img.content {
+	padding: 0;
+	margin: 0;
 	width: 100%;
 	margin: 0;
+	display: block;
+}
+.card.rounded img.content {
 	border-radius: 15px;
 }
 .card .footer {
@@ -447,14 +452,15 @@ NAVIGATION
 	width: 100%;
 	box-sizing: border-box;
 }
-.card .footer.button {
-	border-radius: 15px;
+.card .header.small, .card .footer.small {
+	padding: 5px 10px;
+}
+.card a.footer {
 	margin: 0;
 	padding: 5px 20px;
-	top: 5px;
-}
-.card .footer.button:hover {
-	top: 0;
+	width: 100%;
+	cursor: pointer;
+	display: block;
 }
 .card.clickable {
 	transition: 0.25s;
