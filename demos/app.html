@@ -1,0 +1,112 @@
+<html>
+	<head>
+		<title>fresh.css Web App Demo</title>
+		<meta name = "description" content = "Fresh.css is a CSS and JavaScript framework designed for lightweight web apps and small web projects.">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel = "stylesheet" type = "text/css" href = "https://cdn.jsdelivr.net/gh/HunterBall/fresh@1.0.1/fresh.min.css">
+		<!--<link rel = "stylesheet" type = "text/css" href = "../fresh.css">-->
+		<link rel = "icon" type = "image/png" href = "../images/freshLogoNew.png">
+		<style>
+			:root {
+				--color-accent: #34495e;
+				--text-accent: #ffffff;
+				--text-primary: #2c3e50;
+				--form-text: #2c3e50;
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "nav mobile">
+			<a class = "nav-trigger">&#9776;</a>
+			<a class = "title">Fresh.css Demo</a>
+		</div>
+		<div class = "nav top dark primary flush nav-priority" style = "--nav-text-hover: black;">
+			<a class = "title">WebApp.io</a>
+			<div class = "right">
+				<a class = "item" href = "#">Help</a>
+				<a class = "item" href = "#">Contact</a>
+			</div>
+		</div>
+		<div class = "nav side nav-top">
+			<div class = "spacer"></div>
+			<div class = "account">
+				<img class = "avatar primary left outlined" src = "../images/profile.png">
+				<div class = "info left">
+					<p>Jane Doe</p>
+					<a class = "item">log out</a>
+				</div>
+				<div class = "clear"></div>
+			</div><hr>
+			<a class = "item active">Dashboard</a>
+			<a class = "item">Messages</a>
+			<a class = "item">Emails</a>
+			<a class = "item">Business Stuff</a>
+			<a class = "item">Web App Stuff</a>
+		</div>
+		<div class = "main nav-side nav-top">
+			<div class = "container">
+				<h1 class = "left">Dashboard</h1>
+				<hr class = "mobile-only clear">
+			  <select class = "third m-full flush-right right" style = "margin-top: 25px;" name="length">
+			  	<option value="td">Today</option>
+			  	<option value="tw" selected>This Week</option>
+			  	<option value="tm">This Month</option>
+			  </select>
+			  <div class = "clear"><hr class = "no-mobile"><br class = "no-mobile"></div>
+				<div class = "columns">
+					<div class = "column card outlined">
+						<div class = "content">
+							<h3 class = "text-inv-accent">253</h3>
+							<p>Total Orders Delivered</p>
+						</div>
+					</div>
+					<div class = "column card outlined">
+						<div class = "content">
+							<h3 class = "text-inv-accent">1240</h3>
+							<p>Total Store Pageviews</p>
+						</div>
+					</div>
+					<div class = "column card outlined">
+						<div class = "content">
+							<h3 class = "text-inv-accent">$1560</h3>
+							<p>Profits</p>
+						</div>
+					</div>
+				</div>
+				<div class = "columns">
+					<div class = "card column outlined">
+						<div class = "header outlined shadow">
+							<h4>Recent Messages</h4>
+						</div>
+						<div class = "content text-small">
+							<p> <img class = "left pill outlined" style = "width: 38px;" src = "../images/profile.png"><strong>John Doe</strong><br>I have the meeting footnotes ready to send out to the CFO.</p>
+							<p><img class = "left pill outlined" style = "width: 38px;" src = "../images/profile.png"><strong>Amy Smith</strong><br>Can you send over those revenue reports from last quarter?</p>
+							<p><img class = "left pill outlined" style = "width: 38px;" src = "../images/profile.png"><strong>Darren McDonald</strong><br>These are the most generic names ever. Imagine working with these people.</p>
+						</div>
+					</div>
+					<div class = "column primary outlined card">
+						<div class = "header">
+							<h3>Balance</h3>
+						</div>
+						<div class = "content">
+							<img src = "../images/graph.png">
+						</div>
+					</div>
+				</div>
+				<div class = "card">
+					<div class = "content">
+						<h3>Next Steps</h3>
+						<ul>
+							<li>Add fresh.css to your site</li>
+							<li>Customize to your liking</li>
+							<li>Create an amazing looking website easily</li>
+							<li><strong>You're Done!</strong></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src = "https://cdn.jsdelivr.net/gh/HunterBall/fresh@1.0.1/fresh.min.js"></script>
+		<!--<script src = "../fresh.js"></script>-->
+	</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Fresh&#8482; Web App Demo</title>
+		<meta name = "description" content = "Fresh&#8482; is a CSS and JavaScript framework designed for lightweight web apps and small web projects.">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel = "stylesheet" type = "text/css" href = "https://cdn.jsdelivr.net/gh/HunterBall/fresh@1.0.1/fresh.min.css">
+		<!--<link rel = "stylesheet" type = "text/css" href = "../Fresh">-->
+		<link rel = "icon" type = "image/png" href = "../images/freshLogoNew.png">
+		<style>
+			:root {
+				--nav-text-hover: #a0a0a0;
+				--color-accent: #000000;
+				--text-accent: #f0f0f0;
+			}
+			h1, h2 {
+				text-shadow: 2px 3px 5px rgba(0,0,0,0.25);
+			}
+			.banner {
+				background-color: rgba(0,0,0,0.5);
+				background-image: url("../images/banner.png");
+				background-size: cover;
+				background-blend-mode: overlay;
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "nav top dark">
+			<img class = "icon" src = "../images/fresh-icon.png">
+			<a class = "title">Fresh</a>
+				<a class = "item">Phones</a>
+				<a class = "item">Laptops</a>
+				<a class = "item">Desktops</a>
+				<a class = "item">Accesories</a>
+				<a class = "item">Support</a>
+		</div>
+		<div class = "nav mobile">
+			<a class = "nav-trigger">&#9776;</a>
+			<a class = "title">Fresh</a>
+		</div>
+		<div class = "nav side mobile-only">
+			<a class = "item">Phones</a>
+			<a class = "item">Laptops</a>
+			<a class = "item">Desktops</a>
+			<a class = "item">Accesories</a>
+			<a class = "item">Support</a>
+		</div>
+		<div class = "main nav-top">
+			<div class = "hero primary shadow">
+				<h1 class = "text-center text-weight-400">The Next Generation</h1>
+				<p class = "text-center text-large">The most advanced phones, computers, and more</p>
+			</div>
+			<div class = "container">
+				<img class = "no-mobile half right" src = "../images/freshPhone.png" style = "margin-top: -100px; z-index: 10; position: relative">
+				<img class = "mobile-only half" style = "margin-left: 25%; margin-top: -75px; position: relative; z-index:10" src = "../images/freshPhoneThin.png">
+				<div class = "m-full third right">
+					<h2><span class = "text-weight-400">The New</span> fPhoneX2</h2>
+					<p class = "text-large">Lightweight, powerful, and coded on a website using Fresh. This phone may be fake, but if It wasn't, you'd be buying it right now.</p><br>
+					<ul>
+						<li>Clapdemon 700 processor</li>
+						<li>12mp Rear Camera</li>
+						<li>2gb RAM</li>
+						<li>Runs fOS 9.6</li>
+					</ul>
+					<a class = "button small rounded">Get it Now</a>
+					<a class = "button small rounded">Options and Specs</a>
+				</div>
+				<div class = "clear spacer"></div>
+			</div>
+			<div class = "container banner">
+				<div class = "spacer "></div>
+				<div class = "half m-full text-accent m-full">
+						<h2>A Modern Framework</h2><hr style = "border-color: white;"><br>
+						<div class = "three-fourths m-full text-right">
+							<p>If you use Fresh, you'll see how easy it is to create something like this. Almost no custom CSS was used to create this, which is pretty awsome if you ask me.</p>
+							<a class = "button small primary rounded" style = "margin-right: 0">Fresh Docs</a>
+						</div>
+				</div>
+				<div class = "spacer "></div>
+			</div>
+			<div class = "footer">
+				<div class = "column">
+					<h1>Fresh</h1>
+					<a class = "item" href = "../index.html">Home</a>
+					<a class = "item" href = "index.html">Demos</a>
+					<a class = "item" href = "https://github.com/hunterball/fresh">Github</a>
+					<a class = "item">Other link</a>
+				</div>
+				<div class = "column">
+					<h3>Company Links</h3>
+					<a class = "item">Home</a>
+					<a class = "item">Products</a>
+					<a class = "item">About</a>
+					<a class = "item">Contact</a>
+				</div>
+				<div class = "column no-mobile">
+					<h3>Careers</h3>
+					<a class = "item">Careers Home</a>
+					<a class = "item">Job Opportunities</a>
+					<a class = "item">Our Team</a>
+					<a class = "item">Careers Contact</a>
+				</div>
+			</div>
+			<div class = "modal" id = "modalLeave">
+				<div class = "half left">
+					<h1>Tech Newsletter!</h1>
+					<div class = "spacer small"></div>
+					<p>Did you know making these using Fresh is easy? Just create a tetherable object, add some JavaScript or JQuery, and you're done!</p>
+					<div class = "spacer small"></div>
+					<input type = "text" class = "rounded" placeholder = "fake email here">
+					<button class = "rounded" type = "submit" data-tether = "modalLeave">Submit!</button>
+					<button class = "rounded" style = "background-color: #d21a06" data-tether = "modalLeave">No thanks</button>
+				</div>
+				<img class = "full-height left no-mobile" src = "../images/freshPhoneThin.png">
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src = "https://cdn.jsdelivr.net/gh/HunterBall/fresh@1.0.1/fresh.min.js"></script>
+		<!--<script src = "../fresh.js"></script>-->
+		<script>
+			var mouseX = 0;
+			var mouseY = 0;
+			var popupCounter = 0;
+			
+			document.addEventListener("mousemove", function(e) {
+			    mouseX = e.clientX;
+			    mouseY = e.clientY;
+			});
+			
+			$(document).mouseleave(function () {
+			    if (mouseY < 100) {
+			        if (popupCounter < 1) {
+			            document.getElementById("modalLeave").classList.add("activated");
+			        }
+			        popupCounter ++;
+			    }
+			});
+		</script>
+	</body>
+</html>
