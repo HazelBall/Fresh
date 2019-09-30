@@ -8,14 +8,14 @@ This is the full changelog for fresh.css, from version 0.1.0 onwards. This is ho
 Version 1.0.2
 
 Description:
-	Fixed Card Images and Footer buttons.
+	Fixed Card Images and Footer buttons
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Version 1.0.1
 
 Description:
-	Changed some changelog stuff, added minified JS and CSS files.
+	Changed some changelog stuff, added minified JS and CSS files
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
