@@ -7,43 +7,51 @@
 }
 /*Customizable Root Variables*/
 :root {
-	/*
-	MAIN VARIABLES
-	Used to control the default colors for everything.
-	*/
+/*Basic Customization*/
 	--color-primary: #ffffff;
 	--text-primary: #000000;
 	--color-secondary: #f0f0f0;
 	--text-secondary: #404040;
 	--color-accent: #FEAC24;
 	--text-accent: #ffffff;
-	/*
-	ADVANCED CUSTOMIZATION
-	For those who want to customize the overall experience of Fresh. Will be added later
-	*/
+	
+/*Advanced Customization*/
 	--nav-color: var(--color-accent);
 	--nav-text: var(--text-accent);
 	--nav-text-hover: var(--text-accent);
+	
 	--button-color: var(--color-accent);
 	--button-text: var(--text-accent);
+	
 	--blockquote-border: var(--color-accent);
 	--blockquote-color: rgba(50,50,50,.075);
 	--blockquote-text: var(--text-primary);
+	
+	--code-border: var(--color-accent);
+	--code-color: rgba(50,50,50,.075);
+	--code-text: var(--text-primary);
+	
 	--card-header-color: var(--color-accent);
 	--card-header-text: var(--text-accent);
 	--card-color: var(--color-primary);
 	--card-text: var(--text-primary);
 	--card-footer-color: var(--color-accent);
 	--card-footer-text: var(--text-accent);
+	
 	--form-color: white;
 	--form-text: black;
+	
 	--accordian-header-color: var(--color-accent);
 	--accordian-header-text: var(--text-accent);
+	
 	--modal-color: var(--color-primary);
 	--modal-text: var(--text-primary);
+	
 	--alert-color: var(--color-primary);
 	--alert-text: var(--text-primary);
+	
 	--table-text: var(--text-secondary);
+	
 	--footer-color: var(--color-primary);
 	--footer-text: var(--text-primary);
 }
@@ -106,16 +114,29 @@ a, tr, td, th, table, li {
 	font-size: 1rem;
 }
 blockquote {
-	font-family: monospace;
 	padding: 5px 10px;
 	margin: 15px 0;
 	border-left: 4px solid var(--blockquote-border);
-	font-size: 0.9rem;
+	font-size: 1rem;
+	font-style: italic;
 	width: 100%;
 	box-sizing: border-box;
 	overflow-wrap: break-word;
 	background-color: var(--blockquote-color);
 	color: var(--blockquote-text);
+}
+code {
+	display: block;
+	font-family: monospace;
+	padding: 5px 10px;
+	margin: 15px 0;
+	border-left: 4px solid var(--code-border);
+	font-size: 0.8rem;
+	width: 100%;
+	box-sizing: border-box;
+	overflow-wrap: break-word;
+	background-color: var(--code-color);
+	color: var(--code-text);
 }
 hr {
 	border-style: inset;
@@ -517,12 +538,11 @@ NAVIGATION
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 }
 .modal {
-	top: 80vh;
-	left: 50vw;
-	height: 500px;
-	width: 800px;
-	margin-left: -400px;
-	margin-top: -250px;
+  left: 50vw;
+  top: 75vh;
+  transform: translate(-50%, -50%);
+	max-height: 75vh;
+	width: 650px;
 	background-color: var(--modal-color);
 	color: var(--modal-text);
 	z-index: 10000;
@@ -530,22 +550,20 @@ NAVIGATION
 	padding: 25px 50px;
 }
 .modal.small {
-	height: 250px;
+	max-height: 60vh;
 	width: 500px;
-	margin-left: -250px;
-	margin-top: -125px;
 	padding: 20px 40px;
 }
 .modal.large {
-	height: calc(100vh - 150px);
-	margin-top: calc(-50vh + 75px);
-	width: calc(100vw - 100px);
-	margin-left: calc(-50vw + 50px);
+	max-height: 85vh;
+	width: 800px;
+}
+.modal.full {
+	height: calc(100vh - 50px);
+	width: calc(100vw - 25px);
 }
 .modal.activated {
-	opacity: 1;
 	top: 50vh;
-	visibility: visible;
 }
 .alert {
 	bottom: 0;
@@ -563,7 +581,7 @@ NAVIGATION
 	color: white;
 	font-weight: 700;
 }
-.alert.activated {
+.alert.activated, .modal.activated {
 	visibility: visible;
 	opacity: 1;
 }
@@ -827,6 +845,11 @@ input.half, textarea.half, button.half, select.half {
 .clear {
 	clear: both;
 }
+.clear::after {
+	content: "";
+  clear: both;
+  display: table;
+}
 	/*Text Adjustments*/
 .text-right {
 	text-align: right;
@@ -1079,26 +1102,30 @@ img.full-height {
 		width: 100%;
 		background-color: rgba(0,0,0,0.05);
 		box-sizing: border-box;
+		font-size: 1rem;
+	}
+	code {
+		width: 100%;
+		background-color: rgba(0,0,0,0.05);
+		box-sizing: border-box;
 		font-size: 0.8rem;
 	}
 	.modal {
-		height: calc(100vh - 200px);
-		margin-top: calc(-50vh + 100px);
+		max-height: calc(100vh - 200px);
 		width: calc(100vw - 50px);
-		margin-left: calc(-50vw + 25px);
 		padding: 25px 15px;
 	}
 	.modal.large {
-		height: calc(100vh - 50px);
-		margin-top: calc(-50vh + 25px);
-		width: calc(100vw - 40px);
-		margin-left: calc(-50vw + 20px);
+		max-height: calc(100vh - 100px);
+		width: calc(100vw - 50px);
 	}
 	.modal.small {
-		height: calc(100vh - 400px);
-		margin-top: calc(-50vh + 200px);
+		max-height: calc(100vh - 400px);
 		width: calc(100vw - 50px);
-		margin-left: calc(-50vw + 25px);
+	}
+	.modal.full {
+		max-height: calc(100vh - 50px);
+		width: calc(100vw - 50px);
 	}
 }
 @media screen and (max-width: 700px) {
