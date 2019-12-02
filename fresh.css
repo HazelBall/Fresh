@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Sarabun:300,400,700,800');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
 /*CSS Reset*/
 * {
 	margin: 0;
@@ -10,12 +10,16 @@
 /*Basic Customization*/
 	--color-primary: #ffffff;
 	--text-primary: #000000;
-	--color-secondary: #f0f0f0;
-	--text-secondary: #404040;
+	--color-secondary: #43d859;
+	--text-secondary: white;
 	--color-accent: #FEAC24;
 	--text-accent: #ffffff;
 	
 /*Advanced Customization*/
+	--text-basis: 16px;
+	--max-width: 1000px;
+	--w-padding: calc(calc(100vw - var(--max-width)) / 2);
+
 	--nav-color: var(--color-accent);
 	--nav-text: var(--text-accent);
 	--nav-text-hover: var(--text-accent);
@@ -50,52 +54,52 @@
 	--alert-color: var(--color-primary);
 	--alert-text: var(--text-primary);
 	
-	--table-text: var(--text-secondary);
+	--table-text: var(--text-primary);
 	
 	--footer-color: var(--color-primary);
 	--footer-text: var(--text-primary);
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #202020;
+    --text-primary: #c0c0c0;
+  }
+}
 /*BASIC ELEMENTS*/
 html {
-	font-size: 18px;
+	font-size: var(--text-basis);
 }
 body { 
-	background-color: var(--color-secondary);
+	background-color: var(--color-primary);
 }
 h1, h2, h3, h4, h5, h6, p, a, blockquote, tr, th, td, table, li, input, textarea, button {
-	line-height: 1.25;
-	font-family: 'Sarabun', sans-serif;
+	line-height: 1.5;
+	font-family: 'Lato', sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
-	margin-top: 20px;
+	margin-top: 10px;
+	font-weight: 400;
 }
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
 	margin-top: 0;
 }
 h1 {
-	font-size: 3rem;
-	font-weight: 700;
+	font-size: 3rem
 }
 h2 {
-	font-size: 2.5rem;
-	font-weight: 700;
+	font-size: 2.25rem
 }
 h3 {
-	font-size: 2.25rem;
-	font-weight: 400;
+	font-size: 1.75rem
 }	
-h4 {
-	font-size: 1.65rem;
-	font-weight: 400;
+h4  {
+	font-size: 1.575rem
 }
 h5 {
-	font-size: 1.25rem;
-	font-weight: 400;
+	font-size: 1.35rem
 }
 h6 {
-	font-size: 1.05rem;
-	font-weight: 400;
-	font-style: italic;
+	font-size: 1.25rem
 }
 p {
 	font-size: 1rem;
@@ -113,28 +117,28 @@ p img.right {
 a, tr, td, th, table, li {
 	font-size: 1rem;
 }
-blockquote {
+blockquote, code {
 	padding: 5px 10px;
 	margin: 15px 0;
+	display: block;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+blockquote:first-child, code:first-child {
+	margin-top: 0;
+}
+blockquote {
 	border-left: 4px solid var(--blockquote-border);
 	font-size: 1rem;
 	font-style: italic;
-	width: 100%;
-	box-sizing: border-box;
-	overflow-wrap: break-word;
 	background-color: var(--blockquote-color);
 	color: var(--blockquote-text);
 }
 code {
-	display: block;
 	font-family: monospace;
-	padding: 5px 10px;
-	margin: 15px 0;
 	border-left: 4px solid var(--code-border);
 	font-size: 0.8rem;
-	width: 100%;
-	box-sizing: border-box;
-	overflow-wrap: break-word;
+	overflow: scroll;
 	background-color: var(--code-color);
 	color: var(--code-text);
 }
@@ -167,7 +171,7 @@ NAVIGATION
 }
 .nav.top, .nav.sticky {
 	top: 0;
-	padding: 0 80px;
+	padding: 0 var(--w-padding);
 	overflow-x: visible;
 }
 .nav.top {
@@ -176,6 +180,12 @@ NAVIGATION
 }
 .nav.sticky {
 	position: sticky;
+}
+.nav.flush-left {
+	padding-left: 0;
+}
+.nav.flush-right {
+	padding-right: 0;
 }
 .nav .item, .nav .title, .nav .nav-trigger, .nav a {
 	color: inherit;
@@ -266,7 +276,7 @@ NAVIGATION
 	position: fixed;
 	top: 0;
 	left: 0;
-	overflow-y: visible;
+	overflow-y: scroll;
 	overflow-x: visible;
 }
 .nav.side.nav-top {
@@ -412,38 +422,40 @@ NAVIGATION
 }
 /*MAIN CONTENT*/
 .main {
-	background-color: var(--color-secondary);
-	color: var(--text-secondary);
+	background-color: none;
+	color: var(--text-primary);
 }
 .main.nav-side {
 	margin-left: 250px;
 }
 .main.nav-top {
-	margin-top: 50px;
+	margin-top: calc(var(--text-basis) + 32px);
 }
 /*- Content Containers*/
 .main > .header {
 	margin: 0;
-	padding: 75px 100px 10px 100px;
+	padding: 75px calc(var(--w-padding) + 20px) 10px calc(var(--w-padding) + 20px);
 	position: relative;
 	box-sizing: border-box;
 }
-.main > .header.sticky {
-	position: sticky;
-	top: 0;
-}
 .main > .hero {
-	padding: 200px;
+	padding: 150px calc(var(--w-padding) + 20px);
+	background-position: 50% 50%;
+	background-size: cover;
 }
 .main > .container {
 	background-color: none;
-	padding: 25px 100px;
+	padding: 25px calc(var(--w-padding) + 20px);
+}
+.main.nav-side > .header, .main.nav-side > .hero, .main.nav-side > .container {
+	padding-left: 10vw;
 }
 /*- Cards*/
 .card {
 	background-color: var(--card-color);
 	color: var(--card-text);
 	margin-bottom: 20px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 }
 .card .header {
 	padding: 15px 20px 5px 20px;
@@ -466,6 +478,14 @@ NAVIGATION
 .card.rounded img.content {
 	border-radius: 15px;
 }
+.card.rounded .header + .content {
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+}
+.card.rounded .content:has(+ .footer) {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
 .card .footer {
 	padding: 5px 20px;
 	background-color: var(--card-footer-color);
@@ -482,6 +502,10 @@ NAVIGATION
 	width: 100%;
 	cursor: pointer;
 	display: block;
+}
+.card.secondary .header, .card .header.secondary, .card.secondary .footer, .card .footer.secondary {
+	background-color: var(--color-secondary);
+	color: var(--text-secondary);
 }
 .card.clickable {
 	transition: 0.25s;
@@ -693,6 +717,15 @@ NAVIGATION
 	box-shadow: none;
 	cursor: default;
 }
+.button.flush {
+	margin: 0;
+}
+.button.flush-right {
+	margin-right: 0;
+}
+.button.flush-left {
+	margin-left: 0;
+}
 @keyframes button-click {
 	0% {filter: brightness(100%);}
 	50% {filter: brightness(120%);}
@@ -769,14 +802,16 @@ input.half, textarea.half, button.half, select.half {
 .main > .footer {
 	background-color: var(--footer-color);
 	color: var(--footer-text);
-	padding: 50px 100px;
+	padding: 50px var(--w-padding);
 	box-sizing: border-box;
 	width: 100%;
 	box-shadow: 0 -1px 5px 0 rgba(0,0,0,0.15);
 }
-.main > .footer h1, .main > .footer h2, .main > .footer h3 {
+.main > .footer h1, .main > .footer h2, .main > .footer h3, .main > .footer h4, .main > .footer h5, .main > .footer h6 {
 	line-height: 1;
 	padding: 0;
+}
+.main > .footer h1, .main > .footer h2, .main > .footer h3 {
 	font-weight: 700;
 }
 .main > .footer h1 {
@@ -796,13 +831,11 @@ input.half, textarea.half, button.half, select.half {
 	font-weight: 400;
 	font-style: italic;
 	margin-top: 0.75rem;
-	padding: 0;
-	line-height: 1;
 }
 .main > .footer .item {
 	display: block;
 	color: var(--footer-text);
-	opacity: 0.6;
+	opacity: 0.75;
 	text-decoration: none;
 	margin: 5px 0;
 	padding: 0;
@@ -863,6 +896,9 @@ input.half, textarea.half, button.half, select.half {
 .text-just {
 	text-align: justify;
 }
+.text-compact {
+	line-height: 1.15;
+}
 .text-weight-800 {
 	font-weight: 800;
 }
@@ -892,6 +928,13 @@ input.half, textarea.half, button.half, select.half {
 }
 .columns .column, .main > .footer .column {
 	flex: 1 1 0;
+	min-width: 0;
+}
+.columns .column.double, .main > .footer .column.double {
+	flex: 2 1 0;
+}
+.columns .column.triple, .main > .footer .column.triple {
+	flex: 2 1 0;
 }
 .columns .column + .column, .main > .footer .column + .column {
 	margin-left: 50px;
@@ -923,67 +966,70 @@ input.half, textarea.half, button.half, select.half {
 	width: calc(75% - 25px);
 }
 	/*Color Utilities*/
-* .primary{
+*.primary{
 	background-color: var(--color-primary);
 	color: var(--text-primary);
 }
-* .accent {
+*.accent {
 	background-color: var(--color-accent);
 	color: var(--text-accent);
 }
-* .secondary {
+*.secondary {
 	background-color: var(--color-secondary);
 	color: var(--text-secondary);
 }
-* .text-primary {
+*.text-primary {
 	color: var(--text-primary);
 }
-* .text-accent {
+*.text-accent {
 	color: var(--text-accent);
 }
-* .text-secondary {
+*.text-secondary {
 	color: var(--text-secondary);
 }
-* .color-primary {
+*.color-primary {
 	color: var(--color-primary);
 }
-* .color-secondary {
+*.color-secondary {
 	color: var(--color-secondary);
 }
-* .color-accent {
+*.color-accent {
 	color: var(--color-accent);
 }
-* .inv-primary{
+*.inv-primary{
 	color: var(--color-primary);
 	background-color: var(--text-primary);
 }
-* .inv-accent {
+*.inv-accent {
 	color: var(--color-accent);
 	background-color: var(--text-accent);
 }
-* .inv-secondary {
+*.inv-secondary {
 	color: var(--color-secondary);
 	background-color: var(--text-secondary);
 }
-* .text-inv-primary {
+*.text-inv-primary {
 	color: var(--color-primary);
 }
-* .text-inv-accent {
+*.text-inv-accent {
 	color: var(--color-accent);
 }
-* .text-inv-secondary {
+*.text-inv-secondary {
 	color: var(--color-secondary);
 }
-* .color-inv-primary {
+*.color-inv-primary {
 	color: var(--text-primary);
 }
-* .color-inv-secondary {
+*.color-inv-secondary {
 	color: var(--text-secondary);
 }
-* .color-inv-accent {
+*.color-inv-accent {
 	color: var(--text-accent);
 }
 /*Other*/
+.no-wrap {
+	white-space: nowrap;
+}
 .mobile-only {
 	display: none;
 }
@@ -1027,23 +1073,37 @@ img.full-height {
 }
 /*General Alignment*/
 *.flush {
-	padding-left: 0;
-	padding-right: 0;
 	margin-left: 0;
 	margin-right: 0;
 }
 *.flush-left {
-	padding-left: 0;
 	margin-left: 0;
 }
 *.flush-right {
-	padding-right: 0;
 	margin-right: 0;
 }
 .align-bottom {
 	vertical-align: bottom;
 }
 @media screen and (max-width: 850px) {
+	h1 {
+		font-size: 2.5rem;
+	}
+	h2 {
+		font-size: 2rem;
+	}
+	h3 {
+		font-size: 1.625rem;
+	}
+	h4 {
+		font-size: 1.5;
+	}
+	h5 {
+		font-size: 1.375;
+	}
+	h6 {
+		font-size: 1.25;
+	}
 	.no-tablet {
 		display: none;
 	}
@@ -1108,7 +1168,7 @@ img.full-height {
 		width: 100%;
 		background-color: rgba(0,0,0,0.05);
 		box-sizing: border-box;
-		font-size: 0.8rem;
+		font-size: 0.85rem;
 	}
 	.modal {
 		max-height: calc(100vh - 200px);
@@ -1136,13 +1196,22 @@ img.full-height {
 		display: none !important;
 	}
 	h1 {
-		font-size: 2.5rem;
+		font-size: 2rem;
 	}
 	h2 {
-		font-size: 2.1rem;
+		font-size: 1.625rem;
 	}
 	h3 {
-		font-size: 1.8rem;
+		font-size: 1.475rem;
+	}
+	h4 {
+		font-size: 1.35rem;
+	}
+	h5 {
+		font-size: 1.25rem;
+	}
+	h6 {
+		font-size: 1.125rem;
 	}
 	.nav.mobile {
 		display: block;
@@ -1245,7 +1314,7 @@ img.full-height {
 	}
 	.columns .column + .column, .main > .footer .column + .column {
 		margin: 0;
-		margin-top: 10px;
+		margin-top: 20px;
 	}
 	.main > .footer .column + .column {
 		margin-top: 20px;
