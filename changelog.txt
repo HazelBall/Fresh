@@ -2,6 +2,40 @@ FRESH.CSS CHANGELOG
 
 This is the full changelog for fresh.css, from version 0.1.0 onwards. This is how to find officially everything that has changed (although sometimes vague).
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Version 1.1.0
+
+Description:
+	General Improvements on design of elements. New font used and some new classes to help you make awesome sites. New documentation will be released soon to reflect the changes so far and offer more guidance with examples of code.
+~~~~
+Additions:
+	- .full class for modals, automatically takes up most of the screen
+	- New <code> styling to replace the blockquote element's current function!
+	- .double and .triple classes for flex columns
+	- New Utility classes
+		- .no-wrap for non-wrapping code, etc.
+		- .text-compact for more compact line heights
+	- New CSS variables:
+		- --max-width variable for customizing how wide content can be on screen
+		- --text-basis variable for changing the base text-size
+~~~~
+Removals
+	- Removed the .header.sticky styling. This was never documented and was likely left from an older version that never changed.
+~~~~
+Changes:
+	- Changed Modal heights and widths to reflect the screens they are on and still automatically center
+	- <blockquote> tag has new styling from <code> addition
+	- the .clear class (for both left and right) now also acts as a clearfix for the floated elements. Use with the parent container or the last element
+	- Changed .hero padding to reflect header and container padding
+	- The secondary color has become a secondary accent instead of a secondary background color, and some elements were fixed to reflect this change
+	- Flush utilities no longer affect padding
+	- Fixed widths, margins, and paddings of many items to reflect new max width stylings
+	- Fixed styling with cards and utility classes
+	- Default text size changed from 18px to 16px
+	- Changed line heights
+	- Changed the font from Sarabun to Lato
+	- Other small bug fixes and changes
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
