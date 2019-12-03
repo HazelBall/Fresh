@@ -19,6 +19,7 @@ Additions:
 	- New CSS variables:
 		- --max-width variable for customizing how wide content can be on screen
 		- --text-basis variable for changing the base text-size
+	- Native Dark Mode with prefers-color-scheme in code
 ~~~~
 Removals
 	- Removed the .header.sticky styling. This was never documented and was likely left from an older version that never changed.
@@ -36,6 +37,7 @@ Changes:
 	- Changed line heights
 	- Changed the font from Sarabun to Lato
 	- Other small bug fixes and changes
+	- Finally fixed bugs with accordions and quick clicks
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
