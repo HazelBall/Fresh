@@ -661,15 +661,10 @@ NAVIGATION
 	max-height: 0;
 	box-sizing: border-box;
 	padding: 0px 34px;
+	transition: 1s;
 }
 .accordion.activated {
 	padding: 20px 34px;
-	animation: accordion-slide 1s;
-}
-@keyframes accordion-slide {
-	0%{overflow: hidden;}
-	98%{overflow: hidden;}
-	100%{overflow: visible;}
 }
 /*- Buttons*/
 .button {
@@ -806,6 +801,9 @@ input.half, textarea.half, button.half, select.half {
 	box-sizing: border-box;
 	width: 100%;
 	box-shadow: 0 -1px 5px 0 rgba(0,0,0,0.15);
+}
+.main.nav-side > .footer {
+	padding-left: 10vw;
 }
 .main > .footer h1, .main > .footer h2, .main > .footer h3, .main > .footer h4, .main > .footer h5, .main > .footer h6 {
 	line-height: 1;
