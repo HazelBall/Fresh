@@ -17,23 +17,29 @@ function tether(triggers, tetherFunc) {
 			tetherFunc(tethered);
 		});
 }
+var eventActive = false;
 function accordion(tether) {
-	var trigger = tether[0];
-	var element = tether[1];
-	if(element.style.maxHeight) {
-		trigger.classList.remove("active");
-		element.style.maxHeight = null;
-		element.style.padding = 0 + " " + 34 + "px";
-		setTimeout(function(){
-			element.style.overflow = "hidden";
-		}, 10);
-	} else {
-		element.style.maxHeight = (element.scrollHeight + 40) + "px";
-		element.style.padding = 20 + "px " + 34 + "px";
-		setTimeout(function(){
-			element.style.overflow = "visible";
-		}, 650);
-		trigger.classList.add("active");
+	if(!eventActive) {
+		eventActive = true;
+		var trigger = tether[0];
+		var element = tether[1];
+		if(element.style.maxHeight) {
+			trigger.classList.remove("active");
+			element.style.maxHeight = null;
+			element.style.padding = 0 + " " + 34 + "px";
+			setTimeout(function(){
+				element.style.overflow = "hidden";
+				eventActive = false;
+			}, 10);
+		} else {
+			element.style.maxHeight = (element.scrollHeight + 40) + "px";
+			element.style.padding = 20 + "px " + 34 + "px";
+			setTimeout(function(){
+				element.style.overflow = "visible";
+				eventActive = false;
+			}, 650);
+			trigger.classList.add("active");
+		}
 	}
 }
 tether(tetherTriggers, function(tethered) {
