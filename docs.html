@@ -12,10 +12,32 @@
 		
 		<title>Fresh Documentation</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel = "stylesheet" type = "text/css" href = "https://cdn.jsdelivr.net/gh/HunterBall/fresh@1.0.1/fresh.min.css">
+		<link rel = "stylesheet" type = "text/css" href = "https://cdn.jsdelivr.net/gh/HunterBall/fresh@master/fresh.min.css">
 		<!--<link rel = "stylesheet" type = "text/css" href = "fresh.css">-->
 		<link rel = "icon" type = "image/png" href = "images/fresh-icon.png">
 		<style>
+			:root {
+				--color-accent: #43d859;
+				--text-accent: #ffffff;
+				--color-secondary: #feac24;
+				--text-secondary: #ffffff;
+				/*--color-secondary: #43d859;*/
+				/*--text-secondary: #ffffff;*/
+				/*--nav-color: var(--color-primary);*/
+				/*--nav-text: #404040;*/
+				--footer-color: white;
+				--footer-text: black;
+				--max-width: 900px;
+				/*--accordian-header-color: #feac24;*/
+				/*--accordian-header-text: white;*/
+			}
+			.nav .item.subitem {
+				padding-left: 30px;
+				font-size: 0.9rem;
+			}
+			.nav .item.subitem:hover {
+				padding-left: 35px;
+			}
 			.fresh-nav {
 				background-color: white;
 				color: #606060;
@@ -26,11 +48,12 @@
 		</style>
 	</head>
 	<body>
+<!--Navigation-->
 		<div class = "nav mobile">
 			<a class = "nav-trigger">&#9776;</a>
 			<a class = "title">Fresh</a>
 		</div>
-		<div class = "nav top fresh-nav nav-priority flush-left dark">
+		<div class = "nav flush-left top fresh-nav nav-priority dark" style = "--nav-color: white; --nav-text: #606060;">
 			<img class = "icon" style = "height: 1rem" src = "images/fresh-logotype.svg">
 			<a class = "title text-extra-bold"><span class = "text-weight-400" style = "color: #a0a0a0">Docs</span></a>
 			<div class = "right">
@@ -41,309 +64,238 @@
 			</div>
 			<div class = "clear"></div>
 		</div>
-		<div class = "nav side nav-top no-mobile" id = "side-nav">
+		<div class = "nav side nav-top no-mobile">
 			<div class = "spacer small"></div>
-			<div class = "dropdown">
-				<a class = "title" href = "#nav">Navigation</a>
-				<div class = "items">
-					<a class = "item" href = "#nav-top">Top Nav</a>
-					<a class = "item" href = "#nav-side">Side Nav</a>
-					<a class = "item" href = "#nav-components">Nav Components</a>
-				</div>
-			</div>
-			<div class = "dropdown">
-				<a class = "title" href = "#containers">Containers</a>
-				<div class = "items">
-					<a class = "item" href = "#main">Main</a>
-					<a class = "item" href = "#container">Container</a>
-					<a class = "item" href = "#headers">Headers</a>
-				</div>
-			</div>
-			<a class = "item" href = "#columns">Columns</a>
-			<a class = "item" href = "#cards">Cards</a>
-			<a class = "item" href = "#buttons">Buttons</a>
-			<a class = "item" href = "#tethers">Tethers</a>
-			<a class = "item" href = "#forms">Forms</a>
-			<a class = "item" href = "#footers">Footers</a>
-			<a class = "item" href = "#utilities">Utilities</a>
-			<a class = "item" href = "#customize">Customization</a>
+			<a class = "item text-weight-700" href = "#getting-started">Getting Started</a>
+			<a class = "item subitem" href = "#cdn">Setting Up Fresh</a>
+			<a class = "item text-weight-700" href = "#components">Basic Components</a>
+			<a class = "item subitem" href = "#navigation">Navigation</a>
+			<a class = "item subitem" href = "#containers">Containers</a>
+			<a class = "item subitem" href = "#columns">Columns</a>
+			<a class = "item subitem" href = "#cards">Cards</a>
+			<a class = "item subitem" href = "#buttons">Buttons</a>
+			<a class = "item subitem" href = "#tethers">Tethers</a>
+			<a class = "item subitem" href = "#forms">Forms</a>
+			<a class = "item subitem" href = "#footers">Footers</a>
+			<a class = "item subitem" href = "#utilities">Utilities</a>
+			<a class = "item" href = "#customization">Customization</a>
+			<a class = "item" href = "#advanced">Advanced Features</a>
+			<a class = "item subitem" href = "#popups">Popup Modals/Alerts</a>
+			<a class = "item subitem" href = "#multiple-navs">Multiple Navs</a>
 		</div>
 		<div class = "nav side mobile-only">
 			<a class = "item" href = "index.html">Home</a>
-			<a class = "item" href = "about.html">About Fresh</a>
 			<a class = "item active" href = "docs.html">Fresh Docs</a>
 			<hr>
 			<a class = "item" href = "demos/index.html">Demos</a>
 			<a class = "item" href = "https://github.com/hunterball.net/fresh">Github</a>
 		</div>
-		<div class = "main nav-side nav-top">
-			<div class = "container" id = "nav">
-				<h3>Navigation</h3>
-				<p>Fresh houses multiple different navigations. You can use one or multiple of these in order to create your site or web app.</p>
-				<h4 id = "nav-top">Top Navigation</h4><br>
-				<div class = "nav">
-					<a class = "title">Nav Title</a>
-					<a class = "item" href = "#">Item 1</a>
-					<a class = "item" href = "#">Item 2</a>
-					<a class = "item" href = "#">Item 3</a>
-				</div><br>
-				<p>Fresh has two top navigation styles: fixed and sticky. You can use either of these in order to create a functional top navigation.</p>
-				<blockquote>
-					&lt;div class = "nav top"&gt;&lt;/div&gt;&lt;!-- Fixed Top Nav --&gt;
-				</blockquote>
-				<p>The default top navigation is fixed, and it doesn't matter where it is placed in the DOM.</p>
-				<blockquote>
-					&lt;div class = "nav top sticky"&gt;&lt;/div&gt;&lt;!-- Sticky Top Nav --&gt;
-				</blockquote>
-				<p>The sticky navigation will stay within the DOM until it reaches the top, and should be placed accordingly.</p>
-				<h4 id = "nav-side">Side Navigation</h4>
-				<p>Side navigation, which also doubles as part of the mobile navigation, can be used as your default navigation or as a sub-navigation, when combined with a top nav</p>
-				<blockquote>
-					&lt;div class = "nav side"&gt;&lt;/div&gt; &lt;!-- Fixed Side Navigation --&gt;
-				</blockquote>
-				<p>You can also add the <em>mobile-only</em> class to use the side navigation solely as a mobile navigation, or the <em>no-mobile</em> class to create different nav designs for mobile and desktop experiences.</p>
-				<h4 id = "nav-components">Navigation Components</h4><br>
-				<a class = "accordion-header" data-tether = "nav-titles">Nav Titles</a>
-				<div class = "accordion primary" id = "nav-titles">
-					<h5>Nav Titles</h5>
-					<p>Titles can be used on every navigation. Just add a paragraph or anchor tag with the <em>title</em> class to use it.</p>
-					<h5>Nav Icons</h5>
-					<p>Using icons for or with titles is easy with the <em>icon</em> class. You can also place an icon next to a title to keep them together, if you want text with your icon.</p>
+		
+<!--Main Content-->
+		<div class = "main nav-top nav-side">
+			<div class = "container" id = "getting-started">
+				<h1>Getting Started</h1>
+				<p>Getting started with Fresh is easy. Once you link Fresh to your project, and learn about all the components, you can start making an amazing website with ease!</p><br>
+				<a class = "accordion-header" data-tether = "cdn">Setting Up Fresh</a>
+				<div class = "accordion" id = "cdn">
+				  <p>Setting up Fresh is simple. There are two steps you can take to start using Fresh, depending on what you want.</p>
+				  <h3>Option 1: Using JSDelivr</h3>
+				  <p>If you don't mind using a CDN for Fresh, you can copy the code below to link the Fresh CSS and JS files. JSDelivr automatically minifies the files and serves over cache when it can, so you don't have to deal with constand loading errors.</p>
+				  <code>&lt;link type = "text/css" rel = "stylesheet" href = "https://cdn.jsdelivr.net/gh/HunterBall/Fresh@1.1.0/fresh.min.css"&gt;<br>&lt;script src = "https://cdn.jsdelivr.net/gh/HunterBall/Fresh@1.1.0/fresh.min.js"&gt;&lt;/script&gt;</code>
+				  <h3>Option 2: Downloading Fresh</h3>
+				  <p>If speed is key for you, or if you would like to customize Fresh locally, you can download Fresh via <a href = "https://github.com/hunterball/fresh" target = "_blank">Github</a> and add them to your website's directory as you wish.</p>
+				  <p>This works great for people with large projects that want to customize colors and theming for many pages without having to manually input it in each page.</p>
 				</div>
-				<a class = "accordion-header" data-tether = "nav-items">Nav Items</a>
-				<div class = "accordion primary" id = "nav-items">
-					<h5>Nav Items</h5>
-					<p>All links within the navigaiton systems, except the title, use the <em>item</em> class.</p>
-					<h5>Disabled Items</h5>
-					<p>Disabled navigation links, while largely unused, may have a role for a specific time for your website or app. You can use the <em>disabled</em> class with the <em>item</em> class in order to achieve this.</p>
-					<blockquote>
-						&lt;div class = "nav"&gt; &lt;!-- Default Navigation (No special positioning) --&gt;<br>
-	  					&nbsp;&nbsp;&lt;a class = "title"&gt;Nav Title&lt;/a&gt; &lt;!-- Nav Title --&gt;<br>
-	  					&nbsp;&nbsp;&lt;a class = "item"&gt;Item 1&lt;/a&gt; &lt;!-- Nav Item --&gt;<br>
-	  					&nbsp;&nbsp;&lt;a class = "item disabled"&gt;Item 2&lt;/a&gt; &lt;!-- Disabled Nav Item --&gt;<br>
-	  					&nbsp;&nbsp;&lt;a class = "item"&gt;Item 3&lt;/a&gt;<br>
-						&lt;/div&gt;
-					</blockquote>
-					<p>The code above would create the following navigation system:</p><br>
+			</div>
+			<div class = "container" id = "components">
+				<h1>Basic Components</h1>
+				<p>Fresh offers styling to many components, both in basic and advanced forms, allowing you to create the perfect website. All elements can be styled differently per element or as a whole.</p><br>
+				<a class = "accordion-header" data-tether = "navigation">Navigation</a>
+				<div class = "accordion" id = "navigation">
+					<h4>Top Navigation</h4><br>
 					<div class = "nav">
-						<a class = "title" href = "#">Nav Title</a>
+						<a class = "title">Nav Title</a>
 						<a class = "item" href = "#">Item 1</a>
-						<a class = "item disabled">Item 2</a>
+						<a class = "item" href = "#">Item 2</a>
 						<a class = "item" href = "#">Item 3</a>
-					</div>
-				</div>
-				<a class = "accordion-header" data-tether = "dropdowns">Dropdowns</a>
-				<div class = "accordion primary" id = "dropdowns">
-					<p>All desktop navigations support dropdown menus for more information and items.</p>
-					<blockquote>
+					</div><br>
+					<p>Fresh has two top navigation styles: fixed and sticky. You can use either of these in order to create a functional top navigation.</p>
+					<code>
+						&lt;div class = "nav top"&gt;&lt;/div&gt;&lt;!-- Fixed Top Nav --&gt;
+					</code>
+					<p>The default top navigation is fixed, and it doesn't matter where it is placed in the DOM.</p>
+					<code>
+						&lt;div class = "nav top sticky"&gt;&lt;/div&gt;&lt;!-- Sticky Top Nav --&gt;
+					</code>
+					<p>The sticky navigation will stay within the DOM until it reaches the top, and should be placed accordingly.</p>
+					<h4 id = "nav-side">Side Navigation</h4>
+					<p>Side navigation, which also doubles as part of the mobile navigation, can be used as your default navigation or as a sub-navigation, when combined with a top nav</p>
+					<code>
+						&lt;div class = "nav side"&gt;&lt;/div&gt; &lt;!-- Fixed Side Navigation --&gt;
+					</code>
+					<p>You can also add the <em>mobile-only</em> class to use the side navigation solely as a mobile navigation, or the <em>no-mobile</em> class to create different nav designs for mobile and desktop experiences.</p>
+					<h4>Navigation Components</h4>
+					<div class = "columns">
+						<code class = "column no-wrap">
 						&lt;div class = "nav"&gt;<br>
-  						&nbsp;&nbsp;&lt;a class = "title"&gt;Nav Title&lt;/a&gt;<br>
-  						&nbsp;&nbsp;&lt;div class = "dropdown"&gt;<br>
-  							&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "title"&gt;Dropdown&lt;/a&gt; &lt;!-- Dropdown Title --&gt;<br>
+							&nbsp;&nbsp;&lt;img class = "icon" src = "example.png"/&gt;<br>
+	  					&nbsp;&nbsp;&lt;a class = "title"&gt;Nav Title&lt;/a&gt;<br>
+	  					&nbsp;&nbsp;&lt;a class = "item"&gt;Item 1&lt;/a&gt;<br>
+	  					&nbsp;&nbsp;&lt;a class = "item disabled"&gt;Item 2&lt;/a&gt;<br>
+	  					&nbsp;&nbsp;&lt;a class = "item"&gt;Item 3&lt;/a&gt;<br>
+	  					&nbsp;&nbsp;&lt;div class = "dropdown"&gt;<br>
+  							&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "title"&gt;Dropdown&lt;/a&gt;<br>
   							&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class = "items"&gt;<br>
   								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Item 1&lt;/a&gt;<br>
   								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Item 2&lt;/a&gt;<br>
   								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Item 3&lt;/a&gt;<br>
-  							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt; &lt;!-- Dropdown Content --&gt;<br>
-  						&nbsp;&nbsp;&lt;/div&gt; &lt;!-- Dropdown --&gt;<br>
+  							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+  						&nbsp;&nbsp;&lt;/div&gt;<br>
 						&lt;/div&gt;
-					</blockquote>
-					<p>The above dropdown would look like this:</p>
-					<div class = "nav">
-						<a class = "title">Nav Title</a>
-						<div class = "dropdown">
-							<a class = "title">Dropdown</a>
-							<div class = "items">
-								<a class = "item">Item 1</a>
-								<a class = "item">Item 2</a>
-								<a class = "item">Item 3</a>
-							</div>
+						</code>
+						<div class = "column">
+							<ul>
+								<li><strong>Nav Titles - </strong>Just add a paragraph or anchor tag with the <em>title</em> class to use</li>
+								<li><strong>Nav Icons - </strong>Used instead of or with titles with the <em>icon</em> class</li>
+								<li><strong>Nav Items - </strong>All links, except the title, use the <em>item</em> class</li>
+								<li><strong>Disabled Nav Items - </strong>You can use the <em>disabled</em> class with nav items to use</li>
+								<li><strong>Dropdowns - </strong>Dropdowns work in both top and side navigation. Just follow the design of them in the preview to create them</li>
+								<li><strong>Dividers - </strong>On side navigations, you can use the &lt;hr&gt; tag to divide the nav into sections</li>
+							</ul>
 						</div>
 					</div>
 				</div>
-				<a class = "accordion-header" data-tether = "dividers">Dividers</a>
-				<div class = "accordion primary" id = "dividers">
-					<h5>Dividers</h5>
-					<p>On side navigations, you can use the &lt;hr&gt; tag to divide the nav into sections.</p>
-					<h5>Spacers</h5>
-					<p>Side navigations also allow the <em>spacer</em> class, for spacing in between items, and before nav content. The spacing size can be manipulated with the <em>small</em> and <em>large</em> <a href = "#utility">utility classes</a>.</p>
-					<blockquote>
-						&lt;div class = "nav side"&gt;<br>
-							<strong>&nbsp;&nbsp;&lt;div class = "spacer"&gt;&lt;/div&gt;&lt;!-- Spacer --&gt;<br></strong>
-	  					&nbsp;&nbsp;&lt;a class = "title"&gt;Nav Title&lt;/a&gt;<br>
-	  					&nbsp;&nbsp;&lt;a class = "item"&gt;Item 1&lt;/a&gt;<br>
-	  					<strong>&nbsp;&nbsp;&lt;hr&gt;&lt;!-- Divider --&gt;<br></strong>
-	  					&nbsp;&nbsp;&lt;a class = "item"&gt;Item 3&lt;/a&gt;<br>
+				<a class = "accordion-header" data-tether = "containers">Containers</a>
+				<div class = "accordion" id = "containers">
+					<h4 id = "main">Main Component</h4>
+					<p> The main component is used to contain elements in relation to navigation and modals. You can add the <em>nav-top</em> and <em>nav-side</em> classees to create margins for the respective navigations, and the <em>m-nav-top</em> class for websites with mobile navigation but no default top navigation.</p>
+					<code>&lt;div class = "main"&gt;&lt;/div&gt;</code>
+					<h4 id = "container">Container Component</h4>
+					<p>The container component is used for most items, to divide them into sections. This makes editing and design look good. The container also keeps the padding for all elements, instead of the main, so that items you want to span the entire main content area can and everything else keeps the normal padding.</p>
+					<code>&lt;div class = "container"&gt;&lt;/div&gt;</code>
+					<h4 id = "headers">Header</h4>
+					<p>The header component can be used for most headers, and is easy to implement.</p>
+					<code>&lt;div class = "header primary"&gt;&lt;/div&gt;</code>
+					<div class = "main">
+						<div class = "header primary shadow">
+							<h3>Header Example</h3>
+						</div>
+					</div>
+					<h4 id = "hero">Hero</h4>
+					<p>The hero component can be used for larger headers and banners, preferable with large text headings inside.</p>
+					<code>&lt;div class = "hero primary"&gt;<br>&nbsp;&nbsp;&lt;h1&gt;Hero Example&lt;/h1&gt;<br>&lt;/div&gt;</code>
+					<div class = "main">
+						<div class = "hero primary shadow">
+							<h1>Hero Example</h1>
+						</div>
+					</div>
+				</div>
+				<a class = "accordion-header" data-tether = "columns">Columns</a>
+				<div class = "accordion" id = "columns">
+					<h3>Columned Items</h3>
+					<p>Any element can be placed into responsive columns. Each column distributes width evenly among each item.</p>
+					<code>
+						&lt;div class = "columns"&gt;<em>&lt;!--column parent element--&gt;</em><br>
+							&nbsp;&nbsp;&lt;div class = "column"&gt;<em>&lt;!--responsive column--&gt;</em><br>
+								&nbsp;&nbsp;&nbsp;&nbsp;<em>&lt;!--Insert Whatever you want here--&gt;</em><br>
+							&nbsp;&nbsp;&lt;/div&gt;<br>
 						&lt;/div&gt;
-					</blockquote>
+					</code>
+					<p>Just add the <em>column</em> element for each column you want. Fresh will do the rest!</p>
+					<h4>Utility-based Columns</h4>
+					<p>Along with flex-based columns, you can used utility-based columns for floated objects, using the provided <a href = "#utilities">utility classes</a></p>
 				</div>
-				<a class = "accordion-header" data-tether = "account-info">Account Information</a>
-				<div class = "accordion primary" id = "account-info">
-					<p>With Fresh 1.0.0, you can easily create account details on side navigations for web applications.</p>
-					<blockquote>
-  					&lt;div class = "account"&gt;<br>
-  						&nbsp;&nbsp;&lt;img class = "avatar left" src = "avatar.png"&gt;<br>
-  						&nbsp;&nbsp;&lt;div class = "info left"&gt;<br>
-  						&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Jane Doe&lt;/p&gt;<br>
-  						&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Settings&lt;/a&gt;<br>
-  						&nbsp;&nbsp;&lt;/div&gt;<br>
-  					&lt;/div&gt;<br>
-					</blockquote>
-					<h5>Container</h5>
-					<p>Using a div with the <em>account</em> class within a side navigation will allow you to create a basic account template.</p>
-					<h5>Avatar</h5>
-					<p>Using the <em>avatar</em> class with an image within the side navigation will size the image accordingly. Adding a floating utility class will allow account information to sit flush with the avatar.</p>
-					<h5>Information</h5>
-					<p>Using a div with the <em>info</em> class will create a box with the necessary stylings to make your account information look great. Then just add <em>items</em> and you're set!</p>
-				</div>
-				<a class = "accordion-header" data-tether = "hover-color">Hover Color</a>
-				<div class = "accordion primary" id = "hover-color">
-					<p>You can use the <em>dark</em> class to change the hover colors and <em>hr</em> colors to dark instead of light, as seen below.</p><br>
-					<div class = "nav dark">
-						<a class = "title">Dark Nav</a>
-						<a class = "item">Item 1</a>
-						<a class = "item">Item 2</a>
-						<div class = "dropdown">
-							<a class = "title">Dropdown</a>
-							<div class = "items">
-								<a class = "item">Item 1</a>
-								<a class = "item">Item 2</a>
-								<a class = "item">Item 3</a>
+				<a class = "accordion-header" data-tether = "cards">Cards</a>
+				<div class = "accordion" id = "cards">
+					<h3>Cards</h3>
+					<p>Cards can be used in many different ways. Using the four main components, you can create any type of card you want.</p><br>
+					<div class = "columns">
+						<div class = "column card">
+							<div class = "header">
+								<h5>Card Header</h5>
+							</div>
+							<div class = "content">
+								<p>Add Content Here.</p>
+							</div>
+						</div>
+						<div class = "column card">
+							<div class = "content">
+								<p>Add Content Here</p>
+							</div>
+							<div class = "footer">
+								<h6>Card Footer</h6>
 							</div>
 						</div>
 					</div><br>
-					<div class = "nav">
-						<a class = "title">Default Nav</a>
-						<a class = "item">Item 1</a>
-						<a class = "item">Item 2</a>
-						<div class = "dropdown">
-							<a class = "title">Dropdown</a>
-							<div class = "items">
-								<a class = "item">Item 1</a>
-								<a class = "item">Item 2</a>
-								<a class = "item">Item 3</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class = "container" id = "containers">
-				<h3>Containers</h3>
-				<h4 id = "main">Main Component</h4>
-				<p> The main component is used to contain elements in relation to navigation and modals. You can add the <em>nav-top</em> and <em>nav-side</em> classees to create margins for the respective navigations, and the <em>m-nav-top</em> class for websites with mobile navigation but no default top navigation.</p>
-				<h4 id = "container">Container Component</h4>
-				<p>The container component is used for most items, to divide them into sections. This makes editing and design look good. The container also keeps the padding for all elements, instead of the main, so that items you want to span the entire main content area can and everything else keeps the normal padding.</p>
-				<blockquote>&lt;div class = "container"&gt;&lt;/div&gt;</blockquote>
-			</div>
-			<div class = "header primary" id = "headers">
-				<h3>Header Component</h3>
-			</div>
-			<div class = "container">
-				<p>The header component can be used for most headers, and is easy to implement.</p>
-				<blockquote>&lt;div class = "header"&gt;&lt;/div&gt;</blockquote>
-			</div>
-			<div class = "container" id = "columns">
-				<h3>Columned Items</h3>
-				<p>Any element can be placed into responsive columns. Each column distributes width evenly among each item.</p>
-				<blockquote>
-					&lt;div class = "columns"&gt;<em>&lt;!--column parent element--&gt;</em><br>
-						&nbsp;&nbsp;&lt;div class = "column"&gt;<em>&lt;!--responsive column--&gt;</em><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<em>&lt;!--Insert Whatever you want here--&gt;</em><br>
-						&nbsp;&nbsp;&lt;/div&gt;<br>
-					&lt;/div&gt;
-				</blockquote>
-				<p>Just add the <em>column</em> element for each column you want. Fresh will do the rest!</p>
-				<h4>Utility-based Columns</h4>
-				<p>Along with flex-based columns, you can used utility-based columns for floated objects, using the provided <a href = "#utilities">utility classes</a></p>
-			</div>
-			<div class = "container" id = "cards">
-				<h3>Cards</h3>
-				<p>Cards can be used in many different ways. Using the four main components, you can create any type of card you want.</p><br>
-				<div class = "columns">
-					<div class = "column card">
+					<div class = "card">
 						<div class = "header">
 							<h5>Card Header</h5>
 						</div>
 						<div class = "content">
-							<p>Add Content Here.</p>
-						</div>
-					</div>
-					<div class = "column card">
-						<div class = "content">
-							<p>Add Content Here</p>
+							<p>Lots of content here. Just type whatever you want, really. Cards will change height depending on the content inside. Pretty standard stuff, if we're being honest. Lorem ipsum text is boring.
 						</div>
 						<div class = "footer">
-							<h6>Card Footer</h6>
+							<h5><em>Oooooh...</em> a footer too!</h5>
 						</div>
 					</div>
-				</div><br>
-				<div class = "card">
-					<div class = "header">
-						<h5>Card Header</h5>
+					<p>The header and footer are optional, and you can use any combination of the four components to create a nice card, profile, or more.</p>
+					<code>
+						&lt;div class = "card"&gt;<em>&lt;!--Card Container--&gt;</em><br>
+							&nbsp;&nbsp;&lt;div class = "header"&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;<em>&lt;!--Add some Heading Stuff Here--&gt;</em><br>
+							&nbsp;&nbsp;&lt;/div&gt;<br>
+							&nbsp;&nbsp;&lt;div class = "content"&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;<em>&lt;!--Insert Content Here--&gt;</em><br>
+							&nbsp;&nbsp;&lt;/div&gt;<br>
+							&nbsp;&nbsp;&lt;div class = "footer"&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;<em>&lt;!--Add some footer stuff here--&gt;</em><br>
+							&nbsp;&nbsp;&lt;/div&gt;<br>
+						&lt;/div&gt;
+					</code>
+				</div>
+				<a class = "accordion-header" data-tether = "buttons">Buttons</a>
+				<div class = "accordion" id = "buttons">
+					<h3>Buttons</h3>
+					<p>Buttons are fundamental to any website or web app, and Fresh has a lot of them. There are also many different utility classes for buttons to help style them exactly how you want!</p>
+					<div class = "text-center">
+						<a class = "button" href = "#">Button</a>
+						<a class = "button disabled" href = "#">Disabled Button</a>
+						<a class = "button secondary">Colored Button</a><br>
+						<a class = "button">Default Button</a>
+						<a class = "button rounded">Rounded Button</a>
+						<a class = "button pill">Pill Button</a>
 					</div>
-					<div class = "content">
-						<p>Lots of content here. Just type whatever you want, really. Cards will change height depending on the content inside. Pretty standard stuff, if we're being honest. Lorem ipsum text is boring.
+					<p>Sizing classes also work with buttons.</p>
+					<div class = "text-center">
+						<a class = "button small">Small Button</a>
+						<a class = "button">Normal Button</a>
+						<a class = "button large">Large Button</a>
 					</div>
-					<div class = "footer">
-						<h5><em>Oooooh...</em> a footer too!</h5>
+					<p>Buttons can work with both flex- and utility- columned buttons.</p>
+					<div class = "columns">
+						<a class = "button column" href = "#">Flex-columned Button</a>
+						<a class = "button column" href = "#">Flex-columned Button</a>
 					</div>
+					<a class = "button third left" href = "#">Utility-based Button</a>
+					<a class = "button third left" href = "#">Utility-based Button</a>
+					<a class = "button third left" href = "#">Utility-based Button</a>
+					<div class = "clear"></div>
+					<code>&lt;a class = "button" href = "#"&gt;Example Button&lt;/a&gt;<em>&lt;!--Normal Button--&gt;</em></code>
+					<p>See the <a href = "#utilities">utilities</a> section for more information on some of the classes you can add to customize your buttons.</p>
 				</div>
-				<p>The header and footer are optional, and you can use any combination of the four components to create a nice card, profile, or more.</p>
-				<blockquote>
-					&lt;div class = "card"&gt;<em>&lt;!--Card Container--&gt;</em><br>
-						&nbsp;&nbsp;&lt;div class = "header"&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<em>&lt;!--Add some Heading Stuff Here--&gt;</em><br>
-						&nbsp;&nbsp;&lt;/div&gt;<br>
-						&nbsp;&nbsp;&lt;div class = "content"&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<em>&lt;!--Insert Content Here--&gt;</em><br>
-						&nbsp;&nbsp;&lt;/div&gt;<br>
-						&nbsp;&nbsp;&lt;div class = "footer"&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<em>&lt;!--Add some footer stuff here--&gt;</em><br>
-						&nbsp;&nbsp;&lt;/div&gt;<br>
-					&lt;/div&gt;
-				</blockquote>
-			</div>
-			<div class = "container" id = "buttons">
-				<h3>Buttons</h3>
-				<p>Buttons are fundamental to any website or web app, and Fresh has a lot of them. There are also many different utility classes for buttons to help style them exactly how you want!</p>
-				<div class = "text-center">
-					<a class = "button" href = "#">Button</a>
-					<a class = "button disabled" href = "#">Disabled Button</a>
-					<a class = "button primary">Colored Button</a><br>
-					<a class = "button">Default Button</a>
-					<a class = "button rounded">Rounded Button</a>
-					<a class = "button pill">Pill Button</a>
-				</div>
-				<p>Sizing classes also work with buttons.</p>
-				<div class = "text-center">
-					<a class = "button small">Small Button</a>
-					<a class = "button">Normal Button</a>
-					<a class = "button large">Large Button</a>
-				</div>
-				<p>Buttons can work with both flex- and utility- columned buttons.</p>
-				<div class = "columns">
-					<a class = "button column" href = "#">Flex-columned Button</a>
-					<a class = "button column" href = "#">Flex-columned Button</a>
-				</div>
-				<a class = "button third left" href = "#">Utility-based Button</a>
-				<a class = "button third left" href = "#">Utility-based Button</a>
-				<a class = "button third left" href = "#">Utility-based Button</a>
-				<div class = "clear"></div>
-				<blockquote>&lt;a class = "button" href = "#"&gt;Example Button&lt;/a&gt;<em>&lt;!--Normal Button--&gt;</em></blockquote>
-				<p>See the <a href = "#utilities">utilities</a> section for more information on some of the classes you can add to customize your buttons.</p>
-			</div>
-			<div class = "container" id = "tethers">
+				<a class = "accordion-header" data-tether = "tethers">Tethers</a>
+				<div class = "accordion" id = "tethers">
 				<h3>Tethers</h3>
 				<a>Tethers are combinations of trigger elements and togglable elements, such as alerts, modals, and more. These elements are automatically "tethered" by fresh's JavaScript and a pair of attributes and id's, so you don't have to code anything to connect them.</a>
 				<h4>Tether Basics</h4>
 				<p>To create a tether, all you need is two specific attributes. Add a custom id to the togglable element (modal, alert, etc.) and a <em>data-tether</em> attribute to any object you want to open it with. The example below creates a modal with a button both inside and outside to toggle the model.</p>
-				<blockquote>
+				<code>
 					&lt;a class = "button" data-tether = "modalExample"&gt;Open Me!&lt;/a&gt;<br><br>
 					&lt;div class = "modal" id = "modalExample"&gt;<br>
 						&nbsp;&nbsp;&lt;!-- Add whatever content you want here --&gt;<br>
 						&nbsp;&nbsp;&lt;a class = "button" data-tether = "modalExample"&gt;Close Me!&lt;/a&gt;
 					&lt;/div&gt;&lt;!-- Use the ID for opening and closing specific modals --&gt;
-				</blockquote>
+				</code>
 				<a class = "accordion-header" data-tether = "modals">Modals</a>
 				<div class = "accordion primary" id = "modals">
 					<p>Modals are a necessity for web apps, whether to log in, show information, or just look at cat pictures with more details. Good thing they're easy to create and set up in Fresh!</p>
@@ -352,15 +304,15 @@
 						<a class = "button column" data-tether = "modalNormal">Open Normal Modal</a>
 						<a class = "button large column" data-tether = "modalLarge">Open Large Modal</a>
 					</div>
-					<blockquote>
+					<code>
 						&lt;a class = "button" data-tether = "modalExample"&gt;Open Me!&lt;/a&gt;<br><br>
 						&lt;div class = "modal" id = "modalExample"&gt;<br>
 							&nbsp;&nbsp;&lt;!-- Add whatever content you want here --&gt;<br>
 							&nbsp;&nbsp;&lt;a class = "button" data-tether = "modalExample"&gt;Close Me!&lt;/a&gt;
 						&lt;/div&gt;&lt;!-- Use the ID for opening and closing specific modals --&gt;
-					</blockquote>
+					</code>
 					<p>You can also add a specific <em>trigger</em> anchor inside of the modal to add text in the top right of the modal to close it. You can use <em>&amp;times;</em> to create a perfect cross to close it.</p>
-					<blockquote>&lt;a class = "modal-trigger" data-tether = "modalExample"&gt;&amp;times;&lt;/a&gt;</blockquote>
+					<code>&lt;a class = "modal-trigger" data-tether = "modalExample"&gt;&amp;times;&lt;/a&gt;</code>
 				</div>
 				<a class = "accordion-header" data-tether = "alerts">Alerts</a>
 				<div class = "accordion primary" id = "alerts">
@@ -368,180 +320,184 @@
 						<a class = "button column" data-tether = "alert1">Default Alert</a>
 						<a class = "button column" data-tether = "alert2">Warning alert</a>
 					</div>
-					<blockquote>
+					<code>
 						&lt;a class = "button" data-tether = "alertExample"&gt;Open Me!&lt;/a&gt;<br><br>
 						&lt;div class = "modal" id = "modalExample"&gt;<br>
 							&nbsp;&nbsp;&lt;!-- Add whatever content you want here --&gt;<br>
 							&nbsp;&nbsp;&lt;a class = "button" data-tether = "modalExample"&gt;Close Me!&lt;/a&gt;
 						&lt;/div&gt;&lt;!-- Use the ID for opening and closing specific modals --&gt;
-					</blockquote>
+					</code>
 					<p>You can also add the <em>Warning</em> class to alerts to change the color to red.</p>
 				</div>
 				<a class = "accordion-header" data-tether = "accordions">Accordions</a>
 				<div class = "accordion primary" id = "accordions">
 					<p>Accordions, like the ones used for this section, are comprised of two elements, the <em>accordion</em> and the optional <em>accordion-header</em>. These two can be seperated, and the accordion can be used without it entirely to create expanding pages or information.</p>
-					<blockquote>
+					<code>
 						&lt;a class = "accordion-header" data-tether = "accordionExample"&gt;Open Me!&lt;/a&gt;<br>
 						&lt;div class = "accordion" id = "accordionExample"&gt;<br>
 							&nbsp;&nbsp;&lt;!-- Add whatever content you want here --&gt;<br>
 						&lt;/div&gt;
-					</blockquote>
+					</code>
 				</div>
 				<a class = "accordion-header" data-tether = "custom-tethers">Custom Tethers</a>
 				<div class = "accordion primary" id = "custom-tethers">
 					<p>The best part about tethering is it supports custom elements. Any element with the <em>data-tether</em> attribute can activate an element with the same ID. All you have to do is style the element and a state for it's <em>activated</em> state.</p>
-					<blockquote>
+					<code>
 						.example {<br>
 							&nbsp;&nbsp;/*Normal inactive styling*/<br>
 						}<br>
 						.example.activated {<br>
 							&nbsp;&nbsp;/*Active styling*/<br>
 						}
-					</blockquote>
+					</code>
 				</div>
 			</div>
-			<div class = "container" id = "forms">
-				<h3>Forms</h3>
-				<p>Inputs (excluding radio and checkboxes), textareas, selection menus, and buttons can all be styled using Fresh.</p>
-				<blockquote>
-					&lt;input  placeholder = "Input Element"&gt;<br>
-					&lt;textarea  placeholder = "Textarea Element"&gt;&lt;/textarea&gt;<br>
-					&lt;select id = "country" name = "country"&gt;<br>
-						&nbsp;&nbsp;&lt;option value = "au"&gt;Australia&lt;/option&gt;<br>
-						&nbsp;&nbsp;&lt;option value = "ca"&gt;Canada&lt;/option&gt;<br>
-						&nbsp;&nbsp;&lt;option value = "usa"&gt;USA&lt;/option&gt;<br>
-					&lt;select&gt;
-					&lt;div class = "columns"&gt;<br>
-						&nbsp;&nbsp;&lt;button class = "column" type = "submit"&gt;Submit&lt;/button&gt;<br>
-						&nbsp;&nbsp;&lt;button class = "column" type = "submit"&gt;Submit&lt;/button&gt;<br>
-					&lt;/div&gt;
-				</blockquote>
-				<input placeholder = "Input Element">
-				<textarea placeholder = "Textarea Element"></textarea>
-				<select id="country" name="country">
-			  	<option value="au">Australia</option>
-			  	<option value="ca">Canada</option>
-			  	<option value="usa">USA</option>
-			  </select>
-			  <div class = "columns">
-			  	<button class = "column">Cancel</button>
-			  	<button class = "column" type="submit">Submit</button>
-			  </div>
-			</div>
-			<div class = "container" id = "footers">
-				<h3>Footers</h3>
-				<p>Footers are designed the same way as columns, just with special stylings to headings and links to make them look good.</p>
-				<blockquote>
-					&lt;div class = "footer"&gt;<br>
-						&nbsp;&nbsp;&lt;div class = "column"&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Footer Title&lt;/h1&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 1&lt;/a&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 2&lt;/a&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 3&lt;/a&gt;<br>
-						&nbsp;&nbsp;&lt;/div&gt;<br>
-						&nbsp;&nbsp;&lt;div class = "column"&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Footer Subtitle&lt;/h3&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 4&lt;/a&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 5&lt;/a&gt;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 6&lt;/a&gt;<br>
-						&nbsp;&nbsp;&lt;/div&gt;<br>
-					&lt;/div&gt;&lt;!-- Footer Container --&gt; 
-				</blockquote><br>
-				<div class = "main">
-					<div class = "footer">
+				<a class = "accordion-header" data-tether = "forms">Forms</a>
+				<div class = "accordion" id = "forms">
+					<h3>Forms</h3>
+					<p>Inputs (excluding radio and checkboxes), textareas, selection menus, and buttons can all be styled using Fresh.</p>
+					<code>
+						&lt;input  placeholder = "Input Element"&gt;<br>
+						&lt;textarea  placeholder = "Textarea Element"&gt;&lt;/textarea&gt;<br>
+						&lt;select id = "country" name = "country"&gt;<br>
+							&nbsp;&nbsp;&lt;option value = "au"&gt;Australia&lt;/option&gt;<br>
+							&nbsp;&nbsp;&lt;option value = "ca"&gt;Canada&lt;/option&gt;<br>
+							&nbsp;&nbsp;&lt;option value = "usa"&gt;USA&lt;/option&gt;<br>
+						&lt;select&gt;
+						&lt;div class = "columns"&gt;<br>
+							&nbsp;&nbsp;&lt;button class = "column" type = "submit"&gt;Submit&lt;/button&gt;<br>
+							&nbsp;&nbsp;&lt;button class = "column" type = "submit"&gt;Submit&lt;/button&gt;<br>
+						&lt;/div&gt;
+					</code>
+					<input placeholder = "Input Element">
+					<textarea placeholder = "Textarea Element"></textarea>
+					<select id="country" name="country">
+				  	<option value="au">Australia</option>
+				  	<option value="ca">Canada</option>
+				  	<option value="usa">USA</option>
+				  </select>
+				  <div class = "columns">
+				  	<button class = "column">Cancel</button>
+				  	<button class = "column" type="submit">Submit</button>
+				  </div>
+				</div>
+				<a class = "accordion-header" data-tether = "footers">Footers</a>
+				<div class = "accordion" id = "footers">
+					<h3>Footers</h3>
+					<p>Footers are designed the same way as columns, just with special stylings to headings and links to make them look good.</p>
+					<code>
+						&lt;div class = "footer"&gt;<br>
+							&nbsp;&nbsp;&lt;div class = "column"&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Footer Title&lt;/h1&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 1&lt;/a&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 2&lt;/a&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 3&lt;/a&gt;<br>
+							&nbsp;&nbsp;&lt;/div&gt;<br>
+							&nbsp;&nbsp;&lt;div class = "column"&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Footer Subtitle&lt;/h3&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 4&lt;/a&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 5&lt;/a&gt;<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class = "item"&gt;Link 6&lt;/a&gt;<br>
+							&nbsp;&nbsp;&lt;/div&gt;<br>
+						&lt;/div&gt;&lt;!-- Footer Container --&gt; 
+					</code><br>
+					<div class = "main">
+						<div class = "footer">
+							<div class = "column">
+								<h1>Footer Title</h1>
+								<a class = "item">Link 1</a>
+								<a class = "item">Link 2</a>
+								<a class = "item">Link 3</a>
+							</div>
+							<div class = "column">
+								<h3>Footer Subtitle</h3>
+								<a class = "item">Link 4</a>
+								<a class = "item">Link 5</a>
+								<a class = "item">Link 6</a>
+							</div>
+						</div>
+					</div><br>
+					<p>You can also add empty columns before and after to push columns to the left and right. This website uses three columns, two filled and one blank.</p>
+					<p>You can add as many columns as you want, and the styling for the footer can allow both normal footers as well as fat footers.</p>
+				</div>
+				<a class = "accordion-header" data-tether = "utilities">Utilities</a>
+				<div class = "accordion" id = "utilities">
+					<h3>Utilities</h3>
+					<div class = "columns">
 						<div class = "column">
-							<h1>Footer Title</h1>
-							<a class = "item">Link 1</a>
-							<a class = "item">Link 2</a>
-							<a class = "item">Link 3</a>
+							<h4>Spacing and Sizing</h4>
+							<ul class = "text-small">
+								<li><strong>.flush</strong>: removes padding on boths sides</li>
+								<li><strong>.flush-left</strong>: removes padding on left side</li>
+								<li><strong>.flush-right</strong>: removes padding on right side</li><br>
+								<li><strong>.small</strong>: decreases size of certain items</li>
+								<li><strong>.large</strong>: increases size of certain items</li><br>
+								<li><strong>.full</strong>: utility full width</li>
+								<li><strong>.half</strong>: utility half width</li>
+								<li><strong>.third</strong>: utility third width</li>
+								<li><strong>.two-thirds</strong>: utility two-thirds width</li>
+								<li><strong>.fourth</strong>: utility fourth width</li>
+								<li><strong>.three-fourths</strong>: utility three-fourths width</li>
+							</ul>
+							<h4>Text Modifications</h4>
+							<ul class = "text-small">
+								<li><strong>.text-small</strong>: decreases text size for element and all children</li>
+								<li><strong>.text-large</strong>: increases text size for element and all children</li><br>
+								<li><strong>.text-weight-300</strong>: changes font-weight to 300, or light</li>
+								<li><strong>.text-weight-400</strong>: changes font-weight to 400, or normal/book</li>
+								<li><strong>.text-weight-700</strong>: changes font-weight to 700, or bold</li>
+								<li><strong>.text-weight-800</strong>: changes font-weight to 800, or extra bold</li><br>
+								<li><strong>.text-primary</strong>: colors text in relation to primary text color</li>
+								<li><strong>.text-secondary</strong>: colors text in relation to secondary text color</li>
+								<li><strong>.text-accent</strong>: colors text in relation to accent text color</li>
+								<li><strong>.text-inv-primary</strong>: colors text in relation to background primary color</li>
+								<li><strong>.text-inv-secondary</strong>: colors text in relation to background secondary color</li>
+								<li><strong>.text-inv-accent</strong>: colors text in relation to background accent color</li>
+							</ul>
+							<h4>Other</h4>
+							<ul class = "text-small">
+								<li><strong>.square</strong>: removes all border-radius</li>
+								<li><strong>.rounded</strong>: sets border radius on all sides to 10px</li>
+								<li><strong>.pill</strong>: creates equal border radius' on sides</li><br>
+								<li><strong>.spacer</strong>: creates a space within the dom, can be controlled with .small and .large</li>
+							</ul>
 						</div>
 						<div class = "column">
-							<h3>Footer Subtitle</h3>
-							<a class = "item">Link 4</a>
-							<a class = "item">Link 5</a>
-							<a class = "item">Link 6</a>
+							<h4>Alignment Utilities</h4>
+							<ul class = "text-small">
+								<li><strong>.left</strong>: floats element to the left</li>
+								<li><strong>.right</strong>: floats element to the right</li>
+								<li><strong>.clear</strong>: clears left and right</li>
+								<li><strong>.clear-left</strong>: clears to the left</li>
+								<li><strong>.clear-right</strong>: clears to the right</li><br>
+								<li><strong>text-left</strong>: aligns text to left</li>
+								<li><strong>text-right</strong>: aligns text to right</li>
+								<li><strong>text-center</strong>: aligns text in center</li>
+								<li><strong>text-just</strong>: justifies text</li>
+							</ul>
+							<h4>Coloring</h4>
+							<ul class = "text-small">
+								<li><strong>.primary</strong>: colors text and background in relation to primary color</li>
+								<li><strong>.secondary</strong>: colors text and background in relation to secondary color</li>
+								<li><strong>.accent</strong>: colors text and background in relation to accent color</li>
+								<li><strong>.inv-primary</strong>: colors text and background with opposing primary colors</li>
+								<li><strong>.inv-secondary</strong>: colors text and background with opposing secondary colors</li>
+								<li><strong>.inv-accent</strong>: colors text and background with opposing accent colors</li><br>
+								<li><strong>.color-primary</strong>: colors background in relation to primary color</li>
+								<li><strong>.color-secondary</strong>: colors background in relation to secondary color</li>
+								<li><strong>.color-accent</strong>: colors background in relation to accent color</li>
+								<li><strong>.color-inv-primary</strong>: colors background in relation to primary text color</li>
+								<li><strong>.color-inv-secondary</strong>: colors background in relation to secondary text color</li>
+								<li><strong>.color-inv-accent</strong>: colors  in relation to accent text color</li>
+							</ul>
 						</div>
-					</div>
-				</div><br>
-				<p>You can also add empty columns before and after to push columns to the left and right. This website uses three columns, two filled and one blank.</p>
-				<p>You can add as many columns as you want, and the styling for the footer can allow both normal footers as well as fat footers.</p>
-			</div>
-			<div class = "container" id = "utilities">
-				<h3>Utilities</h3>
-				<div class = "columns">
-					<div class = "column">
-						<h4>Spacing and Sizing</h4>
-						<ul class = "text-small">
-							<li><strong>.flush</strong>: removes padding on boths sides</li>
-							<li><strong>.flush-left</strong>: removes padding on left side</li>
-							<li><strong>.flush-right</strong>: removes padding on right side</li><br>
-							<li><strong>.small</strong>: decreases size of certain items</li>
-							<li><strong>.large</strong>: increases size of certain items</li><br>
-							<li><strong>.full</strong>: utility full width</li>
-							<li><strong>.half</strong>: utility half width</li>
-							<li><strong>.third</strong>: utility third width</li>
-							<li><strong>.two-thirds</strong>: utility two-thirds width</li>
-							<li><strong>.fourth</strong>: utility fourth width</li>
-							<li><strong>.three-fourths</strong>: utility three-fourths width</li>
-						</ul>
-						<h4>Text Modifications</h4>
-						<ul class = "text-small">
-							<li><strong>.text-small</strong>: decreases text size for element and all children</li>
-							<li><strong>.text-large</strong>: increases text size for element and all children</li><br>
-							<li><strong>.text-weight-300</strong>: changes font-weight to 300, or light</li>
-							<li><strong>.text-weight-400</strong>: changes font-weight to 400, or normal/book</li>
-							<li><strong>.text-weight-700</strong>: changes font-weight to 700, or bold</li>
-							<li><strong>.text-weight-800</strong>: changes font-weight to 800, or extra bold</li><br>
-							<li><strong>.text-primary</strong>: colors text in relation to primary text color</li>
-							<li><strong>.text-secondary</strong>: colors text in relation to secondary text color</li>
-							<li><strong>.text-accent</strong>: colors text in relation to accent text color</li>
-							<li><strong>.text-inv-primary</strong>: colors text in relation to background primary color</li>
-							<li><strong>.text-inv-secondary</strong>: colors text in relation to background secondary color</li>
-							<li><strong>.text-inv-accent</strong>: colors text in relation to background accent color</li>
-						</ul>
-						<h4>Other</h4>
-						<ul class = "text-small">
-							<li><strong>.square</strong>: removes all border-radius</li>
-							<li><strong>.rounded</strong>: sets border radius on all sides to 10px</li>
-							<li><strong>.pill</strong>: creates equal border radius' on sides</li><br>
-							<li><strong>.spacer</strong>: creates a space within the dom, can be controlled with .small and .large</li>
-						</ul>
-					</div>
-					<div class = "column">
-						<h4>Alignment Utilities</h4>
-						<ul class = "text-small">
-							<li><strong>.left</strong>: floats element to the left</li>
-							<li><strong>.right</strong>: floats element to the right</li>
-							<li><strong>.clear</strong>: clears left and right</li>
-							<li><strong>.clear-left</strong>: clears to the left</li>
-							<li><strong>.clear-right</strong>: clears to the right</li><br>
-							<li><strong>text-left</strong>: aligns text to left</li>
-							<li><strong>text-right</strong>: aligns text to right</li>
-							<li><strong>text-center</strong>: aligns text in center</li>
-							<li><strong>text-just</strong>: justifies text</li>
-						</ul>
-						<h4>Coloring</h4>
-						<ul class = "text-small">
-							<li><strong>.primary</strong>: colors text and background in relation to primary color</li>
-							<li><strong>.secondary</strong>: colors text and background in relation to secondary color</li>
-							<li><strong>.accent</strong>: colors text and background in relation to accent color</li>
-							<li><strong>.inv-primary</strong>: colors text and background with opposing primary colors</li>
-							<li><strong>.inv-secondary</strong>: colors text and background with opposing secondary colors</li>
-							<li><strong>.inv-accent</strong>: colors text and background with opposing accent colors</li><br>
-							<li><strong>.color-primary</strong>: colors background in relation to primary color</li>
-							<li><strong>.color-secondary</strong>: colors background in relation to secondary color</li>
-							<li><strong>.color-accent</strong>: colors background in relation to accent color</li>
-							<li><strong>.color-inv-primary</strong>: colors background in relation to primary text color</li>
-							<li><strong>.color-inv-secondary</strong>: colors background in relation to secondary text color</li>
-							<li><strong>.color-inv-accent</strong>: colors  in relation to accent text color</li>
-						</ul>
 					</div>
 				</div>
 			</div>
-			<div class = "container" id = "customize">
-				<h3>Customization</h3>
+			<div class = "container" id = "customization">
+				<h1>Customization</h1>
 				<p>Almost every color can be customized within Fresh to make your website more unique. And it's easier than customizing colors in other frameworks like bootstrap, too.</p>
-				<blockquote>
+				<code>
 					&lt;head&gt;<br>
 						&nbsp;&nbsp;&lt;!-- Add whatever content you need here --&gt;<br>
 						&nbsp;&nbsp;&lt;style&gt;<br>
@@ -551,12 +507,12 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 						&nbsp;&nbsp;&lt;/style&gt;<br>
 					&lt;/head&gt;
-				</blockquote>
+				</code>
 				<a class = "button" id = "change-color">Change Theme</a>
 				<a class = "button" id = "reset-color">Reset Theme</a>
 				<p>There are currently 6 main colors and 24 minor colors to customize.</p>
 				<h4>Major Colors</h4>
-				<ul class = "text-small">
+				<ul class = "text-small clear">
 					<div class = "third left">
 						<li>--color-primary</li>
 						<li>--text-primary</li>
@@ -569,7 +525,6 @@
 						<li>--color-accent</li>
 						<li>--text-accent</li>
 					</div>
-					<div class = "clear"></div>
 				</ul>
 				<h4>Minor Colors</h4>
 				<ul class = "text-small">
@@ -606,75 +561,167 @@
 					<div class = "clear"></div>
 				</ul>
 			</div>
+			<div class = "container" id = "advanced">
+				<h1>Advanced Features</h1>
+				<a class = "accordion-header" data-tether = "popups">Popup Modals/Alerts</a>
+				<div class = "accordion" id = "popups">
+					<h3>Popup Modals</h3>
+					<p>As shown on one of the <a href = "demos/tech.html">demos</a> for Fresh, you can easily create popups based on time or mouse positions easily with JavaScript or JQuery and the tether functions.</p>
+					<code>
+			var mouseX = 0;<br>
+			var mouseY = 0;<br>
+			var popupCounter = 0;<br><br>
+			document.addEventListener("mousemove", function(e) {<br>
+			&nbsp;&nbsp;mouseX = e.clientX;<br>
+			&nbsp;&nbsp;mouseY = e.clientY;<br>
+			});<br><br>
+			$(document).mouseleave(function () {<br>
+			&nbsp;&nbsp;if (mouseY < 100) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;if (popupCounter < 1) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("modalPopup").classList.add("activated");<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;popupCounter ++;<br>
+			&nbsp;&nbsp;}<br>
+			});
+		</code>
+				</div>
+				<a class = "accordion-header" data-tether = "dark-mode">Dark Mode</a>
+				<div class = "accordion" id = "dark-mode">
+					<p>As dark mode becomes more and more popular, browsers and devices are starting to use the <em>Prefers-color-scheme</em> variable with CSS for custom styling in dark mode. Fresh also uses this. However, not all devices use this variable, so having your own version can help make it easier for those users.</p>
+					<p>Below is a snippet of JavaScript you can add to buttons to change the color scheme to dark mode.</p>
+					<code class = "no-wrap">
+						var dark = false;<br>
+						document.getElementById('dark-mode').addEventListener('click', function()<br>
+						&nbsp;&nbsp;{<br>
+						&nbsp;&nbsp;if(!dark) {<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;document.documentElement.style.setProperty("--color-primary", "#202020");<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;document.documentElement.style.setProperty("--text-primary", "#d0d0d0");<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;dark = true;<br>
+						&nbsp;&nbsp;}<br>
+						});<br>
+						document.getElementById('light-mode').addEventListener('click', function()<br>
+						&nbsp;&nbsp;{<br>
+						&nbsp;&nbsp;if(dark) {<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;document.documentElement.style.setProperty("--color-primary", "white");<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;document.documentElement.style.setProperty("--color-accent", "#43d859");<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;dark = false;<br>
+						&nbsp;&nbsp;}<br>
+						});
+					</code>
+				</div>
+				<a class = "accordion-header" data-tether = "multiple-navs">Multiple Navs</a>
+				<div class = "accordion" id = "multiple-navs">
+					<p>When using two or more navigations, or using different styles for mobile and desktop, it can be confusing to understand how to go about these. However, we have made simple navigation systems for you to use.</p>
+					<h3>Using the Side and Top Navigations</h3>
+					<p>Using two navigations, especially side and top navs, is easy with fresh. Just add one of three nav utility classes in order to make sure everything works as intended.</p>
+					<h4>Overlay Side and Top Navs</h4>
+					<p>If you want to overlay one nav over the other, you can use the <em>nav-priority</em> class to make sure one stays on top.</p>
+					<code class = "no-wrap">
+						&lt;div class = "nav top nav-priority"&gt;<br>
+						&nbsp;&nbsp;&lt;!--Insert Top Nav Content--&gt;<br>
+						&lt;/div&gt;<br>
+						&lt;div class = "nav side"&gt;<br>
+						&nbsp;&nbsp;&lt;!--Insert Side Nav Content--&gt;<br>
+						&lt;/div&gt;<br>
+					</code>
+					<h4>Offset Side or Top Navs</h4>
+					<p>If you want to offset one navigation from the other, you can use the <em>nav-top</em> or <em>nav-side</em> classes to acheive this, depending on which nav you are offsetting.</p>
+					<p>If you want to offset the top navigation, use this code:</p>
+					<code class = "no-wrap">
+						&lt;div class = "nav top nav-side"&gt;<br>
+						&nbsp;&nbsp;&lt;!--Insert Offset Top Nav Content--&gt;<br>
+						&lt;/div&gt;<br>
+						&lt;div class = "nav side"&gt;<br>
+						&nbsp;&nbsp;&lt;!--Insert Normal Side Nav Content--&gt;<br>
+						&lt;/div&gt;<br>
+					</code>
+					<p>Likewise, if you want to offset the side navigation, use the following:</p>
+					<code class = "no-wrap">
+						&lt;div class = "nav top"&gt;<br>
+						&nbsp;&nbsp;&lt;!--Insert Normal Top Nav Content--&gt;<br>
+						&lt;/div&gt;<br>
+						&lt;div class = "nav side nav-top"&gt;<br>
+						&nbsp;&nbsp;&lt;!--Insert Offset Side Nav Content--&gt;<br>
+						&lt;/div&gt;<br>
+					</code>
+				</div>
+				<a class = "accordion-header" data-tether = "accounts">Accounts</a>
+				<div class = "accordion" id = "accounts">
+					<p>When building web apps, users and accounts are a must. Fresh offers basic account styling for side navigation, to help you create that perfect web app.</p>
+				</div>
+			</div>
 			<div class = "footer">
 				<div class = "column">
-					<h1 class = "color-accent"><img src = "images/fresh-logotype.svg" style = "height: 20px; margin-top: 11.25px;"></h1>
+					<h1>Fresh</h1>
 					<a class = "item" href = "index.html">Home</a>
-					<a class = "item" href = "docs.html">Documentation</a>
-					<a class = "item" href = "demos/index.html">Demos</a>
+					<a class = "item" href = "docs.html">Fresh Docs</a>
 				</div>
-				<div class = "column">
-					<h3 style = "color: #404040;" class = "text-weight-400;">Made by Hunter Ball</h3>
+				<div class = "column double">
+					<h3>Made by Hunter Ball</h3>
 					<a class = "item" href = "https://hunterball.net/portfolio" target = "_blank">Portfolio</a>
 					<a class = "item" href = "https://github.com/hunterball" target = "_blank">Github</a>
-					<a class = "item" href = "https://www.linkedin.com/in/hunterball/" target = "_blank">LinkedIn</a>
 				</div>
-				<div class = "column no-mobile">
-				</div>
-			</div>
-			<!--Non-DOM Elements-->
-			<div class = "modal small" id = "modalSmall">
-				<h3 class = "text-center">Login Example</h3><br>
-				<input class = "full rounded" type="text" name="username" id="username" placeholder="username"/>
-				<input class = "full rounded" type="password" name="password" id="password" placeholder = "password"/><br>
-				<div class = "columns">
-					<a class = "button small rounded column" data-tether = "modalSmall">Close</a>
-				<a class = "button small disabled rounded column">Login</a>
-				</div>
-				<div class = "clear"></div>
-			</div>
-			<div class = "modal" id = "modalNormal">
-				<h1>Modal!</h1>
-				<a class = "trigger" data-tether = "modalNormal">&times;</a>
-			</div>
-			<div class = "modal large" id = "modalLarge">
-				<h1>Large Modal!</h1>
-				<a class = "trigger" data-tether = "modalLarge">&times;</a>
-			</div>
-			<div class = "alert" id = "alert1">
-				<p>This is an alert message.</p>
-				<a class = "trigger" data-tether = "alert1">&times;</a>
-			</div>
-			<div class = "alert warning" id = "alert2">
-				<p>This is a warning message. Be aware, cautious, or otherwise afraid :)</p>
-				<a class = "trigger" data-tether = "alert2">&times;</a>
 			</div>
 		</div>
-		<script src = "https://cdn.jsdelivr.net/gh/HunterBall/fresh@1.0.1/fresh.min.js"></script>
+		
+<!--Non-DOM Elements-->
+	<!--Modals-->
+		<div class = "modal small" id = "modalSmall">
+			<h3 class = "text-center">Login Example</h3><br>
+			<input class = "full rounded" type="text" name="username" id="username" placeholder="username"/>
+			<input class = "full rounded" type="password" name="password" id="password" placeholder = "password"/><br>
+			<div class = "columns">
+				<a class = "button small rounded column" data-tether = "modalSmall">Close</a>
+			<a class = "button small disabled rounded column">Login</a>
+			</div>
+			<div class = "clear"></div>
+		</div>
+		<div class = "modal" id = "modalNormal">
+			<h1>Modal!</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam odio mauris, congue eget vulputate eleifend, dictum a urna. Quisque nisi orci, fringilla ut augue ac, venenatis maximus enim. Proin ultrices sapien non interdum volutpat. Suspendisse magna purus, blandit et tincidunt nec, laoreet aliquam ex. Praesent laoreet lorem nec lectus rutrum, ac dignissim ex euismod. Aenean risus turpis, fermentum non nunc vel, aliquam interdum tellus. Maecenas odio libero, ultrices non magna in, pellentesque faucibus tellus. Suspendisse congue tortor metus, non semper arcu elementum nec. Quisque posuere purus vel ante malesuada faucibus. Ut lorem ligula, bibendum non eros sit amet, tempus pretium sapien.</p>
+			<a class = "trigger" data-tether = "modalNormal">&times;</a>
+		</div>
+		<div class = "modal large" id = "modalLarge">
+			<h1>Large Modal!</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam odio mauris, congue eget vulputate eleifend, dictum a urna. Quisque nisi orci, fringilla ut augue ac, venenatis maximus enim. Proin ultrices sapien non interdum volutpat. Suspendisse magna purus, blandit et tincidunt nec, laoreet aliquam ex. Praesent laoreet lorem nec lectus rutrum, ac dignissim ex euismod. Aenean risus turpis, fermentum non nunc vel, aliquam interdum tellus. Maecenas odio libero, ultrices non magna in, pellentesque faucibus tellus. Suspendisse congue tortor metus, non semper arcu elementum nec. Quisque posuere purus vel ante malesuada faucibus. Ut lorem ligula, bibendum non eros sit amet, tempus pretium sapien.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam odio mauris, congue eget vulputate eleifend, dictum a urna. Quisque nisi orci, fringilla ut augue ac, venenatis maximus enim. Proin ultrices sapien non interdum volutpat. Suspendisse magna purus, blandit et tincidunt nec, laoreet aliquam ex. Praesent laoreet lorem nec lectus rutrum, ac dignissim ex euismod. Aenean risus turpis, fermentum non nunc vel, aliquam interdum tellus. Maecenas odio libero, ultrices non magna in, pellentesque faucibus tellus. Suspendisse congue tortor metus, non semper arcu elementum nec. Quisque posuere purus vel ante malesuada faucibus. Ut lorem ligula, bibendum non eros sit amet, tempus pretium sapien.</p>
+			<a class = "trigger" data-tether = "modalLarge">&times;</a>
+		</div>
+			
+	<!--Alerts-->
+		<div class = "alert" id = "alert1">
+			<p>This is an alert message.</p>
+			<a class = "trigger" data-tether = "alert1">&times;</a>
+		</div>
+		<div class = "alert warning" id = "alert2">
+			<p>This is a warning message. Be aware, cautious, or otherwise afraid :)</p>
+			<a class = "trigger" data-tether = "alert2">&times;</a>
+		</div>
+		<script src = "https://cdn.jsdelivr.net/gh/HunterBall/fresh@master/fresh.min.js"></script>
 		<!--<script src = "fresh.js"></script>-->
 		<script>
 			var changed = false;
 			document.getElementById('change-color').addEventListener('click', function() {
 				if(!changed) {
-					document.documentElement.style.setProperty("--color-primary", "black");
-					document.documentElement.style.setProperty("--text-primary", "white");
-					document.documentElement.style.setProperty("--color-secondary", "#202020");
-					document.documentElement.style.setProperty("--text-secondary", "#dfdfdf");
-					document.documentElement.style.setProperty("--blockquote-color", "rgba(255,255,255,0.1)");
+					document.documentElement.style.setProperty("--color-primary", "#202020");
+					document.documentElement.style.setProperty("--text-primary", "#c0c0c0");
+					document.documentElement.style.setProperty("--color-accent", "#feac24");
+					document.documentElement.style.setProperty("--color-secondary", "#43d859");
+					document.documentElement.style.setProperty("--code-color", "rgba(255,255,255,0.08)");
 					document.documentElement.style.setProperty("--card-color", "white");
 					document.documentElement.style.setProperty("--card-text", "black");
 					changed = true;
 				}
 			});
 			document.getElementById('reset-color').addEventListener('click', function() {
-				if(changed) {
-					document.documentElement.style.setProperty("--color-primary", "#ffffff");
-					document.documentElement.style.setProperty("--text-primary", "black");
-					document.documentElement.style.setProperty("--color-secondary", "#f0f0f0");
-					document.documentElement.style.setProperty("--text-secondary", "#404040");
-					document.documentElement.style.setProperty("--blockquote-color", "rgba(0,0,0,0.05)");
-					changed = false;
-				}
+					if(changed) {
+						document.documentElement.style.setProperty("--color-primary", "white");
+						document.documentElement.style.setProperty("--color-accent", "#43d859");
+						document.documentElement.style.setProperty("--color-secondary", "#feac24");
+						document.documentElement.style.setProperty("--code-color", "rgba(0,0,0,0.05)");
+						document.documentElement.style.setProperty("--text-primary", "black");
+						changed = false;
+					}
 			});
 		</script>
 	</body>
