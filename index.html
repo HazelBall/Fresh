@@ -8,196 +8,192 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-150038024-1');
 		</script>
-
+		
 		<title>Fresh: A Modern Approach to Lightweight Frameworks</title>
-		<meta name="title" content="Fresh: A Modern Approach to Lightweight Frameworks">
 		<meta name="description" content="Fresh is a modern CSS and JS framework for lightweight web apps and project websites.">
 		<meta name="keywords" content="Framework, CSS, JS">
-		<meta name="robots" content="index, follow">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="language" content="English">
-		<meta name="revisit-after" content="30 days">
 		<meta name="author" content="Hunter Ball">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel = "stylesheet" type = "text/css" href = "https://cdn.jsdelivr.net/gh/HunterBall/Fresh@1.0.1/fresh.min.css">
+		<link rel = "stylesheet" type = "text/css" href = "https://cdn.jsdelivr.net/gh/HunterBall/Fresh@1.1.0/fresh.min.css">
 		<!--<link rel = "stylesheet" type = "text/css" href = "fresh.css">-->
 		<link rel = "icon" type = "image/png" href = "images/fresh-icon.png">
 		<style>
 			:root {
-				/*--color-accent: #2e7aea;*/
-				/*--text-accent: #ffffff;*/
-				/*--color-primary: #000000;*/
-				/*--text-primary: #f0f0f0;*/
-				/*--color-secondary: #202020;*/
-				/*--text-secondary: #e0e0e0;*/
+				--color-accent: #43d859;
+				--text-accent: #ffffff;
+				--color-secondary: #feac24;
+				--text-secondary: #ffffff;
+				/*--color-secondary: #43d859;*/
+				/*--text-secondary: #ffffff;*/
+				/*--nav-color: var(--color-primary);*/
+				/*--nav-text: #404040;*/
+				--footer-color: #43d859;
+				--footer-text: white;
+				--max-width: 900px;
+			}
+			.banner-logo {
+				max-width: 325px;
+			}
+			.svg-icon {
+				display: block;
+				width: 50px;
+				height: auto;
+				margin: 15px auto;
+			}
+			@media screen and (max-width: 600px) {
+				.banner-logo {
+					max-width: 200px;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<div class = "nav mobile">
 			<a class = "nav-trigger">&#9776;</a>
-			<a class = "title">Fresh&#8482;</a>
+			<a class = "title">Fresh</a>
 		</div>
-		<div class = "nav side">
-			<div class = "spacer large no-mobile"></div>
-			<a class = "title"><img class = "mobile-only" src = "images/fresh-logotype.svg" style = "height: 40px; margin-top: 11.25px;"><span class = "no-mobile">Fresh</span></a>
-			<hr>
+		<div class = "nav side mobile-only dark">
 			<a class = "item active" href = "index.html">Home</a>
 			<a class = "item" href = "docs.html">Docs</a>
 			<a class = "item" href = "demos/index.html">Demos</a>
-			<a class = "item" target = "_blank" href = "https://github.com/hunterball/fresh">Github</a>
+			<a class = "item" href = "https://github.com/hunterball.net/fresh">Github</a>
 		</div>
-		<div class = "main m-nav-top nav-side">
-			<div class = "header primary text-center">
-				<img style = "max-width: 300px" class = "text-center" src = "images/fresh-logotype.svg">
-				<p style = "max-width: 450px; margin: 0 auto; padding: 0 20px; color: #707070;" class = "text-large text-weight-300">A Modern Approach to Lightweight Frameworks</p>
+		<div class = "nav top fresh-nav nav-priority dark">
+			<img class = "icon" style = "height: 1.6rem" src = "images/fresh-logo-white.png">
+			<a class = "title"> Fresh</a>
+			<div class = "right clear">
+				<a class = "item active" href = "index.html">Home</a>
+				<a class = "item" href = "docs.html">Docs</a>
+				<a class = "item" href = "demos/index.html">Demos</a>
+				<a class = "item" href = "https://github.com/hunterball/fresh">Github</a>
+			</div>
+		</div>
+		
+		<div class = "main nav-top primary">
+			<div class = "header primary text-center" style = "background-image: url('images/fresh-banner.png'); background-size: cover;">
+				<img class = "text-center banner-logo" src = "images/fresh-logotype.svg">
+				<h2 style = "max-width: 475px; margin: 0 auto; color: #a0a0a0" class = "text-weight-300 no-mobile text-compact">A Modern Approach to Lightweight Frameworks</h2>
+				<h2 class = "mobile-only text-weight-700 text-compact" style = "max-width: 475px; margin: 0 auto; color: #606060;">A Modern Approach to Lightweight Frameworks</h2>
+				<a class = "button pill flush-right secondary" href = "https://github.com/hunterball/fresh">Get Started</a>
+			</div>
+			<div class = "header shadow" style = "box-shadow: 0 -3px 3px 0 rgba(0,0,0,0.2);">
+				<h6>Fresh is an open source, lightweight CSS and JS framework designed for small web apps and projects. Whether you're using it for prototyping, testing, or production, Fresh helps keep styling easy and under control.</h6>
 				<div class = "spacer small"></div>
-			</div>
-			<div class = "container">
-				<h3>What is Fresh?</h3>
-				<p>Fresh is a CSS and JavaScript framework for small project websites and lightweight web apps. Fresh uses old and modern techniques, mixed with unique functionality and features to give you the easiest experience possible, while still giving you the freedom and uniqueness your website deserves.</p>
-			</div>
-			<div class = "container">
-				<div class = "columns">
-					<div class = "card column">
-						<div class = "header">
-							<h5>Easy to Set Up</h5>
-						</div>
-						<div class = "content">
-							<p>Just link to the jsDelivr to get the minified css, JavaScript, and JQuery and you're good to go. It's that easy.</p>
-						</div>
+				<div class = "columns text-center">
+					<div class = "column">
+						<h3>Set Up with JSDelivr</h3>
+						<img class = "svg-icon" src = "images/download.svg">
+						<p>Just link to the CDN in your code:</p>
+						<code class = "no-wrap">&lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/HunterBall/Fresh@1.1.0/fresh.min.css"&gt;<br>&lt;script src="https://cdn.jsdelivr.net/gh/HunterBall/Fresh@1.1.0/fresh.min.js"&gt;&lt;/script&gt;</code>
 					</div>
-					<div class = "card column">
-						<div class = "header">
-							<h5>Easy to Customize</h5>
-						</div>
-						<div class = "content">
-							<p>Using css variables, you can easily override colors, styles, and more to make Fresh unique for you and your project.</p>
-						</div>
+					<div class = "column">
+						<h3>Easy to Customize</h3>
+						<img class = "svg-icon" src = "images/edit.svg">
+						<p>Fresh uses CSS variables to create a seamless transition between themes and colors, just change the color in the head tag and you're set!</p>
 					</div>
-					<div class = "card column">
-						<div class = "header">
-							<h5>Deploy Fast</h5>
-						</div>
-						<div class = "content">
-							<p>Don't worry about the fundamentals. We got that. Just work on making your web app, experience, or site amazing.</p>
-						</div>
+					<div class = "column">
+						<h3>Deploy Fast</h3>
+						<img class = "svg-icon" src = "images/upload.svg">
+						<p>Fresh is robust, but lightweight. Only 22kb Minified. With the JSDelivr CDN, get quick styling and minified files.</p>
 					</div>
 				</div>
 			</div>
 			<div class = "container">
-				<h4>Fresh Features</h4>
-				<p>Fresh is what we call a mid-tier framework. Smaller, lightweight frameworks offer fast speeds but can only do so much for you, and larger, all-encompassing frameworks offer everything you could ever need, but they don't work well with custom code and other frameworks. Fresh offers a middle ground to this problem: a speedy framework with options and amazing features, that works well with any other CSS or JS framework.</p>
-				<p>Just in case, here's a table comparing some popular web frameworks and boilerplates:</p>
-				<table>
-					<tr>
-						<th>Framework</th>
-						<th>Fresh</th>
-						<th>Bootstrap</th>
-						<th>Materialize</th>
-						<th>Barebones</th>
-						<th>Semantic UI</th>
-						<th>Milligram</th>
-					</tr>
-					<tr>
-						<td>Size (Minified)</td>
-						<td>21 KB</td>
-						<td>117 KB</td>
-						<td>90 KB</td>
-						<td>7 KB</td>
-						<td>550 KB</td>
-						<td>8 KB</td>
-					</tr>
-					<tr>
-						<td>Layout</td>
-						<td>Flexbox</td>
-						<td>12 Columns</td>
-						<td>12 Columns</td>
-						<td>CSS Grid</td>
-						<td>16 Columns</td>
-						<td>Flexbox</td>
-					</tr>
-					<tr>
-						<td>Forms</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-					</tr>
-					<tr>
-						<td>Variable Customization</td>
-						<td>CSS</td>
-						<td>SASS</td>
-						<td>SASS</td>
-						<td>CSS</td>
-						<td>site.variables</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>Navigation</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td></td>
-						<td>&#10003;</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>Modals</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td></td>
-						<td>&#10003;</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>Alerts</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td></td>
-						<td>&#10003;</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>Cards</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td>&#10003;</td>
-						<td></td>
-						<td>&#10003;</td>
-						<td></td>
-					</tr>
-				</table>
+				<h2>Beautiful Styling, Beautiful Code</h2><br>
+				<div class = "columns">
+					<div class = "card column rounded secondary">
+						<div class = "header">
+							<h6>Simple Styling</h6>
+						</div>
+						<div class = "content">
+							<p>Whatever you are making, Fresh gives you the perfect boilerplate styles while also giving you great production-value looks.</p>
+							<p>All while still maintaning beautiful, easy to read code.</p>
+						</div>
+					</div>
+					<div class = "column">
+						<code class = "rounded">&lt;div class = "card rounded"&gt;<br>
+									&nbsp;&nbsp;&lt;div class = "header"&gt;<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;Insert Title Here<br>
+									&nbsp;&nbsp;&lt;/div&gt;<br>
+									&nbsp;&nbsp;&lt;div class = "content"&gt;<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;Insert Content Here<br>
+									&nbsp;&nbsp;&lt;/div&gt;<br>
+									&lt;/div&gt;</code>
+					</div>
+				</div>
 			</div>
 			<div class = "container">
-				<h4>Use Fresh</h4>
-				<p>If you want to use Fresh, just link the following stylesheet link into your html head:</p>
-				<blockquote>&lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/HunterBall/Fresh@1.0.0/fresh.min.css"&gt;</blockquote>
-				<p>Then, at the end of your body tag, insert the following line of code:</p>
-				<blockquote>&lt;script src="https://cdn.jsdelivr.net/gh/HunterBall/Fresh@1.0.0/fresh.min.js"&gt;&lt;/script&gt;</blockquote>
+				<h2>Beautiful Typography with Lato</h2>
+				<div class = "columns">
+					<div class = "column">
+						<p>Lato is a font that displays nicely in both titles and paragraphs. Fresh uses Google Fonts to distribute the font, so you don't have to worry about fonts. However, you can override this font with your own fonts if you want.</p>
+						<p>Utility classes such as <em>.text-weight-700 </em> and <em>.text-center</em> can be used to customize the text for elements and within elements.</p>
+					</div>
+					<div class = "column">
+						<h1>Heading 1</h1>
+						<h2>Heading 2</h2>
+						<h3>Heading 3</h3>
+						<h4>Heading 4</h4>
+						<h5>Heading 5</h5>
+						<h6>Heading 6</h6><br>
+					</div>
+				</div>
+			</div>
+			<div class = "container">
+				<h2>Customization is as simple as CSS</h2>
+				<div class = "columns">
+					<div class = "column">
+						<code class = "rounded" style = "--code-border-color: #feac24;">&lt;style&gt;<br>
+									&nbsp;&nbsp;:root {<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;--color-accent: #feac24;<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;--text-accent: white;<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;--color-primary: #202020;<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;--text-primary: white;<br>
+									&nbsp;&nbsp;}<br>
+									&lt;/style&gt;</code>
+					</div>
+					<div class = "column triple">
+						<p>Fresh uses CSS variables, the simplest way to customize stylesheets from web pages. All colors, and some styling, can be customized with Fresh to give you the best possible website theme.</p>
+						<p>Fresh features a primary color, used for backgrounds, as well as accent and secondary colors to enhance your website and give it that amazing look it needs.</p>
+					</div>
+				</div>
+			</div>
+			<div class = "container">
+				<h2>Fresh Demos and Examples</h2>
+				<div class = "columns">
+					<div class = "column">
+						<h4>Web App</h4><br>
+						<div class = "card outlined clickable">
+							<img class = "content" src = "images/demo_app.png">
+							<a class = "clicker" target = "_blank" href = "demos/app.html"></a>
+						</div>
+					</div>
+					<div class = "column">
+						<h4>Company</h4><br>
+						<div class = "card outlined clickable">
+							<img class = "content" src = "images/demo_tech.png">
+							<a class = "clicker" target = "_blank" href = "demos/tech.html"></a>
+						</div>
+					</div>
+				</div>
+				<p class = "text-center"><em>More Demos Coming Soon.</em></p>
 			</div>
 			<div class = "footer">
 				<div class = "column">
-					<h1 class = "color-accent"><img src = "images/fresh-logotype.svg" style = "height: 20px; margin-top: 11.25px;"></h1>
+					<h1>Fresh</h1>
 					<a class = "item" href = "index.html">Home</a>
-					<a class = "item" href = "docs.html">Documentation</a>
-					<a class = "item" href = "demos/index.html">Demos</a>
+					<a class = "item" href = "docs.html">Fresh Docs</a>
 				</div>
-				<div class = "column">
-					<h3 style = "color: #404040;" class = "text-weight-400;">Made by Hunter Ball</h3>
+				<div class = "column double">
+					<h3>Made by Hunter Ball</h3>
 					<a class = "item" href = "https://hunterball.net/portfolio" target = "_blank">Portfolio</a>
 					<a class = "item" href = "https://github.com/hunterball" target = "_blank">Github</a>
-					<a class = "item" href = "https://www.linkedin.com/in/hunterball/" target = "_blank">LinkedIn</a>
-				</div>
-				<div class = "column no-mobile">
 				</div>
 			</div>
 		</div>
-		<script src = "https://cdn.jsdelivr.net/gh/HunterBall/Fresh@1.0.1/fresh.min.js"></script>
+		
+<!--Fresh Javascript-->
+		<script src = "https://cdn.jsdelivr.net/gh/HunterBall/Fresh@1.1.0/fresh.min.js"></script>
 		<!--<script src = "fresh.js"></script>-->
 	</body>
 </html>
