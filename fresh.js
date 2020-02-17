@@ -40,6 +40,10 @@ function accordion(tether) {
 			}, 650);
 			trigger.classList.add("active");
 		}
+		document.querySelectorAll('.accordion.active').forEach(function(element) {
+			element.style.maxHeight = (element.scrollHeight + 40) + "px";
+			element.style.padding = 20 + "px " + 34 + "px";
+		});
 	}
 }
 tether(tetherTriggers, function(tethered) {
@@ -47,10 +51,6 @@ tether(tetherTriggers, function(tethered) {
 	var element = tethered[1];
 	if(element.classList.contains("accordion"))
 		accordion(tethered);
-		document.querySelectorAll('.accordion.active').forEach(function(element) {
-			element.style.maxHeight = (element.scrollHeight + 40) + "px";
-			element.style.padding = 20 + "px " + 34 + "px";
-		});
 	else
 		element.classList.toggle('activated');
 });
