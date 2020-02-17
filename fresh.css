@@ -1292,6 +1292,9 @@ img.full-height {
 	.main .container {
 		padding: 15px;
 	}
+	.main.nav-side > .header, .main.nav-side > .hero, .main.nav-side > .container {
+		padding-left: 15px;
+	}
 	.card {
 		margin: 0;
 		width: 100%;
