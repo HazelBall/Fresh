@@ -1219,8 +1219,8 @@ img.full-height {
 		width: 100%;
 		box-sizing: border-box;
 		z-index: 1000;
-		background-color: var(--color-accent);
-		color: var(--text-accent);
+		background-color: var(--nav-color);
+		color: var(--nav-text);
 		box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 	}
 	.nav.mobile .title {
@@ -1229,7 +1229,7 @@ img.full-height {
 	.nav.mobile * {
 		display: inline-block;
 		padding: 10px;
-		color: var(--text-accent);
+		color: var(--nav-text);
 		font-size: 1.25rem;
 	}
 	.nav.mobile .nav-trigger {
