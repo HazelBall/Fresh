@@ -4,6 +4,16 @@ This is the full changelog for fresh.css, from version 0.1.0 onwards. This is ho
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Version 1.1.1
+
+Description: Some general bug fixes and improvements. Took some time off development to focus on other projects but I am slowly working on fresh again.
+~~~~
+Changes:
+	- Mobile navigation is now colored based on the navigation color variables
+	- Working towards fixing accordion behavior, it definitely works better but might not be fully fixed
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Version 1.1.0
 
 Description:
