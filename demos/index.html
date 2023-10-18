@@ -14,22 +14,44 @@
 		<link rel = "stylesheet" type = "text/css" href = "https://cdn.jsdelivr.net/gh/HazelBall/fresh/fresh.min.css">
 		<!--<link rel = "stylesheet" type = "text/css" href = "../fresh.css">-->
 		<link rel = "icon" href = "../images/fresh-icon.png">
+		<style>
+			:root {
+				--color-accent: #43d859;
+				--text-accent: #ffffff;
+				--color-secondary: #feac24;
+				--text-secondary: #ffffff;
+				/*--color-secondary: #43d859;*/
+				/*--text-secondary: #ffffff;*/
+				/*--nav-color: var(--color-primary);*/
+				/*--nav-text: #404040;*/
+				--footer-color: #43d859;
+				--footer-text: white;
+				--max-width: 900px;
+			}
+		</style>
 	</head>
 	<body>
 		<div class = "nav mobile">
 			<a class = "nav-trigger">&#9776;</a>
 			<a class = "title">Fresh</a>
 		</div>
-		<div class = "nav side">
-			<div class = "spacer large no-mobile"></div>
-			<a class = "title">Fresh</a>
-			<hr>
-			<a class = "item" href = "../index.html">Home</a>
-			<a class = "item" href = "../docs.html">Docs</a>
-			<a class = "item active" href = "index.html">Demos</a>
-			<a class = "item" target = _blank href = "https://github.com/hazelball/fresh">Github</a>
+		<div class = "nav side mobile-only dark">
+			<a class = "item" href = "index.html">Home</a>
+			<a class = "item" href = "docs.html">Docs</a>
+			<a class = "item active" href = "demos/index.html">Demos</a>
+			<a class = "item" href = "https://github.com/hazelball/fresh">Github</a>
 		</div>
-		<div class = "main m-nav-top nav-side">
+		<div class = "nav top fresh-nav nav-priority dark">
+			<img class = "icon" style = "height: 1.6rem" src = "images/fresh-logo-white.png">
+			<a class = "title"> Fresh</a>
+			<div class = "right clear">
+				<a class = "item" href = "index.html">Home</a>
+				<a class = "item" href = "docs.html">Docs</a>
+				<a class = "item active" href = "demos/index.html">Demos</a>
+				<a class = "item" href = "https://github.com/hazelball/fresh">Github</a>
+			</div>
+		</div>
+		<div class = "main nav-top">
 			<div class = "header primary">
 				<h1>Demos</h1>
 			</div>
